@@ -8,3 +8,7 @@
 /proj/vc14/*.user
 /proj/vc14/Debug_test2
 /proj/vc14/*.aps
+/proj/vc14/Release_test3
+/proj/vc14/Debug_test3
+/proj/vc14/Release
+/proj/vc14/Release_test2

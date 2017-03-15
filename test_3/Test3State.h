@@ -11,7 +11,7 @@ protected:
 	void initialize();
 	State* update();
 
-	void onKeyDown(KeyCode key, KeyModifier mod, bool repeat);
+	void onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat);
 
 private:
 

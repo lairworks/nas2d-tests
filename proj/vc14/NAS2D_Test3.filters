@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\NAS2D-Core">
+      <UniqueIdentifier>{d70a95f8-1aa3-4111-9813-05b8e6c52674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NAS2D-Core">
+      <UniqueIdentifier>{3fffc017-8312-4ef6-b424-c46768e7a786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NAS2D-Core\Mixer">
+      <UniqueIdentifier>{30fe6624-9d47-4bf4-80e3-e387b3fe0e9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NAS2D-Core\Resources">
+      <UniqueIdentifier>{c65c3a47-138f-4cf7-84f4-d1dd4b28b395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NAS2D-Core\Renderer">
+      <UniqueIdentifier>{de0ef086-15e4-46e2-943e-6376b17c6952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NAS2D-Core\TinyXML">
+      <UniqueIdentifier>{6f030652-d7a5-47fe-8454-c403832cf757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NAS2D-Core\Mixer">
+      <UniqueIdentifier>{793536a1-90af-48f9-a0c5-c351c97faa4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NAS2D-Core\Resources">
+      <UniqueIdentifier>{703a8649-77a6-4351-b27d-9ea98593c600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NAS2D-Core\Renderer">
+      <UniqueIdentifier>{ecdb9423-1415-4212-ba7a-7a122cc7eade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NAS2D-Core\TinyXML">
+      <UniqueIdentifier>{107f5259-7688-41a3-a94c-fc5603ba32ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\test_1\GameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test_1\NAS2D_Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test_1\Zombie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Common.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Configuration.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\EventHandler.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Exception.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Filesystem.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\FpsCounter.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Game.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\StateManager.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Timer.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Trig.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\XmlAttributeParser.cpp">
+      <Filter>Source Files\NAS2D-Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Mixer\Mixer_SDL.cpp">
+      <Filter>Source Files\NAS2D-Core\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\tinyxml\tinyxml.cpp">
+      <Filter>Source Files\NAS2D-Core\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files\NAS2D-Core\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files\NAS2D-Core\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Renderer\OGL_Renderer.cpp">
+      <Filter>Source Files\NAS2D-Core\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Renderer\Primitives.cpp">
+      <Filter>Source Files\NAS2D-Core\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Renderer\Renderer.cpp">
+      <Filter>Source Files\NAS2D-Core\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Renderer\ShaderManager.cpp">
+      <Filter>Source Files\NAS2D-Core\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Font.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Image.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Music.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Resource.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Shader.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Sound.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Sprite.cpp">
+      <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\test_1\GameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test_1\Zombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Common.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Configuration.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Delegate.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Documentation.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\EventHandler.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Exception.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\File.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Filesystem.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\FpsCounter.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Game.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\NAS2D.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Signal.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\State.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\StateManager.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Timer.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Trig.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Utility.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\XmlAttributeParser.h">
+      <Filter>Header Files\NAS2D-Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Mixer\Mixer.h">
+      <Filter>Header Files\NAS2D-Core\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Mixer\Mixer_SDL.h">
+      <Filter>Header Files\NAS2D-Core\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\tinyxml\tinyxml.h">
+      <Filter>Header Files\NAS2D-Core\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\OGL_Renderer.h">
+      <Filter>Header Files\NAS2D-Core\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\Primitives.h">
+      <Filter>Header Files\NAS2D-Core\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\Renderer.h">
+      <Filter>Header Files\NAS2D-Core\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\ShaderManager.h">
+      <Filter>Header Files\NAS2D-Core\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Font.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\FontInfo.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Image.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\ImageInfo.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Music.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\MusicInfo.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Resource.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Shader.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Sound.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Sprite.h">
+      <Filter>Header Files\NAS2D-Core\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NAS2D_Test3.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="NAS2D.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

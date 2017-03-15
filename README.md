@@ -9,3 +9,7 @@ This test demonstrates many of the features of NAS2D and demonstrates how a simp
 ## Test 2 - Renderer Functions
 
 This test demonstrates all of the Renderer functions.
+
+### Test 3 - Blending Modes
+
+Demonstrates different blending modes.

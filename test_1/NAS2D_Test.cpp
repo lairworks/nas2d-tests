@@ -7,13 +7,17 @@
 // = 
 // = Acknowledgement of your use of NAS2D is appriciated but is not required.
 // ==================================================================================
-
 #include "NAS2D/NAS2D.h"
 #include "GameState.h"
 
 #include <string>
 
-const std::string APPLICATION_TITLE("NAS2D Sample Application");
+#ifdef WINDOWS
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+#endif
+
+const std::string APPLICATION_TITLE = "NAS2D Sample Application";
 
 int main(int argc, char *argv[])
 {
@@ -25,7 +29,18 @@ int main(int argc, char *argv[])
 	catch(std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
-		return -1;
+
+		#ifdef WINDOWS
+		MessageBoxA(NULL, e.what(), "Application Error", MB_OK | MB_ICONERROR | MB_TASKMODAL);
+		#endif
+	}
+	catch(...)
+	{
+		std::cout << "Unknown error occurred." << std::endl;
+
+		#ifdef WINDOWS
+		MessageBoxA(NULL, "Unknown error occurred.", "Unexpected Error", MB_OK | MB_ICONERROR | MB_TASKMODAL);
+		#endif
 	}
 
 	return 0;

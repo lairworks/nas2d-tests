@@ -1,9 +1,17 @@
 #include "Test2State.h"
 
+#include <functional>
+#include <random>
 
-Test2State::Test2State():	mFont("fonts/opensans-bold.ttf", 14),
-							mBackgroundImage(),
-							mPointer("graphics/pointer.png")
+
+std::mt19937 generator;
+std::uniform_int_distribution<int> jitter_distribution(0, 64);
+
+auto jitter = std::bind(jitter_distribution, generator);
+
+
+Test2State::Test2State():	mFont("fonts/opensans-bold.ttf", 16),
+							mImage1("mud.png")
 {}
 
 
@@ -38,6 +46,20 @@ State* Test2State::update()
 	r.drawGradient(10, 100, 100, 100, COLOR_BLUE, COLOR_BRIGHT_GREEN, COLOR_RED, COLOR_MAGENTA);
 
 	r.drawCircle(150, 70, 20, 0, 200, 0, 255, 16);
+	r.drawCircle(150, 120, 20, 0, 200, 0, 255, 16, 0.5f);
+	r.drawCircle(150, 170, 20, 0, 200, 0, 255, 16, 1.0f, 0.5f);
+
+	r.drawImage(mImage1, 200, 20, 0);
+	r.drawImageRotated(mImage1, 500, 20, (mTimer.tick() / 20.0f));
+
+	r.drawSubImage(mImage1, 10, 250, 0, 0, 64, 64);
+	r.drawSubImageRotated(mImage1, 100, 250, 0, 0, 64, 64, (mTimer.tick() / 20.0f));
+
+	for (int i = 0; i < 2000; ++i)
+	{
+		int grey = jitter() * 2;
+		r.drawPoint(10 + jitter(), 330 + jitter(), 100 + grey, 100 + grey, 100 + grey);
+	}
 
 	return this;
 }

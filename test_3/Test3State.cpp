@@ -9,8 +9,8 @@ const int	TILE_SIZE			= 256;
 
 using namespace std;
 
-Test3State::Test3State():	mFont("fonts/tork.ttf", 25),
-							mSmallFont("fonts/tork.ttf", 12),
+Test3State::Test3State():	mFont("fonts/opensans-bold.ttf", 25),
+							mSmallFont("fonts/opensans.ttf", 14),
 							mMud("mud.png"),
 							mCaustics("caustics_atlas.png"),
 							mCaustics2("caustics_atlas_noalpha.png"),
@@ -28,9 +28,8 @@ Test3State::Test3State():	mFont("fonts/tork.ttf", 25),
 
 void Test3State::initialize()
 {
-	Renderer& r = Utility<Renderer>::get();
-	
-	Utility<EventHandler>::get().keyDown().Connect(this, &Test3State::onKeyDown);
+	Utility<Renderer>::get().showSystemPointer(true);
+	Utility<EventHandler>::get().keyDown().connect(this, &Test3State::onKeyDown);
 }
 
 
@@ -76,33 +75,31 @@ State* Test3State::update()
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
-	r.drawText(mFont, "Blending Demo", 10, 10, 255, 255, 255);
+	r.drawText(mFont, "Blending Demo", 5, 5, 255, 255, 255);
 
 	if(mMultiply || mMultiply2)
-		r.drawText(mSmallFont, "Multiply", r.width() - mSmallFont.width("Multiply") - 10, 10, 255, 255, 255);
+		r.drawText(mSmallFont, "Multiply", r.width() - mSmallFont.width("Multiply") - 5, 5, 255, 255, 255);
 	else if(mCausticsOnly || mCausticsOnly2)
-		r.drawText(mSmallFont, "Caustics Only", r.width() - mSmallFont.width("Caustics Only") - 10, 10, 255, 255, 255);
+		r.drawText(mSmallFont, "Caustics Only", r.width() - mSmallFont.width("Caustics Only") - 5, 5, 255, 255, 255);
 	else
-		r.drawText(mSmallFont, "Alpha", r.width() - mSmallFont.width("Alpha") - 10, 10, 255, 255, 255);
+		r.drawText(mSmallFont, "Alpha", r.width() - mSmallFont.width("Alpha") - 5, 5, 255, 255, 255);
 
-	std::stringstream str;
-	str << "FPS: " << mFps.fps();
-	r.drawText(mSmallFont, str.str(), r.width() - 65, r.height() - 15, 255, 255, 255);
+	r.drawText(mSmallFont, string_format("FPS: %i", mFps.fps()), r.width() - 65, r.height() - mSmallFont.height() - 5, 255, 255, 255);
 
 	return this;
 }
 
 
 
-void Test3State::onKeyDown(KeyCode key, KeyModifier mod, bool repeat)
+void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat)
 {
 	if(repeat)
 		return;
 
-	if(key == KEY_ESCAPE)
+	if(key == EventHandler::KEY_ESCAPE)
 		postQuitEvent();
 
-	if(key == KEY_1)
+	if(key == EventHandler::KEY_1)
 	{
 		mAlpha = true;
 		mMultiply = false;
@@ -111,7 +108,7 @@ void Test3State::onKeyDown(KeyCode key, KeyModifier mod, bool repeat)
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
-	if(key == KEY_2)
+	if(key == EventHandler::KEY_2)
 	{
 		mAlpha = false;
 		mMultiply = true;
@@ -121,7 +118,7 @@ void Test3State::onKeyDown(KeyCode key, KeyModifier mod, bool repeat)
 		mCausticsOnly2 = false;
 
 	}
-	if(key == KEY_3)
+	if(key == EventHandler::KEY_3)
 	{
 		mAlpha = false;
 		mMultiply = false;
@@ -131,7 +128,7 @@ void Test3State::onKeyDown(KeyCode key, KeyModifier mod, bool repeat)
 		mCausticsOnly2 = false;
 
 	}
-	if(key == KEY_4)
+	if(key == EventHandler::KEY_4)
 	{
 		mAlpha = false;
 		mMultiply = false;
@@ -140,7 +137,7 @@ void Test3State::onKeyDown(KeyCode key, KeyModifier mod, bool repeat)
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
-	if(key == KEY_5)
+	if(key == EventHandler::KEY_5)
 	{
 		mAlpha = false;
 		mMultiply = false;
@@ -149,7 +146,7 @@ void Test3State::onKeyDown(KeyCode key, KeyModifier mod, bool repeat)
 		mMultiply2 = true;
 		mCausticsOnly2 = false;
 	}
-	if(key == KEY_6)
+	if(key == EventHandler::KEY_6)
 	{
 		mAlpha = false;
 		mMultiply = false;

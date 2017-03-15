@@ -18,13 +18,13 @@ protected:
 	void onMouseDown(EventHandler::MouseButton button, int x, int y);
 
 private:
+	Timer		mTimer;
 
 	FpsCounter	mFps;
 
 	Font		mFont;
-	Image		mBackgroundImage;
-	Image		mPointer;
+	
+	Image		mImage1;
 
 	Point_2d	mMousePosition;
-
 };
