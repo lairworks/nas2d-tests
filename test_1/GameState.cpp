@@ -1,0 +1,229 @@
+#include "GameState.h"
+
+#include <functional>
+#include <iostream>
+#include <random>
+#include <sstream>
+
+using namespace std;
+using namespace NAS2D;
+
+
+const int GUN_DELAY_TIME = 210;
+const int GUN_JITTER = 6;
+const int GUN_HALF_JITTER = GUN_JITTER / 2;
+
+const unsigned int	ZOMBIE_DEAD_TIMEOUT		= 8000; // Time, in miliseconds, a dead zombie should continue to exist
+
+
+std::mt19937 generator;
+std::uniform_int_distribution<int> jitter_distribution(-GUN_JITTER, GUN_JITTER);
+
+auto jitter = std::bind(jitter_distribution, generator);
+
+
+GameState::GameState(): mPlayerPosition(Utility<Renderer>::get().screenCenterX(), Utility<Renderer>::get().screenCenterY()),
+						mZombieSpawnCount(5),
+						mFont("fonts/opensans.ttf", 15),
+						mAnnounceFont("fonts/opensans-bold.ttf", 50),
+						mPointer("pointer.png"),
+						mBackground("grass_bg.png"),
+						mBulletHole("bullet_hole.png"),
+						mTent("tent.png"),
+						mTentShadow("tent_shadow.png"),
+						mBgMusic("music/clearside-shapeshifter.ogg"),
+						mGunFire("sfx/machine_gun.wav"),
+						mTimeDelta(0),
+						mLeftButtonDown(false)
+{
+}
+
+
+void GameState::initialize()
+{
+	Renderer& r = Utility<Renderer>::get();
+
+	spawnSwarm();
+
+	EventHandler& e = Utility<EventHandler>::get();
+	e.keyUp().connect(this, &GameState::onKeyUp);
+	e.keyDown().connect(this, &GameState::onKeyDown);
+	e.mouseMotion().connect(this, &GameState::onMouseMove);
+	e.mouseButtonUp().connect(this, &GameState::onMouseUp);
+	e.mouseButtonDown().connect(this, &GameState::onMouseDown);
+	e.quit().connect(this, &GameState::onQuit);
+
+	Utility<Mixer>::get().playMusic(mBgMusic);
+}
+
+
+State* GameState::update()
+{
+	Renderer& r = Utility<Renderer>::get();
+	r.drawImage(mBackground, 0, 0);
+
+	updateTimer();
+	updatePlayer();
+	updateZombies();
+
+
+	// Tent shadow and base
+	r.drawImage(mTentShadow, mPlayerPosition.x() - 256, mPlayerPosition.y() - 100);
+	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() + 0, 0, 162, 256, 94);
+
+
+	if (mLeftButtonDown)
+		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), COLOR_WHITE, 1);
+
+
+	// Tent top
+	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() - 70, 0, 0, 256, 139);
+
+
+	r.drawImage(mPointer, mMouseCoords.x() - 7, mMouseCoords.y() - 7);
+
+	r.drawText(mAnnounceFont, "Zombies are Coming!", r.screenCenterX() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
+	r.drawText(mFont, "Defend Yourself!", r.screenCenterX() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
+	
+
+	std::stringstream str;
+	str << "FPS: " << mFps.fps();
+	r.drawText(mFont, str.str(), 10, 100, 255, 255, 255);
+
+	str.str("");
+	str << "Zombies: " << mZombies.size();
+	r.drawText(mFont, str.str(), 10, 120, 255, 255, 255);
+
+	return this;
+}
+
+
+void GameState::doShoot()
+{
+	Renderer& r = Utility<Renderer>::get();
+
+	mBulletPoint((mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter());
+
+	Utility<Mixer>::get().playSound(mGunFire);
+
+	for(size_t i = 0; i < mZombies.size(); i++)
+	{
+		if(mZombies[i].hit(mBulletPoint))
+		{
+			mZombies[i].damage(10, mBulletPoint);
+			if(mZombies[i].dead())
+			{
+				mDeadZombies.push_back(mZombies[i]);
+				mZombies.erase(mZombies.begin() + i);
+			}
+
+			return;
+		}
+	}
+
+	r.drawImageToImage(mBulletHole, mBackground, mBulletPoint);
+}
+
+
+void GameState::updatePlayer()
+{
+	handlePlayerAction();
+}
+
+
+
+void GameState::handlePlayerAction()
+{
+	if(mLeftButtonDown)
+	{
+		while(mGunTimer.accumulator() >= GUN_DELAY_TIME)
+		{
+			mGunTimer.adjust_accumulator(GUN_DELAY_TIME);
+			doShoot();
+		}
+	}
+}
+
+
+/**
+ * Spawns a group of zombies around the player.
+ */
+void GameState::spawnSwarm()
+{
+	for(size_t i = 0; i < mZombieSpawnCount; i++)
+		mZombies.push_back(Zombie(0 + i * 200, -20, 15));
+
+	//for(size_t i = 0; i < 500; i++)
+	//	mZombies.push_back(Zombie(0 + i * 10, 0, 15));
+
+	mZombieSpawnCount += 2;
+}
+
+
+void GameState::updateZombies()
+{
+	for(size_t i = 0; i < mDeadZombies.size(); i++)
+	{
+		mDeadZombies[i].update(0, mPlayerPosition);
+
+		if(mDeadZombies[i].deadTime() >= ZOMBIE_DEAD_TIMEOUT)
+			mDeadZombies.erase(mDeadZombies.begin() + i);
+	}
+
+	for(size_t i = 0; i < mZombies.size(); i++)
+	{
+		mZombies[i].update(mTimeDelta, mPlayerPosition);
+	}
+}
+
+
+void GameState::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat)
+{
+	if(repeat)
+		return;
+}
+
+
+void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier mod)
+{
+	if(key == EventHandler::KEY_ESCAPE)
+		postQuitEvent();
+}
+
+
+void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
+{
+	if(button == EventHandler::BUTTON_LEFT)
+	{
+		mGunTimer.reset();
+		mLeftButtonDown = true;
+		doShoot();
+	}
+}
+
+
+void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
+{
+	if(button == EventHandler::BUTTON_LEFT)
+	{
+		mLeftButtonDown = false;
+	}
+}
+
+
+void GameState::onMouseMove(int x, int y, int relX, int relY)
+{
+	mMouseCoords(x, y);
+}
+
+
+void GameState::updateTimer()
+{
+	mTimeDelta = mTimer.delta();
+}
+
+
+void GameState::onQuit()
+{
+	cout << "Toodles!" << endl;
+}

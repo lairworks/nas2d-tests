@@ -1,0 +1,10 @@
+/*.dll
+/*.exe
+/data
+/proj/vc14/Debug
+/proj/vc14/.vs
+/proj/vc14/*.opendb
+/proj/vc14/*.db
+/proj/vc14/*.user
+/proj/vc14/Debug_test2
+/proj/vc14/*.aps
