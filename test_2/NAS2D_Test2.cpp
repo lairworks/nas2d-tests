@@ -15,6 +15,8 @@
 #include <Windows.h>
 #endif
 
+#include <iostream>
+
 const std::string APPLICATION_TITLE = "NAS2D Test 2: Renderer Functions";
 
 int main(int argc, char *argv[])

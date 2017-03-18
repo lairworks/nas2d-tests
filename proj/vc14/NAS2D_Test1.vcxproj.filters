@@ -28,9 +28,6 @@
     <Filter Include="Source Files\NAS2D-Core\Renderer">
       <UniqueIdentifier>{de0ef086-15e4-46e2-943e-6376b17c6952}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\NAS2D-Core\TinyXML">
-      <UniqueIdentifier>{6f030652-d7a5-47fe-8454-c403832cf757}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\NAS2D-Core\Mixer">
       <UniqueIdentifier>{793536a1-90af-48f9-a0c5-c351c97faa4b}</UniqueIdentifier>
     </Filter>
@@ -40,8 +37,11 @@
     <Filter Include="Header Files\NAS2D-Core\Renderer">
       <UniqueIdentifier>{ecdb9423-1415-4212-ba7a-7a122cc7eade}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\NAS2D-Core\TinyXML">
+    <Filter Include="Header Files\NAS2D-Core\Xml">
       <UniqueIdentifier>{107f5259-7688-41a3-a94c-fc5603ba32ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NAS2D-Core\Xml">
+      <UniqueIdentifier>{6f030652-d7a5-47fe-8454-c403832cf757}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,20 +84,8 @@
     <ClCompile Include="..\..\..\nas2d-core\src\Trig.cpp">
       <Filter>Source Files\NAS2D-Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\XmlAttributeParser.cpp">
-      <Filter>Source Files\NAS2D-Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Mixer\Mixer_SDL.cpp">
       <Filter>Source Files\NAS2D-Core\Mixer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\tinyxml\tinyxml.cpp">
-      <Filter>Source Files\NAS2D-Core\TinyXML</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\tinyxml\tinyxmlerror.cpp">
-      <Filter>Source Files\NAS2D-Core\TinyXML</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\tinyxml\tinyxmlparser.cpp">
-      <Filter>Source Files\NAS2D-Core\TinyXML</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Renderer\OGL_Renderer.cpp">
       <Filter>Source Files\NAS2D-Core\Renderer</Filter>
@@ -131,6 +119,45 @@
     </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Resources\Sprite.cpp">
       <Filter>Source Files\NAS2D-Core\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttribute.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttributeParser.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttributeSet.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlBase.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlComment.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlDocument.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlElement.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlHandle.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlMemoryBuffer.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlNode.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlParser.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlText.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlUnknown.cpp">
+      <Filter>Source Files\NAS2D-Core\Xml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,9 +227,6 @@
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Mixer\Mixer_SDL.h">
       <Filter>Header Files\NAS2D-Core\Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\tinyxml\tinyxml.h">
-      <Filter>Header Files\NAS2D-Core\TinyXML</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\OGL_Renderer.h">
       <Filter>Header Files\NAS2D-Core\Renderer</Filter>
     </ClInclude>
@@ -247,6 +271,48 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\Xml.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttribute.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttributeParser.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttributeSet.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlBase.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlComment.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlDocument.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlElement.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlHandle.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlMemoryBuffer.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlNode.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlText.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlUnknown.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlVisitor.h">
+      <Filter>Header Files\NAS2D-Core\Xml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include "NAS2D/NAS2D.h"
 #include "Test3State.h"
 
+#include <iostream>
 #include <string>
 
 #ifdef WINDOWS

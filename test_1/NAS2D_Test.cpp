@@ -10,6 +10,7 @@
 #include "NAS2D/NAS2D.h"
 #include "GameState.h"
 
+#include <iostream>
 #include <string>
 
 #ifdef WINDOWS
