@@ -76,6 +76,7 @@ State* Test3State::update()
 
 
 	r.drawText(mFont, "Blending Demo", 5, 5, 255, 255, 255);
+	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", 5, 5 + mFont.height(), 255, 255, 255);
 
 	if(mMultiply || mMultiply2)
 		r.drawText(mSmallFont, "Multiply", r.width() - mSmallFont.width("Multiply") - 5, 5, 255, 255, 255);

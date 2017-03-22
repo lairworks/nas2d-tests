@@ -123,9 +123,6 @@
     <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttribute.cpp">
       <Filter>Source Files\NAS2D-Core\Xml</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttributeParser.cpp">
-      <Filter>Source Files\NAS2D-Core\Xml</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttributeSet.cpp">
       <Filter>Source Files\NAS2D-Core\Xml</Filter>
     </ClCompile>
@@ -276,9 +273,6 @@
       <Filter>Header Files\NAS2D-Core\Xml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttribute.h">
-      <Filter>Header Files\NAS2D-Core\Xml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttributeParser.h">
       <Filter>Header Files\NAS2D-Core\Xml</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttributeSet.h">

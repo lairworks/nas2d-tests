@@ -167,7 +167,6 @@
     <ClCompile Include="..\..\..\nas2d-core\src\Timer.cpp" />
     <ClCompile Include="..\..\..\nas2d-core\src\Trig.cpp" />
     <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttribute.cpp" />
-    <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttributeParser.cpp" />
     <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlAttributeSet.cpp" />
     <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlBase.cpp" />
     <ClCompile Include="..\..\..\nas2d-core\src\Xml\XmlComment.cpp" />
@@ -220,7 +219,6 @@
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\XmlAttributeParser.h" />
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\Xml.h" />
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttribute.h" />
-    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttributeParser.h" />
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlAttributeSet.h" />
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlBase.h" />
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Xml\XmlComment.h" />
