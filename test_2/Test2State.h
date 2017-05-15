@@ -17,6 +17,8 @@ protected:
 	void onMouseMove(int x, int y, int relX, int relY);
 	void onMouseDown(EventHandler::MouseButton button, int x, int y);
 
+	void onWindowResized(int w, int h);
+
 private:
 	Timer		mTimer;
 

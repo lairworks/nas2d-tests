@@ -20,6 +20,7 @@ Test2State::~Test2State()
 	Utility<EventHandler>::get().mouseMotion().disconnect(this, &Test2State::onMouseMove);
 	Utility<EventHandler>::get().mouseButtonDown().disconnect(this, &Test2State::onMouseDown);
 	Utility<EventHandler>::get().keyDown().disconnect(this, &Test2State::onKeyDown);
+	Utility<EventHandler>::get().windowResized().disconnect(this, &Test2State::onWindowResized);
 }
 
 void Test2State::initialize()
@@ -27,6 +28,7 @@ void Test2State::initialize()
 	Utility<EventHandler>::get().mouseMotion().connect(this, &Test2State::onMouseMove);
 	Utility<EventHandler>::get().mouseButtonDown().connect(this, &Test2State::onMouseDown);
 	Utility<EventHandler>::get().keyDown().connect(this, &Test2State::onKeyDown);
+	Utility<EventHandler>::get().windowResized().connect(this, &Test2State::onWindowResized);
 
 	Utility<Renderer>::get().showSystemPointer(true);
 }
@@ -36,7 +38,7 @@ State* Test2State::update()
 {
 	Renderer& r = Utility<Renderer>::get();
 
-	r.clearScreen(NAS2D::COLOR_BLACK);
+	r.clearScreen(NAS2D::COLOR_GREY);
 
 	r.drawText(mFont, "NAS2D Renderer Test", 10, 10, 255, 255, 255);
 
@@ -61,6 +63,14 @@ State* Test2State::update()
 		r.drawPoint(10 + jitter(), 330 + jitter(), 100 + grey, 100 + grey, 100 + grey);
 	}
 
+	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", 10, 500, 255, 255, 255);
+	else r.drawText(mFont, "Windowed", 10, 500, 255, 255, 255);
+
+	if (r.resizeable()) r.drawText(mFont, "Resizeable", 10, 520, 255, 255, 255);
+	else r.drawText(mFont, "Not Resizeable", 10, 520, 255, 255, 255);
+
+	r.drawText(mFont, "F1: Toggle Fullscreen | F2: Toggle Resizeable", 10, r.height() - 10 - mFont.height(), 255, 255, 255);
+
 	return this;
 }
 
@@ -72,6 +82,12 @@ void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		case EventHandler::KEY_ESCAPE:
 			postQuitEvent();
 			break;
+		case EventHandler::KEY_F1:
+			Utility<Renderer>::get().fullscreen(!Utility<Renderer>::get().fullscreen());
+			break;
+		case EventHandler::KEY_F2:
+			Utility<Renderer>::get().resizeable(!Utility<Renderer>::get().resizeable());
+			break;
 		default:
 			break;
 	}
@@ -79,10 +95,12 @@ void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 
 
 void Test2State::onMouseMove(int x, int y, int relX, int relY)
-{
-}
+{}
 
 
 void Test2State::onMouseDown(EventHandler::MouseButton button, int x, int y)
-{
-}
+{}
+
+
+void Test2State::onWindowResized(int w, int h)
+{}

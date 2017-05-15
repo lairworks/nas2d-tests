@@ -77,13 +77,13 @@
     <LibraryPath>C:\API\glew-1.13.0\lib\Release\x64;C:\API\physfs-2.0.3\lib\x64;C:\API\SDL2-2.0.3\lib\x64;C:\API\SDL2_image-2.0.0\lib\x64;C:\API\SDL2_mixer-2.0.0\lib\x64;C:\API\SDL2_ttf-2.0.12\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\API\glew-1.13.0\include;C:\API\SDL2-2.0.3\include;C:\API\SDL2_image-2.0.0\include;C:\API\SDL2_mixer-2.0.0\include;C:\API\SDL2_ttf-2.0.12\include;C:\API\physfs-2.0.3;C:\Dev\NAS2D\nas2d-core\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\API\glew-1.13.0\include;C:\API\SDL2-2.0.5\include;C:\API\SDL2_image-2.0.0\include;C:\API\SDL2_mixer-2.0.0\include;C:\API\SDL2_ttf-2.0.12\include;C:\API\physfs-2.0.3;C:\Dev\NAS2D\nas2d-core\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\API\NAS2D\lib\x86;$(LibraryPath)</LibraryPath>
     <IntDir>$(Configuration)_test2\</IntDir>
     <OutDir>$(SolutionDir)$(Configuration)_test2\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\API\glew-1.13.0\include;C:\API\SDL2-2.0.3\include;C:\API\SDL2_image-2.0.0\include;C:\API\SDL2_mixer-2.0.0\include;C:\API\SDL2_ttf-2.0.12\include;C:\API\physfs-2.0.3;C:\Dev\NAS2D\nas2d-core\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\API\glew-1.13.0\include;C:\API\SDL2-2.0.5\include;C:\API\SDL2_image-2.0.0\include;C:\API\SDL2_mixer-2.0.0\include;C:\API\SDL2_ttf-2.0.12\include;C:\API\physfs-2.0.3;C:\Dev\NAS2D\nas2d-core\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\API\NAS2D\lib\x86;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)_test2\</OutDir>
     <IntDir>$(Configuration)_test2\</IntDir>
