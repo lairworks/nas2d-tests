@@ -31,6 +31,8 @@ void Test2State::initialize()
 	Utility<EventHandler>::get().windowResized().connect(this, &Test2State::onWindowResized);
 
 	Utility<Renderer>::get().showSystemPointer(true);
+	Utility<Renderer>::get().window_icon("NAS2D.ico");
+	Utility<Renderer>::get().minimum_size(800, 600);
 }
 
 
@@ -69,7 +71,7 @@ State* Test2State::update()
 	if (r.resizeable()) r.drawText(mFont, "Resizeable", 10, 520, 255, 255, 255);
 	else r.drawText(mFont, "Not Resizeable", 10, 520, 255, 255, 255);
 
-	r.drawText(mFont, "F1: Toggle Fullscreen | F2: Toggle Resizeable", 10, r.height() - 10 - mFont.height(), 255, 255, 255);
+	r.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", 10, r.height() - 10 - mFont.height(), 255, 255, 255);
 
 	return this;
 }
