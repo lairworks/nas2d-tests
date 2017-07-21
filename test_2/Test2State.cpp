@@ -11,7 +11,8 @@ auto jitter = std::bind(jitter_distribution, generator);
 
 
 Test2State::Test2State():	mFont("fonts/opensans-bold.ttf", 16),
-							mImage1("mud.png")
+							mImage1("mud.png"),
+							mArrows("arrows.png")
 {}
 
 
@@ -64,6 +65,8 @@ State* Test2State::update()
 		int grey = jitter() * 2;
 		r.drawPoint(10 + jitter(), 330 + jitter(), 100 + grey, 100 + grey, 100 + grey);
 	}
+
+	r.drawImageRepeated(mArrows, 100, 330, 250, 64);
 
 	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", 10, 500, 255, 255, 255);
 	else r.drawText(mFont, "Windowed", 10, 500, 255, 255, 255);

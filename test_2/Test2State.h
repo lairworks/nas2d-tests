@@ -27,6 +27,7 @@ private:
 	Font		mFont;
 	
 	Image		mImage1;
+	Image		mArrows;
 
 	Point_2d	mMousePosition;
 };
