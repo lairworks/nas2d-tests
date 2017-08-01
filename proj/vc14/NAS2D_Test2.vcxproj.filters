@@ -46,9 +46,6 @@
     <ClCompile Include="..\..\..\nas2d-core\src\Resources\Music.cpp">
       <Filter>Source\NAS2D\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\Resources\Shader.cpp">
-      <Filter>Source\NAS2D\Resources</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Resources\Sprite.cpp">
       <Filter>Source\NAS2D\Resources</Filter>
     </ClCompile>
@@ -65,9 +62,6 @@
       <Filter>Source\NAS2D\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Renderer\Primitives.cpp">
-      <Filter>Source\NAS2D\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\nas2d-core\src\Renderer\ShaderManager.cpp">
       <Filter>Source\NAS2D\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\nas2d-core\src\Mixer\Mixer_SDL.cpp">
@@ -197,9 +191,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\Primitives.h">
       <Filter>Header\NAS2D-Core\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Resources\Shader.h">
-      <Filter>Header\NAS2D-Core\Resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\nas2d-core\include\NAS2D\Renderer\ShaderManager.h">
       <Filter>Header\NAS2D-Core\Resources</Filter>

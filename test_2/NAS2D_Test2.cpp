@@ -19,7 +19,6 @@
 
 const std::string APPLICATION_TITLE = "NAS2D Test 2: Renderer Functions";
 
-extern SDL_Window* _WINDOW;
 
 int main(int argc, char *argv[])
 {
