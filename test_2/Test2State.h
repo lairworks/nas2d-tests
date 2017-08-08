@@ -29,5 +29,7 @@ private:
 	Image		mImage1;
 	Image		mArrows;
 
+	Image		mRenderTarget;
+
 	Point_2d	mMousePosition;
 };

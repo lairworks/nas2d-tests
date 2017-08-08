@@ -1,3 +1,5 @@
+#include <GL/glew.h>
+
 #include "Test2State.h"
 
 #include <functional>
@@ -12,7 +14,8 @@ auto jitter = std::bind(jitter_distribution, generator);
 
 Test2State::Test2State():	mFont("fonts/opensans-bold.ttf", 16),
 							mImage1("mud.png"),
-							mArrows("arrows.png")
+							mArrows("arrows.png"),
+							mRenderTarget(256, 256)
 {}
 
 
@@ -67,6 +70,10 @@ State* Test2State::update()
 	}
 
 	r.drawImageRepeated(mArrows, 100, 330, 250, 64);
+
+	r.clipRect(400, 330, 128, 128);
+	r.drawImageRepeated(mArrows, 0, 0, r.width(), r.height());
+	r.clipRectClear();
 
 	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", 10, 500, 255, 255, 255);
 	else r.drawText(mFont, "Windowed", 10, 500, 255, 255, 255);
