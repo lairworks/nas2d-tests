@@ -63,6 +63,8 @@ State* Test2State::update()
 	r.drawSubImage(mImage1, 10, 250, 0, 0, 64, 64);
 	r.drawSubImageRotated(mImage1, 100, 250, 0, 0, 64, 64, (mTimer.tick() / 20.0f));
 
+	r.drawImageRotated(mImage1, 500, 300, -(mTimer.tick() / 20.0f));
+
 	for (int i = 0; i < 2000; ++i)
 	{
 		int grey = jitter() * 2;
@@ -75,6 +77,8 @@ State* Test2State::update()
 	r.drawImageRepeated(mArrows, 0, 0, r.width(), r.height());
 	r.clipRectClear();
 
+	r.drawImage(mArrows, 500, 500, 2.0f * sin(-(mTimer.tick() / 200.0f)));
+	
 	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", 10, 500, 255, 255, 255);
 	else r.drawText(mFont, "Windowed", 10, 500, 255, 255, 255);
 
