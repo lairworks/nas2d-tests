@@ -1,6 +1,6 @@
 // ==================================================================================
 // = NAS2D Test App 2
-// = Copyright © 2008 - 2017 New Age Software
+// = Copyright © 2008 - 2019 LairWorks Entertainment
 // ==================================================================================
 // = NAS2D is distributed under the terms of the zlib license. You are free to copy,
 // = modify and distribute the software under the terms of the zlib license.
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
 	try
 	{
-		Game game(APPLICATION_TITLE, argv[0]);
+		Game game(APPLICATION_TITLE, "NAS2D_Test2", "LairWorks Entertainment", argv[0]);
 		game.go(new Test2State());
 	}
 	catch(std::exception& e)

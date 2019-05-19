@@ -12,3 +12,15 @@
 /proj/vc14/Debug_test3
 /proj/vc14/Release
 /proj/vc14/Release_test2
+/proj/vs2019/packages
+/proj/vs2019/Debug
+/proj/vs2019/Debug_test2
+/proj/vs2019/Debug_test3
+/proj/vs2019/Release
+*.db
+*.user
+/proj/vs2019/Release_test2
+*.aps
+/proj/vs2019/Release_test3
+.vs
+/proj/vs2019/x64

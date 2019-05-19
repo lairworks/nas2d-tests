@@ -22,7 +22,7 @@ std::uniform_int_distribution<int> jitter_distribution(-GUN_JITTER, GUN_JITTER);
 auto jitter = std::bind(jitter_distribution, generator);
 
 
-GameState::GameState(): mPlayerPosition(Utility<Renderer>::get().screenCenterX(), Utility<Renderer>::get().screenCenterY()),
+GameState::GameState(): mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
 						mZombieSpawnCount(5),
 						mFont("fonts/opensans.ttf", 15),
 						mAnnounceFont("fonts/opensans-bold.ttf", 50),
@@ -60,6 +60,7 @@ void GameState::initialize()
 State* GameState::update()
 {
 	Renderer& r = Utility<Renderer>::get();
+	r.clearScreen(50, 150, 200);
 	r.drawImage(mBackground, 0, 0);
 
 	updateTimer();
@@ -82,8 +83,8 @@ State* GameState::update()
 
 	r.drawImage(mPointer, mMouseCoords.x() - 7, mMouseCoords.y() - 7);
 
-	r.drawText(mAnnounceFont, "Zombies are Coming!", r.screenCenterX() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
-	r.drawText(mFont, "Defend Yourself!", r.screenCenterX() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
+	r.drawText(mAnnounceFont, "Zombies are Coming!", r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
+	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
 	
 
 	std::stringstream str;

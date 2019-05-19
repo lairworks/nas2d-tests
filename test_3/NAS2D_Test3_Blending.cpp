@@ -16,11 +16,11 @@
 
 const std::string APPLICATION_TITLE = "NAS2D Test App3";
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
 	try
 	{
-		Game game(APPLICATION_TITLE, argv[0]);
+		Game game(APPLICATION_TITLE, "NAS2D_Test3", "LairWorks Entertainment", argv[0]);
 		game.go(new Test3State());
 	}
 	catch(std::exception& e)

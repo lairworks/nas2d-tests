@@ -78,6 +78,8 @@ State* Test2State::update()
 	r.clipRectClear();
 
 	r.drawImage(mArrows, 500, 500, 2.0f * sin(-(mTimer.tick() / 200.0f)));
+
+	r.drawSubImageRepeated(mArrows, 300, 300, 200, 200, 5, 5, 10, 10);
 	
 	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", 10, 500, 255, 255, 255);
 	else r.drawText(mFont, "Windowed", 10, 500, 255, 255, 255);
