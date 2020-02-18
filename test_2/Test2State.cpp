@@ -44,14 +44,14 @@ State* Test2State::update()
 {
 	Renderer& r = Utility<Renderer>::get();
 
-	r.clearScreen(NAS2D::COLOR_GREY);
+	r.clearScreen(NAS2D::Color::Grey);
 
 	r.drawText(mFont, "NAS2D Renderer Test", 10, 10, 255, 255, 255);
 
 	r.drawBox(10, 50, 40, 40, 255, 255, 255);
 	r.drawBoxFilled(70, 50, 40, 40, 200, 0, 0);
 
-	r.drawGradient(10, 100, 100, 100, COLOR_BLUE, COLOR_BRIGHT_GREEN, COLOR_RED, COLOR_MAGENTA);
+	r.drawGradient(10, 100, 100, 100, Color::Blue, Color::Bright_green, Color::Red, Color::Magenta);
 
 	r.drawCircle(150, 70, 20, 0, 200, 0, 255, 16);
 	r.drawCircle(150, 120, 20, 0, 200, 0, 255, 16, 0.5f);
