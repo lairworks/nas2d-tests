@@ -11,7 +11,6 @@ using namespace NAS2D;
 
 const int GUN_DELAY_TIME = 210;
 const int GUN_JITTER = 6;
-const int GUN_HALF_JITTER = GUN_JITTER / 2;
 
 const unsigned int	ZOMBIE_DEAD_TIMEOUT		= 8000; // Time, in miliseconds, a dead zombie should continue to exist
 
@@ -22,27 +21,26 @@ std::uniform_int_distribution<int> jitter_distribution(-GUN_JITTER, GUN_JITTER);
 auto jitter = std::bind(jitter_distribution, generator);
 
 
-GameState::GameState(): mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
-						mZombieSpawnCount(5),
-						mFont("fonts/opensans.ttf", 15),
-						mAnnounceFont("fonts/opensans-bold.ttf", 50),
-						mPointer("pointer.png"),
-						mBackground("grass_bg.png"),
-						mBulletHole("bullet_hole.png"),
-						mTent("tent.png"),
-						mTentShadow("tent_shadow.png"),
-						mBgMusic("music/clearside-shapeshifter.ogg"),
-						mGunFire("sfx/machine_gun.wav"),
-						mTimeDelta(0),
-						mLeftButtonDown(false)
+GameState::GameState() :
+	mZombieSpawnCount(5),
+	mFont("fonts/opensans.ttf", 15),
+	mAnnounceFont("fonts/opensans-bold.ttf", 50),
+	mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
+	mPointer("pointer.png"),
+	mBackground("grass_bg.png"),
+	mBulletHole("bullet_hole.png"),
+	mTent("tent.png"),
+	mTentShadow("tent_shadow.png"),
+	mBgMusic("music/clearside-shapeshifter.ogg"),
+	mGunFire("sfx/machine_gun.wav"),
+	mTimeDelta(0),
+	mLeftButtonDown(false)
 {
 }
 
 
 void GameState::initialize()
 {
-	Renderer& r = Utility<Renderer>::get();
-
 	spawnSwarm();
 
 	EventHandler& e = Utility<EventHandler>::get();
@@ -178,21 +176,21 @@ void GameState::updateZombies()
 }
 
 
-void GameState::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat)
+void GameState::onKeyDown(EventHandler::KeyCode /*key*/, EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
 }
 
 
-void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier mod)
+void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/)
 {
 	if(key == EventHandler::KeyCode::KEY_ESCAPE)
 		postQuitEvent();
 }
 
 
-void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
+void GameState::onMouseDown(EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
 	if(button == EventHandler::MouseButton::BUTTON_LEFT)
 	{
@@ -203,7 +201,7 @@ void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
 }
 
 
-void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
+void GameState::onMouseUp(EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
 	if(button == EventHandler::MouseButton::BUTTON_LEFT)
 	{
@@ -212,7 +210,7 @@ void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
 }
 
 
-void GameState::onMouseMove(int x, int y, int relX, int relY)
+void GameState::onMouseMove(int x, int y, int /*relX*/, int /*relY*/)
 {
 	mMouseCoords = {x, y};
 }

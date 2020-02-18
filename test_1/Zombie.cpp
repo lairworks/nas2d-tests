@@ -1,9 +1,6 @@
 #include "Zombie.h"
 
 
-const int RECT_MARGIN = 7;
-const int RECT_MARGIN_2 = RECT_MARGIN * 2;
-
 const Rectangle_2d		BOUNDING_BOX_BODY		= Rectangle_2d(-10, -40, 14, 46);
 const Rectangle_2d		BOUNDING_BOX_HEAD		= Rectangle_2d(-7, -50, 8, 8);
 
@@ -17,29 +14,29 @@ const std::string		IDLE_WEST				= "WalkWest";
 
 
 
-Zombie::Zombie(float x, float y, float speed):	mSprite(SPRITE_PATH),
-												mPosition(x, y),
-												mHealth(100),
-												mMaxHealth(mHealth),
-												mDirection(0.0f),
-												mSpeed(speed),
-												mSpeedModifier(0.0f),
-												mBodyRect(BOUNDING_BOX_BODY),
-												mHeadRect(BOUNDING_BOX_HEAD)
+Zombie::Zombie(float x, float y, float speed) :
+	mSprite(SPRITE_PATH),
+	mPosition(x, y),
+	mHealth(100),
+	mMaxHealth(mHealth),
+	mDirection(0.0f),
+	mSpeed(speed),
+	mBodyRect(BOUNDING_BOX_BODY),
+	mHeadRect(BOUNDING_BOX_HEAD)
 {
 	mSprite.play(IDLE_WEST);
 }
 
 
-Zombie::Zombie(int x, int y, int speed):	mSprite(SPRITE_PATH),
-											mPosition(static_cast<float>(x), static_cast<float>(y)),
-											mHealth(100),
-											mMaxHealth(mHealth),
-											mDirection(0.0f),
-											mSpeed(static_cast<float>(speed)),
-											mSpeedModifier(0.0f),
-											mBodyRect(BOUNDING_BOX_BODY),
-											mHeadRect(BOUNDING_BOX_HEAD)
+Zombie::Zombie(int x, int y, int speed) :
+	mSprite(SPRITE_PATH),
+	mPosition(static_cast<float>(x), static_cast<float>(y)),
+	mHealth(100),
+	mMaxHealth(mHealth),
+	mDirection(0.0f),
+	mSpeed(static_cast<float>(speed)),
+	mBodyRect(BOUNDING_BOX_BODY),
+	mHeadRect(BOUNDING_BOX_HEAD)
 {
 	mSprite.play(IDLE_WEST);
 }

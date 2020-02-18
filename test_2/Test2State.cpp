@@ -93,7 +93,7 @@ State* Test2State::update()
 }
 
 
-void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat)
+void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/, bool /*repeat*/)
 {
 	switch (key)
 	{
@@ -112,13 +112,13 @@ void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 }
 
 
-void Test2State::onMouseMove(int x, int y, int relX, int relY)
+void Test2State::onMouseMove(int /*x*/, int /*y*/, int /*relX*/, int /*relY*/)
 {}
 
 
-void Test2State::onMouseDown(EventHandler::MouseButton button, int x, int y)
+void Test2State::onMouseDown(EventHandler::MouseButton /*button*/, int /*x*/, int /*y*/)
 {}
 
 
-void Test2State::onWindowResized(int w, int h)
+void Test2State::onWindowResized(int /*w*/, int /*h*/)
 {}

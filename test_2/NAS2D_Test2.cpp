@@ -1,6 +1,6 @@
 // ==================================================================================
 // = NAS2D Test App 2
-// = Copyright © 2008 - 2019 LairWorks Entertainment
+// = Copyright Â© 2008 - 2019 LairWorks Entertainment
 // ==================================================================================
 // = NAS2D is distributed under the terms of the zlib license. You are free to copy,
 // = modify and distribute the software under the terms of the zlib license.
@@ -20,7 +20,7 @@
 const std::string APPLICATION_TITLE = "NAS2D Test 2: Renderer Functions";
 
 
-int main(int argc, char *argv[])
+int main(int /*argc*/, char *argv[])
 {
 
 	try
