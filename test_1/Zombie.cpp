@@ -17,29 +17,31 @@ const std::string		IDLE_WEST				= "WalkWest";
 
 
 
-Zombie::Zombie(float x, float y, float speed):	mSprite(SPRITE_PATH),
-												mPosition(x, y),
-												mHealth(100),
-												mMaxHealth(mHealth),
-												mDirection(0.0f),
-												mSpeed(speed),
-												mSpeedModifier(0.0f),
-												mBodyRect(BOUNDING_BOX_BODY),
-												mHeadRect(BOUNDING_BOX_HEAD)
+Zombie::Zombie(float x, float y, float speed) :
+	mSprite(SPRITE_PATH),
+	mPosition(x, y),
+	mHealth(100),
+	mMaxHealth(mHealth),
+	mDirection(0.0f),
+	mSpeed(speed),
+	mSpeedModifier(0.0f),
+	mBodyRect(BOUNDING_BOX_BODY),
+	mHeadRect(BOUNDING_BOX_HEAD)
 {
 	mSprite.play(IDLE_WEST);
 }
 
 
-Zombie::Zombie(int x, int y, int speed):	mSprite(SPRITE_PATH),
-											mPosition(static_cast<float>(x), static_cast<float>(y)),
-											mHealth(100),
-											mMaxHealth(mHealth),
-											mDirection(0.0f),
-											mSpeed(static_cast<float>(speed)),
-											mSpeedModifier(0.0f),
-											mBodyRect(BOUNDING_BOX_BODY),
-											mHeadRect(BOUNDING_BOX_HEAD)
+Zombie::Zombie(int x, int y, int speed) :
+	mSprite(SPRITE_PATH),
+	mPosition(static_cast<float>(x), static_cast<float>(y)),
+	mHealth(100),
+	mMaxHealth(mHealth),
+	mDirection(0.0f),
+	mSpeed(static_cast<float>(speed)),
+	mSpeedModifier(0.0f),
+	mBodyRect(BOUNDING_BOX_BODY),
+	mHeadRect(BOUNDING_BOX_HEAD)
 {
 	mSprite.play(IDLE_WEST);
 }
