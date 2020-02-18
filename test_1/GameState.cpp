@@ -74,7 +74,7 @@ State* GameState::update()
 
 
 	if (mLeftButtonDown)
-		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), COLOR_WHITE, 1);
+		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), Color::White, 1);
 
 
 	// Tent top
