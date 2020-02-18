@@ -11,7 +11,6 @@ using namespace NAS2D;
 
 const int GUN_DELAY_TIME = 210;
 const int GUN_JITTER = 6;
-const int GUN_HALF_JITTER = GUN_JITTER / 2;
 
 const unsigned int	ZOMBIE_DEAD_TIMEOUT		= 8000; // Time, in miliseconds, a dead zombie should continue to exist
 
@@ -41,8 +40,6 @@ GameState::GameState(): mPlayerPosition(Utility<Renderer>::get().center_x(), Uti
 
 void GameState::initialize()
 {
-	Renderer& r = Utility<Renderer>::get();
-
 	spawnSwarm();
 
 	EventHandler& e = Utility<EventHandler>::get();
