@@ -1,9 +1,6 @@
 #include "Zombie.h"
 
 
-const int RECT_MARGIN = 7;
-const int RECT_MARGIN_2 = RECT_MARGIN * 2;
-
 const Rectangle_2d		BOUNDING_BOX_BODY		= Rectangle_2d(-10, -40, 14, 46);
 const Rectangle_2d		BOUNDING_BOX_HEAD		= Rectangle_2d(-7, -50, 8, 8);
 
