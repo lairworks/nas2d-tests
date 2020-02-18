@@ -187,7 +187,7 @@ void GameState::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier m
 
 void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier mod)
 {
-	if(key == EventHandler::KEY_ESCAPE)
+	if(key == EventHandler::KeyCode::KEY_ESCAPE)
 		postQuitEvent();
 }
 

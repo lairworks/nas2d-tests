@@ -98,10 +98,10 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	if(repeat)
 		return;
 
-	if(key == EventHandler::KEY_ESCAPE)
+	if(key == EventHandler::KeyCode::KEY_ESCAPE)
 		postQuitEvent();
 
-	if(key == EventHandler::KEY_1)
+	if(key == EventHandler::KeyCode::KEY_1)
 	{
 		mAlpha = true;
 		mMultiply = false;
@@ -110,7 +110,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
-	if(key == EventHandler::KEY_2)
+	if(key == EventHandler::KeyCode::KEY_2)
 	{
 		mAlpha = false;
 		mMultiply = true;
@@ -120,7 +120,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCausticsOnly2 = false;
 
 	}
-	if(key == EventHandler::KEY_3)
+	if(key == EventHandler::KeyCode::KEY_3)
 	{
 		mAlpha = false;
 		mMultiply = false;
@@ -130,7 +130,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCausticsOnly2 = false;
 
 	}
-	if(key == EventHandler::KEY_4)
+	if(key == EventHandler::KeyCode::KEY_4)
 	{
 		mAlpha = false;
 		mMultiply = false;
@@ -139,7 +139,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
-	if(key == EventHandler::KEY_5)
+	if(key == EventHandler::KeyCode::KEY_5)
 	{
 		mAlpha = false;
 		mMultiply = false;
@@ -148,7 +148,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mMultiply2 = true;
 		mCausticsOnly2 = false;
 	}
-	if(key == EventHandler::KEY_6)
+	if(key == EventHandler::KeyCode::KEY_6)
 	{
 		mAlpha = false;
 		mMultiply = false;
