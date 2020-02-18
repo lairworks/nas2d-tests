@@ -94,7 +94,7 @@ State* Test3State::update()
 
 
 
-void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat)
+void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
