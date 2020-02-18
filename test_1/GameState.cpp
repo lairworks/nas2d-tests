@@ -187,14 +187,14 @@ void GameState::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier m
 
 void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier mod)
 {
-	if(key == EventHandler::KEY_ESCAPE)
+	if(key == EventHandler::KeyCode::KEY_ESCAPE)
 		postQuitEvent();
 }
 
 
 void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
 {
-	if(button == EventHandler::BUTTON_LEFT)
+	if(button == EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mGunTimer.reset();
 		mLeftButtonDown = true;
@@ -205,7 +205,7 @@ void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
 
 void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
 {
-	if(button == EventHandler::BUTTON_LEFT)
+	if(button == EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mLeftButtonDown = false;
 	}

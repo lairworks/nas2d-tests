@@ -97,13 +97,13 @@ void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 {
 	switch (key)
 	{
-		case EventHandler::KEY_ESCAPE:
+		case EventHandler::KeyCode::KEY_ESCAPE:
 			postQuitEvent();
 			break;
-		case EventHandler::KEY_F1:
+		case EventHandler::KeyCode::KEY_F1:
 			Utility<Renderer>::get().fullscreen(!Utility<Renderer>::get().fullscreen());
 			break;
-		case EventHandler::KEY_F2:
+		case EventHandler::KeyCode::KEY_F2:
 			Utility<Renderer>::get().resizeable(!Utility<Renderer>::get().resizeable());
 			break;
 		default:
