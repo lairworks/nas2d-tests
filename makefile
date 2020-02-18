@@ -19,9 +19,9 @@ LDLIBS := -lnas2d -lSDL2 -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lphysfs -lGLEW -l
 # By default, compile and link both static library and dynamic link library
 all: test1 test2 test3
 
-test1: | nas2d
-test2: | nas2d
-test3: | nas2d
+test1.exe: | nas2d
+test2.exe: | nas2d
+test3.exe: | nas2d
 
 .PHONY: nas2d
 nas2d:
