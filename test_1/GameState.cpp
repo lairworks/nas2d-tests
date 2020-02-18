@@ -103,7 +103,7 @@ void GameState::doShoot()
 {
 	Renderer& r = Utility<Renderer>::get();
 
-	mBulletPoint((mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter());
+	mBulletPoint = {(mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter()};
 
 	Utility<Mixer>::get().playSound(mGunFire);
 
@@ -214,7 +214,7 @@ void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
 
 void GameState::onMouseMove(int x, int y, int relX, int relY)
 {
-	mMouseCoords(x, y);
+	mMouseCoords = {x, y};
 }
 
 
