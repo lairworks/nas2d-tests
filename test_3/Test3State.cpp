@@ -10,19 +10,20 @@ const int	TILE_SIZE			= 256;
 
 using namespace std;
 
-Test3State::Test3State():	mFont("fonts/opensans-bold.ttf", 25),
-							mSmallFont("fonts/opensans.ttf", 14),
-							mMud("mud.png"),
-							mCaustics("caustics_atlas.png"),
-							mCaustics2("caustics_atlas_noalpha.png"),
-							mCaustics3("caustics_atlas_2.png"),
-							mCaustics4("caustics_atlas_2_noalpha.png"),
-							mAlpha(true),
-							mMultiply(false),
-							mCausticsOnly(false),
-							mAlpha2(false),
-							mMultiply2(false),
-							mCausticsOnly2(false)
+Test3State::Test3State() :
+	mFont("fonts/opensans-bold.ttf", 25),
+	mSmallFont("fonts/opensans.ttf", 14),
+	mMud("mud.png"),
+	mCaustics("caustics_atlas.png"),
+	mCaustics2("caustics_atlas_noalpha.png"),
+	mCaustics3("caustics_atlas_2.png"),
+	mCaustics4("caustics_atlas_2_noalpha.png"),
+	mAlpha(true),
+	mMultiply(false),
+	mCausticsOnly(false),
+	mAlpha2(false),
+	mMultiply2(false),
+	mCausticsOnly2(false)
 {
 }
 
