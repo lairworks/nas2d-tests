@@ -178,21 +178,21 @@ void GameState::updateZombies()
 }
 
 
-void GameState::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat)
+void GameState::onKeyDown(EventHandler::KeyCode /*key*/, EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
 }
 
 
-void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier mod)
+void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/)
 {
 	if(key == EventHandler::KeyCode::KEY_ESCAPE)
 		postQuitEvent();
 }
 
 
-void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
+void GameState::onMouseDown(EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
 	if(button == EventHandler::MouseButton::BUTTON_LEFT)
 	{
@@ -203,7 +203,7 @@ void GameState::onMouseDown(EventHandler::MouseButton button, int x, int y)
 }
 
 
-void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
+void GameState::onMouseUp(EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
 	if(button == EventHandler::MouseButton::BUTTON_LEFT)
 	{
@@ -212,7 +212,7 @@ void GameState::onMouseUp(EventHandler::MouseButton button, int x, int y)
 }
 
 
-void GameState::onMouseMove(int x, int y, int relX, int relY)
+void GameState::onMouseMove(int x, int y, int /*relX*/, int /*relY*/)
 {
 	mMouseCoords = {x, y};
 }
