@@ -16,7 +16,7 @@
 
 const std::string APPLICATION_TITLE = "NAS2D Test App3";
 
-int main(int argc, char* argv[])
+int main(int /*argc*/, char* argv[])
 {
 	try
 	{
