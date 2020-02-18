@@ -6,6 +6,7 @@
 /proj/vs2019/Release_test2
 /proj/vs2019/Release_test3
 /proj/vs2019/x64
+/.build
 /data
 /*.dll
 /*.exe
