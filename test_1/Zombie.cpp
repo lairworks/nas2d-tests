@@ -47,7 +47,7 @@ Zombie::Zombie(int x, int y, int speed):	mSprite(SPRITE_PATH),
 
 bool Zombie::hit(const Point_2d& pt)
 {
-	return isPointInRect(pt, mBodyRect) || isPointInRect(pt, mHeadRect);
+	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
 }
 
 
@@ -113,7 +113,7 @@ void Zombie::damage(int d, const Point_2d& pt)
 
 	if(!dead())
 	{
-		if(isPointInRect(pt, mHeadRect))
+		if(mHeadRect.contains(pt))
 		{
 			mHealth = 0;
 			mSprite.play("Dead2West");
