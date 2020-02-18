@@ -44,7 +44,6 @@ private:
 	float			mDirection;			/**< Zombie's facing direction. */
 
 	float			mSpeed;				/**< Zombie's speed. */
-	float			mSpeedModifier;		/**< Zombie's speed modifier. */
 
 	Rectangle_2d	mBodyRect;			/**< Area of the Zombie. */
 	Rectangle_2d	mHeadRect;			/**< Area of the Zombie. */

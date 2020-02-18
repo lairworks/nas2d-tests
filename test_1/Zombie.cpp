@@ -21,7 +21,6 @@ Zombie::Zombie(float x, float y, float speed) :
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
 	mSpeed(speed),
-	mSpeedModifier(0.0f),
 	mBodyRect(BOUNDING_BOX_BODY),
 	mHeadRect(BOUNDING_BOX_HEAD)
 {
@@ -36,7 +35,6 @@ Zombie::Zombie(int x, int y, int speed) :
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
 	mSpeed(static_cast<float>(speed)),
-	mSpeedModifier(0.0f),
 	mBodyRect(BOUNDING_BOX_BODY),
 	mHeadRect(BOUNDING_BOX_HEAD)
 {
