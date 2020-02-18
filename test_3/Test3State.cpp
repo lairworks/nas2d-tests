@@ -49,9 +49,9 @@ State* Test3State::update()
 			counter = 0;
 	}
 
-	for(size_t col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
+	for(int col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
 	{
-		for(size_t row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
+		for(int row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
 		{
 			r.drawImage(mMud, row * 256, col * 256);
 		}
@@ -59,9 +59,9 @@ State* Test3State::update()
 
 	if(mMultiply || mMultiply2)
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
-	for(size_t col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
+	for(int col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
 	{
-		for(size_t row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
+		for(int row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
 		{
 			if(mAlpha)
 				r.drawSubImage(mCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
