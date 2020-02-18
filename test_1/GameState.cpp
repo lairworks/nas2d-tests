@@ -21,19 +21,20 @@ std::uniform_int_distribution<int> jitter_distribution(-GUN_JITTER, GUN_JITTER);
 auto jitter = std::bind(jitter_distribution, generator);
 
 
-GameState::GameState(): mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
-						mZombieSpawnCount(5),
-						mFont("fonts/opensans.ttf", 15),
-						mAnnounceFont("fonts/opensans-bold.ttf", 50),
-						mPointer("pointer.png"),
-						mBackground("grass_bg.png"),
-						mBulletHole("bullet_hole.png"),
-						mTent("tent.png"),
-						mTentShadow("tent_shadow.png"),
-						mBgMusic("music/clearside-shapeshifter.ogg"),
-						mGunFire("sfx/machine_gun.wav"),
-						mTimeDelta(0),
-						mLeftButtonDown(false)
+GameState::GameState() :
+	mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
+	mZombieSpawnCount(5),
+	mFont("fonts/opensans.ttf", 15),
+	mAnnounceFont("fonts/opensans-bold.ttf", 50),
+	mPointer("pointer.png"),
+	mBackground("grass_bg.png"),
+	mBulletHole("bullet_hole.png"),
+	mTent("tent.png"),
+	mTentShadow("tent_shadow.png"),
+	mBgMusic("music/clearside-shapeshifter.ogg"),
+	mGunFire("sfx/machine_gun.wav"),
+	mTimeDelta(0),
+	mLeftButtonDown(false)
 {
 }
 
