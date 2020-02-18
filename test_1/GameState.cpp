@@ -22,10 +22,10 @@ auto jitter = std::bind(jitter_distribution, generator);
 
 
 GameState::GameState() :
-	mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
 	mZombieSpawnCount(5),
 	mFont("fonts/opensans.ttf", 15),
 	mAnnounceFont("fonts/opensans-bold.ttf", 50),
+	mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
 	mPointer("pointer.png"),
 	mBackground("grass_bg.png"),
 	mBulletHole("bullet_hole.png"),
