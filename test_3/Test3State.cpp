@@ -2,8 +2,8 @@
 
 #include <GL/glew.h>
 
-const int	CAUSTICS_SPEED		= 55;
-const int	TILE_SIZE			= 256;
+const int CAUSTICS_SPEED = 55;
+const int TILE_SIZE = 256;
 
 
 #include <sstream>
