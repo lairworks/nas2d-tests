@@ -1,16 +1,16 @@
 #include "Zombie.h"
 
 
-const Rectangle_2d		BOUNDING_BOX_BODY		= Rectangle_2d(-10, -40, 14, 46);
-const Rectangle_2d		BOUNDING_BOX_HEAD		= Rectangle_2d(-7, -50, 8, 8);
+const Rectangle_2d BOUNDING_BOX_BODY = Rectangle_2d(-10, -40, 14, 46);
+const Rectangle_2d BOUNDING_BOX_HEAD = Rectangle_2d(-7, -50, 8, 8);
 
-const Rectangle_2d		HEALTH_METER			= Rectangle_2d(0, 0, 24, 4);
+const Rectangle_2d HEALTH_METER = Rectangle_2d(0, 0, 24, 4);
 
-const std::string		SPRITE_PATH				= "zombie_0.xml";
+const std::string SPRITE_PATH = "zombie_0.xml";
 
 
 
-const std::string		IDLE_WEST				= "WalkWest";
+const std::string IDLE_WEST = "WalkWest";
 
 
 
