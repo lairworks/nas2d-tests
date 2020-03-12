@@ -32,21 +32,21 @@ private:
 
 	void setAnimationState();
 
-	Timer			mTimer;				/**< Timer */
+	Timer mTimer; /**< Timer */
 
-	Sprite			mSprite;			/**< Zombie Sprite. */
+	Sprite mSprite; /**< Zombie Sprite. */
 
-	Point_2df		mPosition;			/**< Zombie's position. */
+	Point_2df mPosition; /**< Zombie's position. */
 	
-	int				mHealth;			/**< Zombie's health. */
-	int				mMaxHealth;			/**< Zombie's max health. */
+	int mHealth; /**< Zombie's health. */
+	int mMaxHealth; /**< Zombie's max health. */
 
-	float			mDirection;			/**< Zombie's facing direction. */
+	float mDirection; /**< Zombie's facing direction. */
 
-	float			mSpeed;				/**< Zombie's speed. */
+	float mSpeed; /**< Zombie's speed. */
 
-	Rectangle_2d	mBodyRect;			/**< Area of the Zombie. */
-	Rectangle_2d	mHeadRect;			/**< Area of the Zombie. */
+	Rectangle_2d mBodyRect; /**< Area of the Zombie. */
+	Rectangle_2d mHeadRect; /**< Area of the Zombie. */
 };
 
 
