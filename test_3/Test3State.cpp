@@ -7,6 +7,8 @@ const int	TILE_SIZE			= 256;
 
 
 #include <sstream>
+#include <string>
+
 
 using namespace std;
 
@@ -87,7 +89,7 @@ State* Test3State::update()
 	else
 		r.drawText(mSmallFont, "Alpha", r.width() - mSmallFont.width("Alpha") - 5, 5, 255, 255, 255);
 
-	r.drawText(mSmallFont, string_format("FPS: %i", mFps.fps()), r.width() - 65, r.height() - mSmallFont.height() - 5, 255, 255, 255);
+	r.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), r.width() - 65, r.height() - mSmallFont.height() - 5, 255, 255, 255);
 
 	return this;
 }
