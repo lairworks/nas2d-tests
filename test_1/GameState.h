@@ -11,8 +11,8 @@ public:
 	GameState();
 
 protected:
-	void initialize();
-	State* update();
+	void initialize() override;
+	State* update() override;
 
 	void onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier mod);
 	void onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier mod, bool repeat);
