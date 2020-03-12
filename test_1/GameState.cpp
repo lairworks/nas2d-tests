@@ -83,7 +83,7 @@ State* GameState::update()
 
 	r.drawText(mAnnounceFont, "Zombies are Coming!", r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
 	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
-	
+
 
 	std::stringstream str;
 	str << "FPS: " << mFps.fps();

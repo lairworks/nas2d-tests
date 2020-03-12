@@ -19,7 +19,7 @@ protected:
 	void onMouseMove(int x, int y, int relX, int relY);
 	void onMouseUp(NAS2D::EventHandler::MouseButton button, int x, int y);
 	void onMouseDown(NAS2D::EventHandler::MouseButton button, int x, int y);
-	
+
 	void onQuit();
 
 private:
@@ -48,7 +48,7 @@ private:
 	NAS2D::Font			mAnnounceFont;		/**< Font used for displaying the announcement. */
 
 	NAS2D::Point_2d		mPlayerPosition;	/**< Position of the 'player'. */
-	
+
 	NAS2D::Point_2d		mMouseCoords;		/**< Mouse coordinates. */
 	NAS2D::Point_2d		mBulletPoint;		/**<  */
 

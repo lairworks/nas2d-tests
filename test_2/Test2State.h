@@ -25,7 +25,7 @@ private:
 	FpsCounter mFps;
 
 	Font mFont;
-	
+
 	Image mImage1;
 	Image mArrows;
 

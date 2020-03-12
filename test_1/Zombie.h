@@ -27,7 +27,7 @@ public:
 	unsigned int deadTime();
 
 private:
-	
+
 	void doMove(int timeDelta);
 
 	void setAnimationState();
@@ -37,7 +37,7 @@ private:
 	Sprite mSprite; /**< Zombie Sprite. */
 
 	Point_2df mPosition; /**< Zombie's position. */
-	
+
 	int mHealth; /**< Zombie's health. */
 	int mMaxHealth; /**< Zombie's max health. */
 

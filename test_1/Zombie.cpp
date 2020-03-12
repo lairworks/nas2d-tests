@@ -74,14 +74,14 @@ void Zombie::update(int timeDelta, const Point_2df& playerPosition)
 
 	mHeadRect.x() = mPosition.x() + BOUNDING_BOX_HEAD.x();
 	mHeadRect.y() = mPosition.y() + BOUNDING_BOX_HEAD.y();
-	
+
 
 	// Health bar
 	Renderer& r = Utility<Renderer>::get();
 
 	int startX = mPosition.x() - HEALTH_METER.width() / 2;
 	int healthWidth = HEALTH_METER.width() * (static_cast<float>(mHealth) / static_cast<float>(mMaxHealth));
-	
+
 	r.drawBoxFilled(startX, mHeadRect.y() - 5, HEALTH_METER.width(), 2, 0, 0, 0);
 	r.drawBoxFilled(startX, mHeadRect.y() - 5, healthWidth, 2, 255, 255, 0);
 
@@ -122,7 +122,7 @@ void Zombie::damage(int d, const Point_2d& pt)
 			mHealth -= d;
 		}
 	}
-	
+
 	if(mHealth <= 0)
 	{
 		mHealth = 0;
