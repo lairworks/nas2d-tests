@@ -26,8 +26,7 @@ Test3State::Test3State() :
 	mAlpha2(false),
 	mMultiply2(false),
 	mCausticsOnly2(false)
-{
-}
+{}
 
 
 void Test3State::initialize()
