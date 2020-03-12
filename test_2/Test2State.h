@@ -20,16 +20,16 @@ protected:
 	void onWindowResized(int w, int h);
 
 private:
-	Timer		mTimer;
+	Timer mTimer;
 
-	FpsCounter	mFps;
+	FpsCounter mFps;
 
-	Font		mFont;
+	Font mFont;
 	
-	Image		mImage1;
-	Image		mArrows;
+	Image mImage1;
+	Image mArrows;
 
-	Image		mRenderTarget;
+	Image mRenderTarget;
 
-	Point_2d	mMousePosition;
+	Point_2d mMousePosition;
 };
