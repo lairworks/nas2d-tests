@@ -12,7 +12,7 @@ using namespace NAS2D;
 const int GUN_DELAY_TIME = 210;
 const int GUN_JITTER = 6;
 
-const unsigned int	ZOMBIE_DEAD_TIMEOUT		= 8000; // Time, in miliseconds, a dead zombie should continue to exist
+const unsigned int ZOMBIE_DEAD_TIMEOUT = 8000; // Time, in miliseconds, a dead zombie should continue to exist
 
 
 std::mt19937 generator;
@@ -83,7 +83,7 @@ State* GameState::update()
 
 	r.drawText(mAnnounceFont, "Zombies are Coming!", r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
 	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
-	
+
 
 	std::stringstream str;
 	str << "FPS: " << mFps.fps();

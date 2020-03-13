@@ -2,8 +2,8 @@
 
 #include <GL/glew.h>
 
-const int	CAUSTICS_SPEED		= 55;
-const int	TILE_SIZE			= 256;
+const int CAUSTICS_SPEED = 55;
+const int TILE_SIZE = 256;
 
 
 #include <sstream>
@@ -26,8 +26,7 @@ Test3State::Test3State() :
 	mAlpha2(false),
 	mMultiply2(false),
 	mCausticsOnly2(false)
-{
-}
+{}
 
 
 void Test3State::initialize()
@@ -95,7 +94,6 @@ State* Test3State::update()
 }
 
 
-
 void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
@@ -121,7 +119,6 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mAlpha2 = false;
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
-
 	}
 	if(key == EventHandler::KeyCode::KEY_3)
 	{
@@ -131,7 +128,6 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mAlpha2 = false;
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
-
 	}
 	if(key == EventHandler::KeyCode::KEY_4)
 	{

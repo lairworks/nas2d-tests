@@ -19,7 +19,7 @@ protected:
 	void onMouseMove(int x, int y, int relX, int relY);
 	void onMouseUp(NAS2D::EventHandler::MouseButton button, int x, int y);
 	void onMouseDown(NAS2D::EventHandler::MouseButton button, int x, int y);
-	
+
 	void onQuit();
 
 private:
@@ -35,34 +35,34 @@ private:
 	void spawnSwarm();
 	void updateZombies();
 
-	NAS2D::Timer		mTimer;				/**<  */
-	NAS2D::Timer		mGunTimer;			/**<  */
+	NAS2D::Timer mTimer; /**< */
+	NAS2D::Timer mGunTimer; /**< */
 
-	NAS2D::FpsCounter	mFps;				/**< FPS Counter */
+	NAS2D::FpsCounter	mFps; /**< FPS Counter */
 
-	ZombieList			mZombies;			/**<  */
-	ZombieList			mDeadZombies;		/**<  */
-	size_t				mZombieSpawnCount;	/**< Number of zombies to spawn. */
+	ZombieList mZombies; /**< */
+	ZombieList mDeadZombies; /**< */
+	size_t mZombieSpawnCount;	/**< Number of zombies to spawn. */
 
-	NAS2D::Font			mFont;				/**< Font used for interface and information text. */
-	NAS2D::Font			mAnnounceFont;		/**< Font used for displaying the announcement. */
+	NAS2D::Font mFont; /**< Font used for interface and information text. */
+	NAS2D::Font mAnnounceFont; /**< Font used for displaying the announcement. */
 
-	NAS2D::Point_2d		mPlayerPosition;	/**< Position of the 'player'. */
-	
-	NAS2D::Point_2d		mMouseCoords;		/**< Mouse coordinates. */
-	NAS2D::Point_2d		mBulletPoint;		/**<  */
+	NAS2D::Point_2d mPlayerPosition;	/**< Position of the 'player'. */
 
-	NAS2D::Image		mPointer;			/**< Pointer image. */
-	NAS2D::Image		mBackground;		/**< Background buffer. */
-	NAS2D::Image		mBulletHole;		/**< Bullet hole. */
-	NAS2D::Image		mTent;				/**< Tent graphic. */
-	NAS2D::Image		mTentShadow;		/**< Tent shadow graphic. */
+	NAS2D::Point_2d mMouseCoords; /**< Mouse coordinates. */
+	NAS2D::Point_2d mBulletPoint; /**< */
 
-	NAS2D::Music		mBgMusic;			/**< Background music track. */
+	NAS2D::Image mPointer; /**< Pointer image. */
+	NAS2D::Image mBackground; /**< Background buffer. */
+	NAS2D::Image mBulletHole; /**< Bullet hole. */
+	NAS2D::Image mTent; /**< Tent graphic. */
+	NAS2D::Image mTentShadow; /**< Tent shadow graphic. */
 
-	NAS2D::Sound		mGunFire;			/**< Gun fire sound. */
+	NAS2D::Music mBgMusic; /**< Background music track. */
 
-	int					mTimeDelta;			/**< Delta time between the previous cycle and the current cycle. */
+	NAS2D::Sound mGunFire; /**< Gun fire sound. */
 
-	bool				mLeftButtonDown;	/**< Flag indicating that the left mouse button is down. */
+	int mTimeDelta; /**< Delta time between the previous cycle and the current cycle. */
+
+	bool mLeftButtonDown;	/**< Flag indicating that the left mouse button is down. */
 };
