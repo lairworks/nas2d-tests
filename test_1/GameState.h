@@ -23,7 +23,7 @@ protected:
 	void onQuit();
 
 private:
-	typedef std::vector<Zombie> ZombieList;
+	using ZombieList = std::vector<Zombie>;
 
 	void doShoot();
 
