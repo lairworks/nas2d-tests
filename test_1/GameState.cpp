@@ -5,8 +5,6 @@
 #include <random>
 #include <string>
 
-using namespace NAS2D;
-
 
 const int GUN_DELAY_TIME = 210;
 const int GUN_JITTER = 6;
