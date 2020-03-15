@@ -28,20 +28,6 @@ Zombie::Zombie(float x, float y, float speed) :
 }
 
 
-Zombie::Zombie(int x, int y, int speed) :
-	mSprite(SPRITE_PATH),
-	mPosition(static_cast<float>(x), static_cast<float>(y)),
-	mHealth(100),
-	mMaxHealth(mHealth),
-	mDirection(0.0f),
-	mSpeed(static_cast<float>(speed)),
-	mBodyRect(BOUNDING_BOX_BODY),
-	mHeadRect(BOUNDING_BOX_HEAD)
-{
-	mSprite.play(IDLE_WEST);
-}
-
-
 bool Zombie::hit(const Point_2d& pt)
 {
 	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
