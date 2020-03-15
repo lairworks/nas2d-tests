@@ -147,9 +147,6 @@ void GameState::spawnSwarm()
 	for(size_t i = 0; i < mZombieSpawnCount; i++)
 		mZombies.push_back(Zombie(i * 200, -20, 15));
 
-	//for(size_t i = 0; i < 500; i++)
-	//	mZombies.push_back(Zombie(0 + i * 10, 0, 15));
-
 	mZombieSpawnCount += 2;
 }
 
