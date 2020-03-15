@@ -33,7 +33,7 @@ void Test3State::initialize()
 
 State* Test3State::update()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = Utility<Renderer>::get();
 
 	static int counter = 0;
 
