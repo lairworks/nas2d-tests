@@ -1,9 +1,9 @@
 #include "Zombie.h"
 
 
-const Rectangle_2d BOUNDING_BOX_BODY = Rectangle_2d(-10, -40, 14, 46);
-const Rectangle_2d BOUNDING_BOX_HEAD = Rectangle_2d(-7, -50, 8, 8);
-const Rectangle_2d HEALTH_METER = Rectangle_2d(0, 0, 24, 4);
+const auto BOUNDING_BOX_BODY = Rectangle_2d(-10, -40, 14, 46);
+const auto BOUNDING_BOX_HEAD = Rectangle_2d(-7, -50, 8, 8);
+const auto HEALTH_METER = Rectangle_2d(0, 0, 24, 4);
 const std::string SPRITE_PATH = "zombie_0.xml";
 const std::string IDLE_WEST = "WalkWest";
 
@@ -54,7 +54,7 @@ void Zombie::update(int timeDelta, const Point_2df& playerPosition)
 	mHeadRect.y() = mPosition.y() + BOUNDING_BOX_HEAD.y();
 
 	// Health bar
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = Utility<Renderer>::get();
 
 	int startX = mPosition.x() - HEALTH_METER.width() / 2;
 	int healthWidth = HEALTH_METER.width() * (static_cast<float>(mHealth) / static_cast<float>(mMaxHealth));
@@ -69,7 +69,7 @@ void Zombie::update(int timeDelta, const Point_2df& playerPosition)
 
 void Zombie::doMove(int timeDelta)
 {
-	Point_2df dir = getDirectionVector(mDirection);
+	auto dir = getDirectionVector(mDirection);
 
 	mPosition.x() += (dir.x() * (timeDelta / 1000.0f)) * mSpeed;
 	mPosition.y() += (dir.y() * (timeDelta / 1000.0f)) * mSpeed;
