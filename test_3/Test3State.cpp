@@ -26,14 +26,14 @@ Test3State::Test3State() :
 
 void Test3State::initialize()
 {
-	Utility<Renderer>::get().showSystemPointer(true);
-	Utility<EventHandler>::get().keyDown().connect(this, &Test3State::onKeyDown);
+	NAS2D::Utility<NAS2D::Renderer>::get().showSystemPointer(true);
+	NAS2D::Utility<NAS2D::EventHandler>::get().keyDown().connect(this, &Test3State::onKeyDown);
 }
 
 
-State* Test3State::update()
+NAS2D::State* Test3State::update()
 {
-	auto& r = Utility<Renderer>::get();
+	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	static int counter = 0;
 
@@ -46,9 +46,9 @@ State* Test3State::update()
 	}
 
 	const auto viewSize = r.size().to<int>();
-	for(int col = 0; col < divideUp(viewSize.y, TILE_SIZE); col++)
+	for(int col = 0; col < NAS2D::divideUp(viewSize.y, TILE_SIZE); col++)
 	{
-		for(int row = 0; row < divideUp(viewSize.x, TILE_SIZE); row++)
+		for(int row = 0; row < NAS2D::divideUp(viewSize.x, TILE_SIZE); row++)
 		{
 			r.drawImage(mMud, row * 256, col * 256);
 		}
@@ -56,9 +56,9 @@ State* Test3State::update()
 
 	if(mMultiply)
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
-	for(int col = 0; col < divideUp(viewSize.y, TILE_SIZE); col++)
+	for(int col = 0; col < NAS2D::divideUp(viewSize.y, TILE_SIZE); col++)
 	{
-		for(int row = 0; row < divideUp(viewSize.x, TILE_SIZE); row++)
+		for(int row = 0; row < NAS2D::divideUp(viewSize.x, TILE_SIZE); row++)
 		{
 			r.drawSubImage(*mCurrentCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 		}
@@ -83,45 +83,45 @@ State* Test3State::update()
 }
 
 
-void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/, bool repeat)
+void Test3State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
 
-	if(key == EventHandler::KeyCode::KEY_ESCAPE)
-		postQuitEvent();
+	if(key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+		NAS2D::postQuitEvent();
 
-	if(key == EventHandler::KeyCode::KEY_1)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_1)
 	{
 		mCurrentCaustics = &mCaustics1;
 		mMultiply = false;
 		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_2)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mMultiply = true;
 		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_3)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mMultiply = false;
 		mCausticsOnly = true;
 	}
-	if(key == EventHandler::KeyCode::KEY_4)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
 		mMultiply = false;
 		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_5)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mMultiply = true;
 		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_6)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mMultiply = false;
