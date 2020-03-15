@@ -21,10 +21,8 @@ Test3State::Test3State() :
 	mCaustics3("caustics_atlas_2.png"),
 	mCaustics4("caustics_atlas_2_noalpha.png"),
 	mCurrentCaustics(&mCaustics),
-	mAlpha(true),
 	mMultiply(false),
 	mCausticsOnly(false),
-	mAlpha2(false),
 	mMultiply2(false),
 	mCausticsOnly2(false)
 {}
@@ -99,60 +97,48 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	if(key == EventHandler::KeyCode::KEY_1)
 	{
 		mCurrentCaustics = &mCaustics;
-		mAlpha = true;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mAlpha2 = false;
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
-		mAlpha = false;
 		mMultiply = true;
 		mCausticsOnly = false;
-		mAlpha2 = false;
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
-		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = true;
-		mAlpha2 = false;
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
-		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mAlpha2 = true;
 		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
-		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mAlpha2 = false;
 		mMultiply2 = true;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
-		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mAlpha2 = false;
 		mMultiply2 = false;
 		mCausticsOnly2 = true;
 	}
