@@ -7,7 +7,7 @@
 
 
 const int CAUSTICS_SPEED = 55;
-const int TILE_SIZE = 256;
+const int TileSize = 256;
 
 
 Test3State::Test3State() :
@@ -46,7 +46,7 @@ NAS2D::State* Test3State::update()
 	}
 
 	const auto viewSizePixels = r.size().to<int>();
-	const auto viewSizeTiles = NAS2D::Vector<int>{NAS2D::divideUp(viewSizePixels.x, TILE_SIZE), NAS2D::divideUp(viewSizePixels.y, TILE_SIZE)};
+	const auto viewSizeTiles = NAS2D::Vector<int>{NAS2D::divideUp(viewSizePixels.x, TileSize), NAS2D::divideUp(viewSizePixels.y, TileSize)};
 	for(int col = 0; col < viewSizeTiles.y; col++)
 	{
 		for(int row = 0; row < viewSizeTiles.x; row++)
@@ -61,7 +61,7 @@ NAS2D::State* Test3State::update()
 	{
 		for(int row = 0; row < viewSizeTiles.x; row++)
 		{
-			r.drawSubImage(*mCurrentCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			r.drawSubImage(*mCurrentCaustics, row * TileSize, col * TileSize, (counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize);
 		}
 	}
 	if(mMultiply)
