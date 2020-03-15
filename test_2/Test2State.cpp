@@ -68,8 +68,8 @@ State* Test2State::update()
 
 	for (int i = 0; i < 2000; ++i)
 	{
-		int grey = jitter() * 2;
-		r.drawPoint(10 + jitter(), 330 + jitter(), 100 + grey, 100 + grey, 100 + grey);
+		int grey = 100 + jitter() * 2;
+		r.drawPoint(10 + jitter(), 330 + jitter(), grey, grey, grey);
 	}
 
 	r.drawImageRepeated(mArrows, 100, 330, 250, 64);
