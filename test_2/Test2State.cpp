@@ -68,7 +68,7 @@ State* Test2State::update()
 
 	for (int i = 0; i < 2000; ++i)
 	{
-		int grey = 100 + jitter() * 2;
+		uint8_t grey = 100 + jitter() * 2;
 		r.drawPoint(10 + jitter(), 330 + jitter(), grey, grey, grey);
 	}
 
