@@ -3,7 +3,7 @@
 #include <functional>
 #include <iostream>
 #include <random>
-#include <sstream>
+#include <string>
 
 using namespace std;
 using namespace NAS2D;
@@ -85,13 +85,8 @@ State* GameState::update()
 	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
 
 
-	std::stringstream str;
-	str << "FPS: " << mFps.fps();
-	r.drawText(mFont, str.str(), 10, 100, 255, 255, 255);
-
-	str.str("");
-	str << "Zombies: " << mZombies.size();
-	r.drawText(mFont, str.str(), 10, 120, 255, 255, 255);
+	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), 10, 100, 255, 255, 255);
+	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), 10, 120, 255, 255, 255);
 
 	return this;
 }
@@ -150,10 +145,7 @@ void GameState::handlePlayerAction()
 void GameState::spawnSwarm()
 {
 	for(size_t i = 0; i < mZombieSpawnCount; i++)
-		mZombies.push_back(Zombie(0 + i * 200, -20, 15));
-
-	//for(size_t i = 0; i < 500; i++)
-	//	mZombies.push_back(Zombie(0 + i * 10, 0, 15));
+		mZombies.push_back(Zombie{static_cast<float>(i) * 200, -20, 15});
 
 	mZombieSpawnCount += 2;
 }

@@ -3,15 +3,9 @@
 
 const Rectangle_2d BOUNDING_BOX_BODY = Rectangle_2d(-10, -40, 14, 46);
 const Rectangle_2d BOUNDING_BOX_HEAD = Rectangle_2d(-7, -50, 8, 8);
-
 const Rectangle_2d HEALTH_METER = Rectangle_2d(0, 0, 24, 4);
-
 const std::string SPRITE_PATH = "zombie_0.xml";
-
-
-
 const std::string IDLE_WEST = "WalkWest";
-
 
 
 Zombie::Zombie(float x, float y, float speed) :
@@ -21,20 +15,6 @@ Zombie::Zombie(float x, float y, float speed) :
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
 	mSpeed(speed),
-	mBodyRect(BOUNDING_BOX_BODY),
-	mHeadRect(BOUNDING_BOX_HEAD)
-{
-	mSprite.play(IDLE_WEST);
-}
-
-
-Zombie::Zombie(int x, int y, int speed) :
-	mSprite(SPRITE_PATH),
-	mPosition(static_cast<float>(x), static_cast<float>(y)),
-	mHealth(100),
-	mMaxHealth(mHealth),
-	mDirection(0.0f),
-	mSpeed(static_cast<float>(speed)),
 	mBodyRect(BOUNDING_BOX_BODY),
 	mHeadRect(BOUNDING_BOX_HEAD)
 {
@@ -67,14 +47,11 @@ void Zombie::update(int timeDelta, const Point_2df& playerPosition)
 	mDirection = angleFromPoints(mPosition.x(), mPosition.y(), playerPosition.x(), playerPosition.y());
 	doMove(timeDelta);
 
-
 	// Update bounding boxes.
 	mBodyRect.x() = mPosition.x() + BOUNDING_BOX_BODY.x();
 	mBodyRect.y() = mPosition.y() + BOUNDING_BOX_BODY.y();
-
 	mHeadRect.x() = mPosition.x() + BOUNDING_BOX_HEAD.x();
 	mHeadRect.y() = mPosition.y() + BOUNDING_BOX_HEAD.y();
-
 
 	// Health bar
 	Renderer& r = Utility<Renderer>::get();

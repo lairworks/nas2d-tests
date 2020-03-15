@@ -10,8 +10,6 @@ class Zombie
 public:
 	Zombie(float x, float y, float speed);
 
-	Zombie(int x, int y, int speed);
-
 	void update(int timeDelta, const Point_2df& playerPosition);
 
 	int health() const { return mHealth; }
