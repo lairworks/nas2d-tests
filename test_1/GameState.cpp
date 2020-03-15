@@ -6,12 +6,12 @@
 #include <string>
 
 
-const int GUN_DELAY_TIME = 210;
-const int GUN_JITTER = 6;
-const unsigned int ZOMBIE_DEAD_TIMEOUT = 8000; // Time, in miliseconds, a dead zombie should continue to exist
+const int GunDelayTime = 210;
+const int GunJitter = 6;
+const unsigned int ZombieDeadTimeout = 8000; // Time, in miliseconds, a dead zombie should continue to exist
 
 std::mt19937 generator;
-std::uniform_int_distribution<int> jitter_distribution(-GUN_JITTER, GUN_JITTER);
+std::uniform_int_distribution<int> jitter_distribution(-GunJitter, GunJitter);
 auto jitter = std::bind(jitter_distribution, generator);
 
 
@@ -116,9 +116,9 @@ void GameState::handlePlayerAction()
 {
 	if(mLeftButtonDown)
 	{
-		while(mGunTimer.accumulator() >= GUN_DELAY_TIME)
+		while(mGunTimer.accumulator() >= GunDelayTime)
 		{
-			mGunTimer.adjust_accumulator(GUN_DELAY_TIME);
+			mGunTimer.adjust_accumulator(GunDelayTime);
 			doShoot();
 		}
 	}
@@ -143,7 +143,7 @@ void GameState::updateZombies()
 	{
 		mDeadZombies[i].update(0, mPlayerPosition);
 
-		if(mDeadZombies[i].deadTime() >= ZOMBIE_DEAD_TIMEOUT)
+		if(mDeadZombies[i].deadTime() >= ZombieDeadTimeout)
 			mDeadZombies.erase(mDeadZombies.begin() + i);
 	}
 
