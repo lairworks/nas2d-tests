@@ -33,6 +33,4 @@ private:
 
 	bool mMultiply; /**< Flag to indicate that we want to draw screen blend mode. */
 	bool mCausticsOnly; /**< Flag to indicate that we only want to show the caustics. */
-
-	bool mCausticsOnly2;
 };
