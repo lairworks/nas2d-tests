@@ -208,5 +208,5 @@ void GameState::updateTimer()
 
 void GameState::onQuit()
 {
-	cout << "Toodles!" << endl;
+	std::cout << "Toodles!" << std::endl;
 }
