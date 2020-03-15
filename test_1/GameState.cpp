@@ -5,7 +5,6 @@
 #include <random>
 #include <string>
 
-using namespace std;
 using namespace NAS2D;
 
 
