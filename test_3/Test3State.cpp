@@ -2,12 +2,12 @@
 
 #include <GL/glew.h>
 
-const int CAUSTICS_SPEED = 55;
-const int TILE_SIZE = 256;
-
-
 #include <sstream>
 #include <string>
+
+
+const int CAUSTICS_SPEED = 55;
+const int TILE_SIZE = 256;
 
 
 Test3State::Test3State() :
