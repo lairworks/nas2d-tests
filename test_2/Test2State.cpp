@@ -47,48 +47,48 @@ State* Test2State::update()
 
 	r.clearScreen(NAS2D::Color::Grey);
 
-	r.drawText(mFont, "NAS2D Renderer Test", 10, 10, 255, 255, 255);
+	r.drawText(mFont, "NAS2D Renderer Test", NAS2D::Point{10, 10}, NAS2D::Color::White);
 
-	r.drawBox(10, 50, 40, 40, 255, 255, 255);
-	r.drawBoxFilled(70, 50, 40, 40, 200, 0, 0);
+	r.drawBox(NAS2D::Rectangle{10, 50, 40, 40}, NAS2D::Color::White);
+	r.drawBoxFilled(NAS2D::Rectangle{70, 50, 40, 40}, NAS2D::Color{200, 0, 0});
 
-	r.drawGradient(10, 100, 100, 100, Color::Blue, Color::Bright_green, Color::Red, Color::Magenta);
+	r.drawGradient(NAS2D::Rectangle{10, 100, 100, 100}, Color::Blue, Color::Bright_green, Color::Red, Color::Magenta);
 
-	r.drawCircle(150, 70, 20, 0, 200, 0, 255, 16);
-	r.drawCircle(150, 120, 20, 0, 200, 0, 255, 16, 0.5f);
-	r.drawCircle(150, 170, 20, 0, 200, 0, 255, 16, 1.0f, 0.5f);
+	r.drawCircle(NAS2D::Point{150, 70}, 20, NAS2D::Color{0, 200, 0, 255}, 16);
+	r.drawCircle(NAS2D::Point{150, 120}, 20, NAS2D::Color{0, 200, 0, 255}, 16, NAS2D::Vector<float>{0.5, 1.0});
+	r.drawCircle(NAS2D::Point{150, 170}, 20, NAS2D::Color{0, 200, 0, 255}, 16, NAS2D::Vector<float>{1.0, 0.5});
 
-	r.drawImage(mImage1, 200, 20, 0);
-	r.drawImageRotated(mImage1, 500, 20, (mTimer.tick() / 20.0f));
+	r.drawImage(mImage1, NAS2D::Point{200, 20}, 0);
+	r.drawImageRotated(mImage1, NAS2D::Point{500, 20}, (mTimer.tick() / 20.0f));
 
-	r.drawSubImage(mImage1, 10, 250, 0, 0, 64, 64);
-	r.drawSubImageRotated(mImage1, 100, 250, 0, 0, 64, 64, (mTimer.tick() / 20.0f));
+	r.drawSubImage(mImage1, NAS2D::Point{10, 250}, NAS2D::Point{0, 0}, NAS2D::Vector<float>{64, 64});
+	r.drawSubImageRotated(mImage1, NAS2D::Point{100, 250}, NAS2D::Point{0, 0}, NAS2D::Vector<float>{64, 64}, (mTimer.tick() / 20.0f));
 
-	r.drawImageRotated(mImage1, 500, 300, -(mTimer.tick() / 20.0f));
+	r.drawImageRotated(mImage1, NAS2D::Point{500, 300}, -(mTimer.tick() / 20.0f));
 
 	for (int i = 0; i < 2000; ++i)
 	{
 		uint8_t grey = 100 + jitter() * 2;
-		r.drawPoint(10 + jitter(), 330 + jitter(), grey, grey, grey);
+		r.drawPoint(NAS2D::Point{10 + jitter(), 330 + jitter()}, NAS2D::Color{grey, grey, grey});
 	}
 
-	r.drawImageRepeated(mArrows, 100, 330, 250, 64);
+	r.drawImageRepeated(mArrows, NAS2D::Rectangle{100, 330, 250, 64});
 
-	r.clipRect(400, 330, 128, 128);
-	r.drawImageRepeated(mArrows, 0, 0, r.width(), r.height());
+	r.clipRect(NAS2D::Rectangle{400, 330, 128, 128});
+	r.drawImageRepeated(mArrows, NAS2D::Rectangle<float>{0, 0, r.width(), r.height()});
 	r.clipRectClear();
 
-	r.drawImage(mArrows, 500, 500, 2.0f * sin(-(mTimer.tick() / 200.0f)));
+	r.drawImage(mArrows, NAS2D::Point{500, 500}, 2.0f * sin(-(mTimer.tick() / 200.0f)));
 
-	r.drawSubImageRepeated(mArrows, 300, 300, 200, 200, 5, 5, 10, 10);
+	r.drawSubImageRepeated(mArrows, NAS2D::Rectangle{300, 300, 200, 200}, NAS2D::Rectangle{5, 5, 10, 10});
 
-	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", 10, 500, 255, 255, 255);
-	else r.drawText(mFont, "Windowed", 10, 500, 255, 255, 255);
+	if (r.fullscreen()) r.drawText(mFont, "Fullsreen", NAS2D::Point{10, 500}, NAS2D::Color::White);
+	else r.drawText(mFont, "Windowed", NAS2D::Point{10, 500}, NAS2D::Color::White);
 
-	if (r.resizeable()) r.drawText(mFont, "Resizeable", 10, 520, 255, 255, 255);
-	else r.drawText(mFont, "Not Resizeable", 10, 520, 255, 255, 255);
+	if (r.resizeable()) r.drawText(mFont, "Resizeable", NAS2D::Point{10, 520}, NAS2D::Color::White);
+	else r.drawText(mFont, "Not Resizeable", NAS2D::Point{10, 520}, NAS2D::Color::White);
 
-	r.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", 10, r.height() - 10 - mFont.height(), 255, 255, 255);
+	r.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", NAS2D::Point<float>{10, r.height() - 10 - mFont.height()}, NAS2D::Color::White);
 
 	return this;
 }
