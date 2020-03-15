@@ -46,22 +46,21 @@ NAS2D::State* Test3State::update()
 	}
 
 	const auto viewSizePixels = r.size().to<int>();
-	const auto viewSizeTiles = NAS2D::Vector<int>{NAS2D::divideUp(viewSizePixels.x, TileSize), NAS2D::divideUp(viewSizePixels.y, TileSize)};
-	for(int col = 0; col < viewSizeTiles.y; col++)
+	for(int col = 0; col < viewSizePixels.y; col += TileSize)
 	{
-		for(int row = 0; row < viewSizeTiles.x; row++)
+		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawImage(mMud, row * 256, col * 256);
+			r.drawImage(mMud, row, col);
 		}
 	}
 
 	if(mMultiply)
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
-	for(int col = 0; col < viewSizeTiles.y; col++)
+	for(int col = 0; col < viewSizePixels.y; col += TileSize)
 	{
-		for(int row = 0; row < viewSizeTiles.x; row++)
+		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawSubImage(*mCurrentCaustics, row * TileSize, col * TileSize, (counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize);
+			r.drawSubImage(*mCurrentCaustics, row, col, (counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize);
 		}
 	}
 	if(mMultiply)
