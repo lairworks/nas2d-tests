@@ -23,17 +23,14 @@ private:
 	Font mSmallFont; /**< FPS font. */
 
 	Image mMud; /**< Background image. */
-	Image mCaustics; /**< Caustics image atlas. */
+	Image mCaustics1; /**< Caustics image atlas. */
 	Image mCaustics2; /**< Caustics image atlas with no alpha. */
 
 	Image mCaustics3; /**< Caustics image atlas. */
 	Image mCaustics4; /**< Caustics image atlas with no alpha. */
 
-	bool mAlpha;
+	Image* mCurrentCaustics;
+
 	bool mMultiply; /**< Flag to indicate that we want to draw screen blend mode. */
 	bool mCausticsOnly; /**< Flag to indicate that we only want to show the caustics. */
-
-	bool mAlpha2;
-	bool mMultiply2;
-	bool mCausticsOnly2;
 };
