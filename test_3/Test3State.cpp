@@ -2,15 +2,13 @@
 
 #include <GL/glew.h>
 
-const int CAUSTICS_SPEED = 55;
-const int TILE_SIZE = 256;
-
-
 #include <sstream>
 #include <string>
 
 
-using namespace std;
+const int CausticsSpeed = 55;
+const int TileSize = 256;
+
 
 Test3State::Test3State() :
 	mFont("fonts/opensans-bold.ttf", 25),
@@ -21,25 +19,25 @@ Test3State::Test3State() :
 	mCaustics3("caustics_atlas_2.png"),
 	mCaustics4("caustics_atlas_2_noalpha.png"),
 	mCurrentCaustics(&mCaustics1),
-	mMultiply(false),
-	mCausticsOnly(false)
+	mBlendingModeText("Alpha"),
+	mMultiply(false)
 {}
 
 
 void Test3State::initialize()
 {
-	Utility<Renderer>::get().showSystemPointer(true);
-	Utility<EventHandler>::get().keyDown().connect(this, &Test3State::onKeyDown);
+	NAS2D::Utility<NAS2D::Renderer>::get().showSystemPointer(true);
+	NAS2D::Utility<NAS2D::EventHandler>::get().keyDown().connect(this, &Test3State::onKeyDown);
 }
 
 
-State* Test3State::update()
+NAS2D::State* Test3State::update()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	static int counter = 0;
 
-	if(mCausticsTimer.accumulator() > CAUSTICS_SPEED)
+	if(mCausticsTimer.accumulator() > CausticsSpeed)
 	{
 		mCausticsTimer.reset();
 		counter++;
@@ -47,9 +45,11 @@ State* Test3State::update()
 			counter = 0;
 	}
 
-	for(int col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
+	const auto viewSizePixels = r.size().to<int>();
+	const auto viewSizeTiles = NAS2D::Vector<int>{NAS2D::divideUp(viewSizePixels.x, TileSize), NAS2D::divideUp(viewSizePixels.y, TileSize)};
+	for(int col = 0; col < viewSizeTiles.y; col++)
 	{
-		for(int row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
+		for(int row = 0; row < viewSizeTiles.x; row++)
 		{
 			r.drawImage(mMud, row * 256, col * 256);
 		}
@@ -57,11 +57,11 @@ State* Test3State::update()
 
 	if(mMultiply)
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
-	for(int col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
+	for(int col = 0; col < viewSizeTiles.y; col++)
 	{
-		for(int row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
+		for(int row = 0; row < viewSizeTiles.x; row++)
 		{
-			r.drawSubImage(*mCurrentCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			r.drawSubImage(*mCurrentCaustics, row * TileSize, col * TileSize, (counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize);
 		}
 	}
 	if(mMultiply)
@@ -70,62 +70,55 @@ State* Test3State::update()
 
 	r.drawText(mFont, "Blending Demo", 5, 5, 255, 255, 255);
 	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", 5, 5 + mFont.height(), 255, 255, 255);
-
-	if(mMultiply)
-		r.drawText(mSmallFont, "Multiply", r.width() - mSmallFont.width("Multiply") - 5, 5, 255, 255, 255);
-	else if(mCausticsOnly)
-		r.drawText(mSmallFont, "Caustics Only", r.width() - mSmallFont.width("Caustics Only") - 5, 5, 255, 255, 255);
-	else
-		r.drawText(mSmallFont, "Alpha", r.width() - mSmallFont.width("Alpha") - 5, 5, 255, 255, 255);
-
+	r.drawText(mSmallFont, mBlendingModeText, r.width() - mSmallFont.width(mBlendingModeText) - 5, 5, 255, 255, 255);
 	r.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), r.width() - 65, r.height() - mSmallFont.height() - 5, 255, 255, 255);
 
 	return this;
 }
 
 
-void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/, bool repeat)
+void Test3State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
 
-	if(key == EventHandler::KeyCode::KEY_ESCAPE)
-		postQuitEvent();
+	if(key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+		NAS2D::postQuitEvent();
 
-	if(key == EventHandler::KeyCode::KEY_1)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_1)
 	{
 		mCurrentCaustics = &mCaustics1;
+		mBlendingModeText = "Alpha";
 		mMultiply = false;
-		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_2)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
+		mBlendingModeText = "Multiply";
 		mMultiply = true;
-		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_3)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
+		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
-		mCausticsOnly = true;
 	}
-	if(key == EventHandler::KeyCode::KEY_4)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
+		mBlendingModeText = "Alpha";
 		mMultiply = false;
-		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_5)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
+		mBlendingModeText = "Multiply";
 		mMultiply = true;
-		mCausticsOnly = false;
 	}
-	if(key == EventHandler::KeyCode::KEY_6)
+	if(key == NAS2D::EventHandler::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
+		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
-		mCausticsOnly = true;
 	}
 }
