@@ -1,3 +1,5 @@
+#pragma once
+
 #include <NAS2D/NAS2D.h>
 
 
