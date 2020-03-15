@@ -24,7 +24,7 @@ GameState::GameState() :
 	mZombieSpawnCount(5),
 	mFont("fonts/opensans.ttf", 15),
 	mAnnounceFont("fonts/opensans-bold.ttf", 50),
-	mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
+	mPlayerPosition(NAS2D::Utility<NAS2D::Renderer>::get().center_x(), NAS2D::Utility<NAS2D::Renderer>::get().center_y()),
 	mPointer("pointer.png"),
 	mBackground("grass_bg.png"),
 	mBulletHole("bullet_hole.png"),
@@ -42,7 +42,7 @@ void GameState::initialize()
 {
 	spawnSwarm();
 
-	auto& e = Utility<EventHandler>::get();
+	auto& e = NAS2D::Utility<NAS2D::EventHandler>::get();
 	e.keyUp().connect(this, &GameState::onKeyUp);
 	e.keyDown().connect(this, &GameState::onKeyDown);
 	e.mouseMotion().connect(this, &GameState::onMouseMove);
@@ -50,13 +50,13 @@ void GameState::initialize()
 	e.mouseButtonDown().connect(this, &GameState::onMouseDown);
 	e.quit().connect(this, &GameState::onQuit);
 
-	Utility<Mixer>::get().playMusic(mBgMusic);
+	NAS2D::Utility<NAS2D::Mixer>::get().playMusic(mBgMusic);
 }
 
 
-State* GameState::update()
+NAS2D::State* GameState::update()
 {
-	auto& r = Utility<Renderer>::get();
+	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 	r.clearScreen(50, 150, 200);
 	r.drawImage(mBackground, 0, 0);
 
@@ -69,7 +69,7 @@ State* GameState::update()
 	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() + 0, 0, 162, 256, 94);
 
 	if (mLeftButtonDown)
-		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), Color::White, 1);
+		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), NAS2D::Color::White, 1);
 
 	// Tent top
 	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() - 70, 0, 0, 256, 139);
@@ -87,11 +87,11 @@ State* GameState::update()
 
 void GameState::doShoot()
 {
-	auto& r = Utility<Renderer>::get();
+	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	mBulletPoint = {(mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter()};
 
-	Utility<Mixer>::get().playSound(mGunFire);
+	NAS2D::Utility<NAS2D::Mixer>::get().playSound(mGunFire);
 
 	for(size_t i = 0; i < mZombies.size(); i++)
 	{
@@ -159,23 +159,23 @@ void GameState::updateZombies()
 }
 
 
-void GameState::onKeyDown(EventHandler::KeyCode /*key*/, EventHandler::KeyModifier /*mod*/, bool repeat)
+void GameState::onKeyDown(NAS2D::EventHandler::KeyCode /*key*/, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
 }
 
 
-void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/)
+void GameState::onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/)
 {
-	if(key == EventHandler::KeyCode::KEY_ESCAPE)
-		postQuitEvent();
+	if(key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+		NAS2D::postQuitEvent();
 }
 
 
-void GameState::onMouseDown(EventHandler::MouseButton button, int /*x*/, int /*y*/)
+void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if(button == EventHandler::MouseButton::BUTTON_LEFT)
+	if(button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mGunTimer.reset();
 		mLeftButtonDown = true;
@@ -184,9 +184,9 @@ void GameState::onMouseDown(EventHandler::MouseButton button, int /*x*/, int /*y
 }
 
 
-void GameState::onMouseUp(EventHandler::MouseButton button, int /*x*/, int /*y*/)
+void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if(button == EventHandler::MouseButton::BUTTON_LEFT)
+	if(button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mLeftButtonDown = false;
 	}
