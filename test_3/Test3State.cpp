@@ -20,8 +20,7 @@ Test3State::Test3State() :
 	mCaustics4("caustics_atlas_2_noalpha.png"),
 	mCurrentCaustics(&mCaustics1),
 	mBlendingModeText("Alpha"),
-	mMultiply(false),
-	mCausticsOnly(false)
+	mMultiply(false)
 {}
 
 
@@ -90,41 +89,35 @@ void Test3State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler
 		mCurrentCaustics = &mCaustics1;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
-		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
-		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
-		mCausticsOnly = true;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
-		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
-		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
-		mCausticsOnly = true;
 	}
 }
