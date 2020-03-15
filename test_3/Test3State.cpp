@@ -16,11 +16,11 @@ Test3State::Test3State() :
 	mFont("fonts/opensans-bold.ttf", 25),
 	mSmallFont("fonts/opensans.ttf", 14),
 	mMud("mud.png"),
-	mCaustics("caustics_atlas.png"),
+	mCaustics1("caustics_atlas.png"),
 	mCaustics2("caustics_atlas_noalpha.png"),
 	mCaustics3("caustics_atlas_2.png"),
 	mCaustics4("caustics_atlas_2_noalpha.png"),
-	mCurrentCaustics(&mCaustics),
+	mCurrentCaustics(&mCaustics1),
 	mMultiply(false),
 	mCausticsOnly(false)
 {}
@@ -94,7 +94,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 
 	if(key == EventHandler::KeyCode::KEY_1)
 	{
-		mCurrentCaustics = &mCaustics;
+		mCurrentCaustics = &mCaustics1;
 		mMultiply = false;
 		mCausticsOnly = false;
 	}

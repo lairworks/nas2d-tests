@@ -23,7 +23,7 @@ private:
 	Font mSmallFont; /**< FPS font. */
 
 	Image mMud; /**< Background image. */
-	Image mCaustics; /**< Caustics image atlas. */
+	Image mCaustics1; /**< Caustics image atlas. */
 	Image mCaustics2; /**< Caustics image atlas with no alpha. */
 
 	Image mCaustics3; /**< Caustics image atlas. */
