@@ -43,7 +43,7 @@ void GameState::initialize()
 {
 	spawnSwarm();
 
-	EventHandler& e = Utility<EventHandler>::get();
+	auto& e = Utility<EventHandler>::get();
 	e.keyUp().connect(this, &GameState::onKeyUp);
 	e.keyDown().connect(this, &GameState::onKeyDown);
 	e.mouseMotion().connect(this, &GameState::onMouseMove);
@@ -57,7 +57,7 @@ void GameState::initialize()
 
 State* GameState::update()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = Utility<Renderer>::get();
 	r.clearScreen(50, 150, 200);
 	r.drawImage(mBackground, 0, 0);
 
@@ -88,7 +88,7 @@ State* GameState::update()
 
 void GameState::doShoot()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = Utility<Renderer>::get();
 
 	mBulletPoint = {(mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter()};
 
