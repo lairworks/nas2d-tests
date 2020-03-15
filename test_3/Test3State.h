@@ -29,6 +29,8 @@ private:
 	Image mCaustics3; /**< Caustics image atlas. */
 	Image mCaustics4; /**< Caustics image atlas with no alpha. */
 
+	Image* mCurrentCaustics;
+
 	bool mAlpha;
 	bool mMultiply; /**< Flag to indicate that we want to draw screen blend mode. */
 	bool mCausticsOnly; /**< Flag to indicate that we only want to show the caustics. */

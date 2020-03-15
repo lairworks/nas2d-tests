@@ -20,6 +20,7 @@ Test3State::Test3State() :
 	mCaustics2("caustics_atlas_noalpha.png"),
 	mCaustics3("caustics_atlas_2.png"),
 	mCaustics4("caustics_atlas_2_noalpha.png"),
+	mCurrentCaustics(&mCaustics),
 	mAlpha(true),
 	mMultiply(false),
 	mCausticsOnly(false),
@@ -64,14 +65,7 @@ State* Test3State::update()
 	{
 		for(int row = 0; row < divideUp(r.width(), TILE_SIZE); row++)
 		{
-			if(mAlpha)
-				r.drawSubImage(mCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-			else if(mMultiply || mCausticsOnly)
-				r.drawSubImage(mCaustics2, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-			else if(mAlpha2)
-				r.drawSubImage(mCaustics3, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-			else if(mMultiply2 || mCausticsOnly2)
-				r.drawSubImage(mCaustics4, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			r.drawSubImage(*mCurrentCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 		}
 	}
 	if(mMultiply || mMultiply2)
@@ -104,6 +98,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 
 	if(key == EventHandler::KeyCode::KEY_1)
 	{
+		mCurrentCaustics = &mCaustics;
 		mAlpha = true;
 		mMultiply = false;
 		mCausticsOnly = false;
@@ -113,6 +108,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	}
 	if(key == EventHandler::KeyCode::KEY_2)
 	{
+		mCurrentCaustics = &mCaustics2;
 		mAlpha = false;
 		mMultiply = true;
 		mCausticsOnly = false;
@@ -122,6 +118,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	}
 	if(key == EventHandler::KeyCode::KEY_3)
 	{
+		mCurrentCaustics = &mCaustics2;
 		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = true;
@@ -131,6 +128,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	}
 	if(key == EventHandler::KeyCode::KEY_4)
 	{
+		mCurrentCaustics = &mCaustics3;
 		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = false;
@@ -140,6 +138,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	}
 	if(key == EventHandler::KeyCode::KEY_5)
 	{
+		mCurrentCaustics = &mCaustics4;
 		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = false;
@@ -149,6 +148,7 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 	}
 	if(key == EventHandler::KeyCode::KEY_6)
 	{
+		mCurrentCaustics = &mCaustics4;
 		mAlpha = false;
 		mMultiply = false;
 		mCausticsOnly = false;
