@@ -5,7 +5,7 @@
 #include <bitset>
 #include <vector>
 
-class GameState: public State
+class GameState: public NAS2D::State
 {
 public:
 	GameState();
