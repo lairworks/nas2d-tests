@@ -23,7 +23,6 @@ Test3State::Test3State() :
 	mCurrentCaustics(&mCaustics),
 	mMultiply(false),
 	mCausticsOnly(false),
-	mMultiply2(false),
 	mCausticsOnly2(false)
 {}
 
@@ -57,7 +56,7 @@ State* Test3State::update()
 		}
 	}
 
-	if(mMultiply || mMultiply2)
+	if(mMultiply)
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
 	for(int col = 0; col < divideUp(r.height(), TILE_SIZE); col++)
 	{
@@ -66,14 +65,14 @@ State* Test3State::update()
 			r.drawSubImage(*mCurrentCaustics, row * TILE_SIZE, col * TILE_SIZE, (counter % 4) * TILE_SIZE, ((counter % 16) / 4) * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 		}
 	}
-	if(mMultiply || mMultiply2)
+	if(mMultiply)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
 	r.drawText(mFont, "Blending Demo", 5, 5, 255, 255, 255);
 	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", 5, 5 + mFont.height(), 255, 255, 255);
 
-	if(mMultiply || mMultiply2)
+	if(mMultiply)
 		r.drawText(mSmallFont, "Multiply", r.width() - mSmallFont.width("Multiply") - 5, 5, 255, 255, 255);
 	else if(mCausticsOnly || mCausticsOnly2)
 		r.drawText(mSmallFont, "Caustics Only", r.width() - mSmallFont.width("Caustics Only") - 5, 5, 255, 255, 255);
@@ -99,7 +98,6 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCurrentCaustics = &mCaustics;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_2)
@@ -107,7 +105,6 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCurrentCaustics = &mCaustics2;
 		mMultiply = true;
 		mCausticsOnly = false;
-		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_3)
@@ -115,7 +112,6 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCurrentCaustics = &mCaustics2;
 		mMultiply = false;
 		mCausticsOnly = true;
-		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_4)
@@ -123,15 +119,13 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCurrentCaustics = &mCaustics3;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mMultiply2 = false;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
-		mMultiply = false;
+		mMultiply = true;
 		mCausticsOnly = false;
-		mMultiply2 = true;
 		mCausticsOnly2 = false;
 	}
 	if(key == EventHandler::KeyCode::KEY_6)
@@ -139,7 +133,6 @@ void Test3State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier 
 		mCurrentCaustics = &mCaustics4;
 		mMultiply = false;
 		mCausticsOnly = false;
-		mMultiply2 = false;
 		mCausticsOnly2 = true;
 	}
 }
