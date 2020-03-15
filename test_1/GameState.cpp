@@ -65,26 +65,20 @@ State* GameState::update()
 	updatePlayer();
 	updateZombies();
 
-
 	// Tent shadow and base
 	r.drawImage(mTentShadow, mPlayerPosition.x() - 256, mPlayerPosition.y() - 100);
 	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() + 0, 0, 162, 256, 94);
 
-
 	if (mLeftButtonDown)
 		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), Color::White, 1);
 
-
 	// Tent top
 	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() - 70, 0, 0, 256, 139);
-
 
 	r.drawImage(mPointer, mMouseCoords.x() - 7, mMouseCoords.y() - 7);
 
 	r.drawText(mAnnounceFont, "Zombies are Coming!", r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
 	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
-
-
 	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), 10, 100, 255, 255, 255);
 	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), 10, 120, 255, 255, 255);
 
@@ -110,7 +104,6 @@ void GameState::doShoot()
 				mDeadZombies.push_back(mZombies[i]);
 				mZombies.erase(mZombies.begin() + i);
 			}
-
 			return;
 		}
 	}
@@ -123,7 +116,6 @@ void GameState::updatePlayer()
 {
 	handlePlayerAction();
 }
-
 
 
 void GameState::handlePlayerAction()
