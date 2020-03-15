@@ -10,8 +10,6 @@ const int TILE_SIZE = 256;
 #include <string>
 
 
-using namespace std;
-
 Test3State::Test3State() :
 	mFont("fonts/opensans-bold.ttf", 25),
 	mSmallFont("fonts/opensans.ttf", 14),
