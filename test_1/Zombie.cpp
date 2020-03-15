@@ -1,9 +1,9 @@
 #include "Zombie.h"
 
 
-const auto BOUNDING_BOX_BODY = NAS2D::Rectangle_2d(-10, -40, 14, 46);
-const auto BOUNDING_BOX_HEAD = NAS2D::Rectangle_2d(-7, -50, 8, 8);
-const auto HEALTH_METER = NAS2D::Rectangle_2d(0, 0, 24, 4);
+const auto BoundingBoxBody = NAS2D::Rectangle_2d(-10, -40, 14, 46);
+const auto BoundingBoxHead = NAS2D::Rectangle_2d(-7, -50, 8, 8);
+const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
 const std::string SPRITE_PATH = "zombie_0.xml";
 const std::string IDLE_WEST = "WalkWest";
 
@@ -15,8 +15,8 @@ Zombie::Zombie(float x, float y, float speed) :
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
 	mSpeed(speed),
-	mBodyRect(BOUNDING_BOX_BODY),
-	mHeadRect(BOUNDING_BOX_HEAD)
+	mBodyRect(BoundingBoxBody),
+	mHeadRect(BoundingBoxHead)
 {
 	mSprite.play(IDLE_WEST);
 }
@@ -48,18 +48,18 @@ void Zombie::update(int timeDelta, const NAS2D::Point_2df& playerPosition)
 	doMove(timeDelta);
 
 	// Update bounding boxes.
-	mBodyRect.x() = mPosition.x() + BOUNDING_BOX_BODY.x();
-	mBodyRect.y() = mPosition.y() + BOUNDING_BOX_BODY.y();
-	mHeadRect.x() = mPosition.x() + BOUNDING_BOX_HEAD.x();
-	mHeadRect.y() = mPosition.y() + BOUNDING_BOX_HEAD.y();
+	mBodyRect.x() = mPosition.x() + BoundingBoxBody.x();
+	mBodyRect.y() = mPosition.y() + BoundingBoxBody.y();
+	mHeadRect.x() = mPosition.x() + BoundingBoxHead.x();
+	mHeadRect.y() = mPosition.y() + BoundingBoxHead.y();
 
 	// Health bar
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
-	int startX = mPosition.x() - HEALTH_METER.width() / 2;
-	int healthWidth = HEALTH_METER.width() * (static_cast<float>(mHealth) / static_cast<float>(mMaxHealth));
+	int startX = mPosition.x() - BoundingBoxHealthMeter.width() / 2;
+	int healthWidth = BoundingBoxHealthMeter.width() * (static_cast<float>(mHealth) / static_cast<float>(mMaxHealth));
 
-	r.drawBoxFilled(startX, mHeadRect.y() - 5, HEALTH_METER.width(), 2, 0, 0, 0);
+	r.drawBoxFilled(startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2, 0, 0, 0);
 	r.drawBoxFilled(startX, mHeadRect.y() - 5, healthWidth, 2, 255, 255, 0);
 
 	r.drawBox(mHeadRect, 255, 255, 255);
