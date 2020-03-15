@@ -6,7 +6,7 @@
 #include <string>
 
 
-const int CAUSTICS_SPEED = 55;
+const int CausticsSpeed = 55;
 const int TileSize = 256;
 
 
@@ -37,7 +37,7 @@ NAS2D::State* Test3State::update()
 
 	static int counter = 0;
 
-	if(mCausticsTimer.accumulator() > CAUSTICS_SPEED)
+	if(mCausticsTimer.accumulator() > CausticsSpeed)
 	{
 		mCausticsTimer.reset();
 		counter++;
