@@ -19,6 +19,7 @@ Test3State::Test3State() :
 	mCaustics3("caustics_atlas_2.png"),
 	mCaustics4("caustics_atlas_2_noalpha.png"),
 	mCurrentCaustics(&mCaustics1),
+	mBlendingModeText("Alpha"),
 	mMultiply(false),
 	mCausticsOnly(false)
 {}
@@ -70,12 +71,7 @@ NAS2D::State* Test3State::update()
 	r.drawText(mFont, "Blending Demo", 5, 5, 255, 255, 255);
 	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", 5, 5 + mFont.height(), 255, 255, 255);
 
-	if(mMultiply)
-		r.drawText(mSmallFont, "Multiply", r.width() - mSmallFont.width("Multiply") - 5, 5, 255, 255, 255);
-	else if(mCausticsOnly)
-		r.drawText(mSmallFont, "Caustics Only", r.width() - mSmallFont.width("Caustics Only") - 5, 5, 255, 255, 255);
-	else
-		r.drawText(mSmallFont, "Alpha", r.width() - mSmallFont.width("Alpha") - 5, 5, 255, 255, 255);
+	r.drawText(mSmallFont, mBlendingModeText, r.width() - mSmallFont.width(mBlendingModeText) - 5, 5, 255, 255, 255);
 
 	r.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), r.width() - 65, r.height() - mSmallFont.height() - 5, 255, 255, 255);
 
@@ -94,36 +90,42 @@ void Test3State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler
 	if(key == NAS2D::EventHandler::KeyCode::KEY_1)
 	{
 		mCurrentCaustics = &mCaustics1;
+		mBlendingModeText = "Alpha";
 		mMultiply = false;
 		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
+		mBlendingModeText = "Multiply";
 		mMultiply = true;
 		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
+		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
 		mCausticsOnly = true;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
+		mBlendingModeText = "Alpha";
 		mMultiply = false;
 		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
+		mBlendingModeText = "Multiply";
 		mMultiply = true;
 		mCausticsOnly = false;
 	}
 	if(key == NAS2D::EventHandler::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
+		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
 		mCausticsOnly = true;
 	}

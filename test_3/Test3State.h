@@ -2,6 +2,8 @@
 
 #include <NAS2D/NAS2D.h>
 
+#include <string>
+
 
 class Test3State: public NAS2D::State
 {
@@ -31,6 +33,7 @@ private:
 	NAS2D::Image mCaustics4; /**< Caustics image atlas with no alpha. */
 
 	NAS2D::Image* mCurrentCaustics;
+	std::string mBlendingModeText;
 
 	bool mMultiply; /**< Flag to indicate that we want to draw screen blend mode. */
 	bool mCausticsOnly; /**< Flag to indicate that we only want to show the caustics. */
