@@ -46,8 +46,8 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	r.drawBoxFilled(startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2, 0, 0, 0);
 	r.drawBoxFilled(startX, mHeadRect.y() - 5, healthWidth, 2, 255, 255, 0);
 
-	r.drawBox(mHeadRect, 255, 255, 255);
-	r.drawBox(mBodyRect, 255, 255, 255);
+	r.drawBox(mHeadRect, NAS2D::Color::White);
+	r.drawBox(mBodyRect, NAS2D::Color::White);
 }
 
 
