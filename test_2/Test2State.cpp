@@ -43,7 +43,7 @@ void Test2State::initialize()
 
 State* Test2State::update()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = Utility<Renderer>::get();
 
 	r.clearScreen(NAS2D::Color::Grey);
 
