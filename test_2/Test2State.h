@@ -1,8 +1,7 @@
 #include "NAS2D/NAS2D.h"
 
-using namespace NAS2D;
 
-class Test2State: public State
+class Test2State: public NAS2D::State
 {
 public:
 	Test2State();
@@ -12,24 +11,18 @@ protected:
 	void initialize() override;
 	State* update() override;
 
-
-	void onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat);
+	void onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier mod, bool repeat);
 	void onMouseMove(int x, int y, int relX, int relY);
-	void onMouseDown(EventHandler::MouseButton button, int x, int y);
+	void onMouseDown(NAS2D::EventHandler::MouseButton button, int x, int y);
 
 	void onWindowResized(int w, int h);
 
 private:
-	Timer mTimer;
-
-	FpsCounter mFps;
-
-	Font mFont;
-
-	Image mImage1;
-	Image mArrows;
-
-	Image mRenderTarget;
-
-	Point_2d mMousePosition;
+	NAS2D::Timer mTimer;
+	NAS2D::FpsCounter mFps;
+	NAS2D::Font mFont;
+	NAS2D::Image mImage1;
+	NAS2D::Image mArrows;
+	NAS2D::Image mRenderTarget;
+	NAS2D::Point_2d mMousePosition;
 };
