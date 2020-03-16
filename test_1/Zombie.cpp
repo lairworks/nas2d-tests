@@ -4,12 +4,10 @@
 const auto BoundingBoxBody = NAS2D::Rectangle_2d(-10, -40, 14, 46);
 const auto BoundingBoxHead = NAS2D::Rectangle_2d(-7, -50, 8, 8);
 const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
-const std::string SPRITE_PATH = "zombie_0.xml";
-const std::string IDLE_WEST = "WalkWest";
 
 
 Zombie::Zombie(float x, float y, float speed) :
-	mSprite(SPRITE_PATH),
+	mSprite("zombie_0.xml"),
 	mPosition(x, y),
 	mHealth(100),
 	mMaxHealth(mHealth),
@@ -18,7 +16,7 @@ Zombie::Zombie(float x, float y, float speed) :
 	mBodyRect(BoundingBoxBody),
 	mHeadRect(BoundingBoxHead)
 {
-	mSprite.play(IDLE_WEST);
+	mSprite.play("WalkWest");
 }
 
 
