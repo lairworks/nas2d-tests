@@ -5,7 +5,8 @@ constexpr auto BodyOffset = NAS2D::Vector<int>{-10, -40};
 constexpr auto BodySize = NAS2D::Vector<int>{14, 46};
 constexpr auto HeadOffset = NAS2D::Vector<int>{-7, -50};
 constexpr auto HeadSize = NAS2D::Vector<int>{8, 8};
-const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
+constexpr auto HealthMeterSize = NAS2D::Vector<int>{24, 2};
+constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -12};
 
 
 Zombie::Zombie(NAS2D::Point_2df position, float speed) :
@@ -40,11 +41,8 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	// Health bar
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
-	int startX = static_cast<int>(mPosition.x()) - BoundingBoxHealthMeter.width() / 2;
-	int healthWidth = (BoundingBoxHealthMeter.width() * mHealth) / mMaxHealth;
-
-	r.drawBoxFilled(NAS2D::Rectangle{startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2}, NAS2D::Color::Black);
-	r.drawBoxFilled(NAS2D::Rectangle{startX, mHeadRect.y() - 5, healthWidth, 2}, NAS2D::Color::Yellow);
+	r.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, HealthMeterSize), NAS2D::Color::Black);
+	r.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, NAS2D::Vector<int>{HealthMeterSize.x * mHealth / mMaxHealth, HealthMeterSize.y}), NAS2D::Color::Yellow);
 
 	r.drawBox(mHeadRect, NAS2D::Color::White);
 	r.drawBox(mBodyRect, NAS2D::Color::White);
