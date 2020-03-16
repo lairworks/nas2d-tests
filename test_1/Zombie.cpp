@@ -17,8 +17,8 @@ Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
 	mSpeed(speed),
-	mBodyRect(BoundingBoxBody),
-	mHeadRect(BoundingBoxHead)
+	mBodyRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize)),
+	mHeadRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize))
 {
 	mSprite.play("WalkWest");
 }
