@@ -2,7 +2,7 @@
 
 using namespace NAS2D;
 
-class Test2State: public State
+class Test2State: public NAS2D::State
 {
 public:
 	Test2State();
@@ -13,23 +13,23 @@ protected:
 	State* update() override;
 
 
-	void onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier mod, bool repeat);
+	void onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier mod, bool repeat);
 	void onMouseMove(int x, int y, int relX, int relY);
-	void onMouseDown(EventHandler::MouseButton button, int x, int y);
+	void onMouseDown(NAS2D::EventHandler::MouseButton button, int x, int y);
 
 	void onWindowResized(int w, int h);
 
 private:
-	Timer mTimer;
+	NAS2D::Timer mTimer;
 
-	FpsCounter mFps;
+	NAS2D::FpsCounter mFps;
 
-	Font mFont;
+	NAS2D::Font mFont;
 
-	Image mImage1;
-	Image mArrows;
+	NAS2D::Image mImage1;
+	NAS2D::Image mArrows;
 
-	Image mRenderTarget;
+	NAS2D::Image mRenderTarget;
 
-	Point_2d mMousePosition;
+	NAS2D::Point_2d mMousePosition;
 };

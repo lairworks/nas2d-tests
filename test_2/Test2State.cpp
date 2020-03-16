@@ -22,7 +22,7 @@ Test2State::Test2State() :
 
 Test2State::~Test2State()
 {
-	auto& eventHandler = Utility<EventHandler>::get();
+	auto& eventHandler = NAS2D::Utility<NAS2D::EventHandler>::get();
 	eventHandler.mouseMotion().disconnect(this, &Test2State::onMouseMove);
 	eventHandler.mouseButtonDown().disconnect(this, &Test2State::onMouseDown);
 	eventHandler.keyDown().disconnect(this, &Test2State::onKeyDown);
@@ -31,22 +31,22 @@ Test2State::~Test2State()
 
 void Test2State::initialize()
 {
-	auto& eventHandler = Utility<EventHandler>::get();
+	auto& eventHandler = NAS2D::Utility<NAS2D::EventHandler>::get();
 	eventHandler.mouseMotion().connect(this, &Test2State::onMouseMove);
 	eventHandler.mouseButtonDown().connect(this, &Test2State::onMouseDown);
 	eventHandler.keyDown().connect(this, &Test2State::onKeyDown);
 	eventHandler.windowResized().connect(this, &Test2State::onWindowResized);
 
-	auto& renderer = Utility<Renderer>::get();
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 	renderer.showSystemPointer(true);
 	renderer.window_icon("NAS2D.ico");
 	renderer.minimum_size(800, 600);
 }
 
 
-State* Test2State::update()
+NAS2D::State* Test2State::update()
 {
-	auto& renderer = Utility<Renderer>::get();
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	renderer.clearScreen(NAS2D::Color::Grey);
 
@@ -55,7 +55,7 @@ State* Test2State::update()
 	renderer.drawBox(NAS2D::Rectangle{10, 50, 40, 40}, NAS2D::Color::White);
 	renderer.drawBoxFilled(NAS2D::Rectangle{70, 50, 40, 40}, NAS2D::Color{200, 0, 0});
 
-	renderer.drawGradient(NAS2D::Rectangle{10, 100, 100, 100}, Color::Blue, Color::Bright_green, Color::Red, Color::Magenta);
+	renderer.drawGradient(NAS2D::Rectangle{10, 100, 100, 100}, NAS2D::Color::Blue, NAS2D::Color::Bright_green, NAS2D::Color::Red, NAS2D::Color::Magenta);
 
 	renderer.drawCircle(NAS2D::Point{150, 70}, 20, NAS2D::Color{0, 200, 0, 255}, 16);
 	renderer.drawCircle(NAS2D::Point{150, 120}, 20, NAS2D::Color{0, 200, 0, 255}, 16, NAS2D::Vector<float>{0.5, 1.0});
@@ -97,20 +97,20 @@ State* Test2State::update()
 }
 
 
-void Test2State::onKeyDown(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/, bool /*repeat*/)
+void Test2State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/, bool /*repeat*/)
 {
 	switch (key)
 	{
-		case EventHandler::KeyCode::KEY_ESCAPE:
-			postQuitEvent();
+		case NAS2D::EventHandler::KeyCode::KEY_ESCAPE:
+			NAS2D::postQuitEvent();
 			break;
-		case EventHandler::KeyCode::KEY_F1: {
-			auto& renderer = Utility<Renderer>::get();
+		case NAS2D::EventHandler::KeyCode::KEY_F1: {
+			auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 			renderer.fullscreen(!renderer.fullscreen());
 			break;
 		}
-		case EventHandler::KeyCode::KEY_F2: {
-			auto& renderer = Utility<Renderer>::get();
+		case NAS2D::EventHandler::KeyCode::KEY_F2: {
+			auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 			renderer.resizeable(!renderer.resizeable());
 			break;
 		}
@@ -124,7 +124,7 @@ void Test2State::onMouseMove(int /*x*/, int /*y*/, int /*relX*/, int /*relY*/)
 {}
 
 
-void Test2State::onMouseDown(EventHandler::MouseButton /*button*/, int /*x*/, int /*y*/)
+void Test2State::onMouseDown(NAS2D::EventHandler::MouseButton /*button*/, int /*x*/, int /*y*/)
 {}
 
 
