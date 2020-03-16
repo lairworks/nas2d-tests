@@ -7,7 +7,7 @@
 class Zombie
 {
 public:
-	Zombie(float x, float y, float speed);
+	Zombie(NAS2D::Point_2df position, float speed);
 
 	void update(int timeDelta, NAS2D::Point_2df playerPosition);
 

@@ -6,9 +6,9 @@ const auto BoundingBoxHead = NAS2D::Rectangle_2d(-7, -50, 8, 8);
 const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
 
 
-Zombie::Zombie(float x, float y, float speed) :
+Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 	mSprite("zombie_0.xml"),
-	mPosition(x, y),
+	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
