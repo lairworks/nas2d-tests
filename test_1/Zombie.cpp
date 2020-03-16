@@ -20,20 +20,6 @@ Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 }
 
 
-bool Zombie::hit(NAS2D::Point_2d pt)
-{
-	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
-}
-
-
-unsigned int Zombie::deadTime()
-{
-	if(!dead())
-		return 0;
-
-	return mTimer.accumulator();
-}
-
 void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 {
 	mSprite.update(mPosition.x(), mPosition.y());
@@ -65,17 +51,10 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 }
 
 
-void Zombie::doMove(int timeDelta)
+bool Zombie::hit(NAS2D::Point_2d pt)
 {
-	auto dir = NAS2D::getDirectionVector(mDirection);
-
-	mPosition.x() += (dir.x() * (timeDelta / 1000.0f)) * mSpeed;
-	mPosition.y() += (dir.y() * (timeDelta / 1000.0f)) * mSpeed;
+	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
 }
-
-
-void Zombie::setAnimationState()
-{}
 
 
 void Zombie::damage(int d, NAS2D::Point_2d pt)
@@ -105,3 +84,25 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 		mTimer.reset(); // reset timer so we know how long it's been since the zombie died.
 	}
 }
+
+
+unsigned int Zombie::deadTime()
+{
+	if(!dead())
+		return 0;
+
+	return mTimer.accumulator();
+}
+
+
+void Zombie::doMove(int timeDelta)
+{
+	auto dir = NAS2D::getDirectionVector(mDirection);
+
+	mPosition.x() += (dir.x() * (timeDelta / 1000.0f)) * mSpeed;
+	mPosition.y() += (dir.y() * (timeDelta / 1000.0f)) * mSpeed;
+}
+
+
+void Zombie::setAnimationState()
+{}
