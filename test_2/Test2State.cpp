@@ -22,18 +22,20 @@ Test2State::Test2State() :
 
 Test2State::~Test2State()
 {
-	Utility<EventHandler>::get().mouseMotion().disconnect(this, &Test2State::onMouseMove);
-	Utility<EventHandler>::get().mouseButtonDown().disconnect(this, &Test2State::onMouseDown);
-	Utility<EventHandler>::get().keyDown().disconnect(this, &Test2State::onKeyDown);
-	Utility<EventHandler>::get().windowResized().disconnect(this, &Test2State::onWindowResized);
+	auto& eventHandler = Utility<EventHandler>::get();
+	eventHandler.mouseMotion().disconnect(this, &Test2State::onMouseMove);
+	eventHandler.mouseButtonDown().disconnect(this, &Test2State::onMouseDown);
+	eventHandler.keyDown().disconnect(this, &Test2State::onKeyDown);
+	eventHandler.windowResized().disconnect(this, &Test2State::onWindowResized);
 }
 
 void Test2State::initialize()
 {
-	Utility<EventHandler>::get().mouseMotion().connect(this, &Test2State::onMouseMove);
-	Utility<EventHandler>::get().mouseButtonDown().connect(this, &Test2State::onMouseDown);
-	Utility<EventHandler>::get().keyDown().connect(this, &Test2State::onKeyDown);
-	Utility<EventHandler>::get().windowResized().connect(this, &Test2State::onWindowResized);
+	auto& eventHandler = Utility<EventHandler>::get();
+	eventHandler.mouseMotion().connect(this, &Test2State::onMouseMove);
+	eventHandler.mouseButtonDown().connect(this, &Test2State::onMouseDown);
+	eventHandler.keyDown().connect(this, &Test2State::onKeyDown);
+	eventHandler.windowResized().connect(this, &Test2State::onWindowResized);
 
 	Utility<Renderer>::get().showSystemPointer(true);
 	Utility<Renderer>::get().window_icon("NAS2D.ico");
