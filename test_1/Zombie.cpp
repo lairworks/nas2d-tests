@@ -1,6 +1,10 @@
 #include "Zombie.h"
 
 
+constexpr auto BodyOffset = NAS2D::Vector<int>{-10, -40};
+constexpr auto BodySize = NAS2D::Vector<int>{14, 46};
+constexpr auto HeadOffset = NAS2D::Vector<int>{-7, -50};
+constexpr auto HeadSize = NAS2D::Vector<int>{8, 8};
 const auto BoundingBoxBody = NAS2D::Rectangle_2d(-10, -40, 14, 46);
 const auto BoundingBoxHead = NAS2D::Rectangle_2d(-7, -50, 8, 8);
 const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
@@ -32,8 +36,8 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	doMove(timeDelta);
 
 	// Update bounding boxes.
-	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + (BoundingBoxBody.startPoint() - NAS2D::Point<int>{}), BoundingBoxBody.size());
-	mHeadRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + (BoundingBoxHead.startPoint() - NAS2D::Point<int>{}), BoundingBoxHead.size());
+	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize);
+	mHeadRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize);
 
 	// Health bar
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
