@@ -18,13 +18,12 @@
 #include <Windows.h>
 #endif
 
-const std::string APPLICATION_TITLE = "NAS2D Sample Application";
 
 int main(int /*argc*/, char *argv[])
 {
 	try
 	{
-		NAS2D::Game game(APPLICATION_TITLE, "NAS2D_Test", "LairWorks Entertainment", argv[0]);
+		NAS2D::Game game("NAS2D Sample Application", "NAS2D_Test", "LairWorks Entertainment", argv[0]);
 		game.go(new GameState());
 	}
 	catch(std::exception& e)
