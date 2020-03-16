@@ -19,7 +19,7 @@ GameState::GameState() :
 	mZombieSpawnCount(5),
 	mFont("fonts/opensans.ttf", 15),
 	mAnnounceFont("fonts/opensans-bold.ttf", 50),
-	mPlayerPosition(NAS2D::Utility<NAS2D::Renderer>::get().center_x(), NAS2D::Utility<NAS2D::Renderer>::get().center_y()),
+	mPlayerPosition(NAS2D::Utility<NAS2D::Renderer>::get().center()),
 	mPointer("pointer.png"),
 	mBackground("grass_bg.png"),
 	mBulletHole("bullet_hole.png"),
