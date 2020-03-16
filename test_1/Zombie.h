@@ -9,17 +9,17 @@ class Zombie
 public:
 	Zombie(float x, float y, float speed);
 
-	void update(int timeDelta, const NAS2D::Point_2df& playerPosition);
+	void update(int timeDelta, NAS2D::Point_2df playerPosition);
 
 	int health() const { return mHealth; }
-	void damage(int d, const NAS2D::Point_2d& pt);
+	void damage(int d, NAS2D::Point_2d pt);
 	float rotation() const { return mSprite.rotation(); }
 
-	const NAS2D::Point_2df& position() const { return mPosition; }
+	NAS2D::Point_2df position() const { return mPosition; }
 
 	bool dead() const { return mHealth <= 0; }
 
-	bool hit(const NAS2D::Point_2d& pt);
+	bool hit(NAS2D::Point_2d pt);
 
 	unsigned int deadTime();
 

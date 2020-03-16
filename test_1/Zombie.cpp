@@ -20,7 +20,7 @@ Zombie::Zombie(float x, float y, float speed) :
 }
 
 
-bool Zombie::hit(const NAS2D::Point_2d& pt)
+bool Zombie::hit(NAS2D::Point_2d pt)
 {
 	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
 }
@@ -34,7 +34,7 @@ unsigned int Zombie::deadTime()
 	return mTimer.accumulator();
 }
 
-void Zombie::update(int timeDelta, const NAS2D::Point_2df& playerPosition)
+void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 {
 	mSprite.update(mPosition.x(), mPosition.y());
 
@@ -78,7 +78,7 @@ void Zombie::setAnimationState()
 {}
 
 
-void Zombie::damage(int d, const NAS2D::Point_2d& pt)
+void Zombie::damage(int d, NAS2D::Point_2d pt)
 {
 	if(dead())
 		return;
