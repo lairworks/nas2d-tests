@@ -43,8 +43,8 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	int startX = mPosition.x() - BoundingBoxHealthMeter.width() / 2;
 	int healthWidth = (BoundingBoxHealthMeter.width() * mHealth) / mMaxHealth;
 
-	r.drawBoxFilled(startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2, 0, 0, 0);
-	r.drawBoxFilled(startX, mHeadRect.y() - 5, healthWidth, 2, 255, 255, 0);
+	r.drawBoxFilled(NAS2D::Rectangle{startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2}, NAS2D::Color::Black);
+	r.drawBoxFilled(NAS2D::Rectangle{startX, mHeadRect.y() - 5, healthWidth, 2}, NAS2D::Color::Yellow);
 
 	r.drawBox(mHeadRect, NAS2D::Color::White);
 	r.drawBox(mBodyRect, NAS2D::Color::White);
