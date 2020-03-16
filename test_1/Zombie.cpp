@@ -5,8 +5,6 @@ constexpr auto BodyOffset = NAS2D::Vector<int>{-10, -40};
 constexpr auto BodySize = NAS2D::Vector<int>{14, 46};
 constexpr auto HeadOffset = NAS2D::Vector<int>{-7, -50};
 constexpr auto HeadSize = NAS2D::Vector<int>{8, 8};
-const auto BoundingBoxBody = NAS2D::Rectangle_2d(-10, -40, 14, 46);
-const auto BoundingBoxHead = NAS2D::Rectangle_2d(-7, -50, 8, 8);
 const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
 
 
