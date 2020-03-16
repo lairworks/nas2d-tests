@@ -8,7 +8,6 @@
 
 std::mt19937 generator;
 std::uniform_int_distribution<int> jitter_distribution(0, 64);
-
 auto jitter = std::bind(jitter_distribution, generator);
 
 

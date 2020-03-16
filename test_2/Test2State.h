@@ -11,7 +11,6 @@ protected:
 	void initialize() override;
 	State* update() override;
 
-
 	void onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier mod, bool repeat);
 	void onMouseMove(int x, int y, int relX, int relY);
 	void onMouseDown(NAS2D::EventHandler::MouseButton button, int x, int y);
@@ -20,15 +19,10 @@ protected:
 
 private:
 	NAS2D::Timer mTimer;
-
 	NAS2D::FpsCounter mFps;
-
 	NAS2D::Font mFont;
-
 	NAS2D::Image mImage1;
 	NAS2D::Image mArrows;
-
 	NAS2D::Image mRenderTarget;
-
 	NAS2D::Point_2d mMousePosition;
 };
