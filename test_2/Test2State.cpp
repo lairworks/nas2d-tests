@@ -37,9 +37,10 @@ void Test2State::initialize()
 	eventHandler.keyDown().connect(this, &Test2State::onKeyDown);
 	eventHandler.windowResized().connect(this, &Test2State::onWindowResized);
 
-	Utility<Renderer>::get().showSystemPointer(true);
-	Utility<Renderer>::get().window_icon("NAS2D.ico");
-	Utility<Renderer>::get().minimum_size(800, 600);
+	auto& renderer = Utility<Renderer>::get();
+	renderer.showSystemPointer(true);
+	renderer.window_icon("NAS2D.ico");
+	renderer.minimum_size(800, 600);
 }
 
 
