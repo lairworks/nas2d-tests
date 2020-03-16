@@ -1,6 +1,5 @@
 #include "NAS2D/NAS2D.h"
 
-using namespace NAS2D;
 
 class Test2State: public NAS2D::State
 {
