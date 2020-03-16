@@ -5,7 +5,7 @@
 #include <bitset>
 #include <vector>
 
-class GameState: public State
+class GameState: public NAS2D::State
 {
 public:
 	GameState();
@@ -23,7 +23,7 @@ protected:
 	void onQuit();
 
 private:
-	typedef std::vector<Zombie> ZombieList;
+	using ZombieList = std::vector<Zombie>;
 
 	void doShoot();
 

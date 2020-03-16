@@ -5,19 +5,13 @@
 #include <random>
 #include <string>
 
-using namespace std;
-using namespace NAS2D;
 
-
-const int GUN_DELAY_TIME = 210;
-const int GUN_JITTER = 6;
-
-const unsigned int ZOMBIE_DEAD_TIMEOUT = 8000; // Time, in miliseconds, a dead zombie should continue to exist
-
+const int GunDelayTime = 210;
+const int GunJitter = 6;
+const unsigned int ZombieDeadTimeout = 8000; // Time, in miliseconds, a dead zombie should continue to exist
 
 std::mt19937 generator;
-std::uniform_int_distribution<int> jitter_distribution(-GUN_JITTER, GUN_JITTER);
-
+std::uniform_int_distribution<int> jitter_distribution(-GunJitter, GunJitter);
 auto jitter = std::bind(jitter_distribution, generator);
 
 
@@ -25,7 +19,7 @@ GameState::GameState() :
 	mZombieSpawnCount(5),
 	mFont("fonts/opensans.ttf", 15),
 	mAnnounceFont("fonts/opensans-bold.ttf", 50),
-	mPlayerPosition(Utility<Renderer>::get().center_x(), Utility<Renderer>::get().center_y()),
+	mPlayerPosition(NAS2D::Utility<NAS2D::Renderer>::get().center_x(), NAS2D::Utility<NAS2D::Renderer>::get().center_y()),
 	mPointer("pointer.png"),
 	mBackground("grass_bg.png"),
 	mBulletHole("bullet_hole.png"),
@@ -43,7 +37,7 @@ void GameState::initialize()
 {
 	spawnSwarm();
 
-	EventHandler& e = Utility<EventHandler>::get();
+	auto& e = NAS2D::Utility<NAS2D::EventHandler>::get();
 	e.keyUp().connect(this, &GameState::onKeyUp);
 	e.keyDown().connect(this, &GameState::onKeyDown);
 	e.mouseMotion().connect(this, &GameState::onMouseMove);
@@ -51,13 +45,13 @@ void GameState::initialize()
 	e.mouseButtonDown().connect(this, &GameState::onMouseDown);
 	e.quit().connect(this, &GameState::onQuit);
 
-	Utility<Mixer>::get().playMusic(mBgMusic);
+	NAS2D::Utility<NAS2D::Mixer>::get().playMusic(mBgMusic);
 }
 
 
-State* GameState::update()
+NAS2D::State* GameState::update()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 	r.clearScreen(50, 150, 200);
 	r.drawImage(mBackground, 0, 0);
 
@@ -65,26 +59,20 @@ State* GameState::update()
 	updatePlayer();
 	updateZombies();
 
-
 	// Tent shadow and base
 	r.drawImage(mTentShadow, mPlayerPosition.x() - 256, mPlayerPosition.y() - 100);
 	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() + 0, 0, 162, 256, 94);
 
-
 	if (mLeftButtonDown)
-		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), Color::White, 1);
-
+		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), NAS2D::Color::White, 1);
 
 	// Tent top
 	r.drawSubImage(mTent, mPlayerPosition.x() - 128, mPlayerPosition.y() - 70, 0, 0, 256, 139);
-
 
 	r.drawImage(mPointer, mMouseCoords.x() - 7, mMouseCoords.y() - 7);
 
 	r.drawText(mAnnounceFont, "Zombies are Coming!", r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
 	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
-
-
 	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), 10, 100, 255, 255, 255);
 	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), 10, 120, 255, 255, 255);
 
@@ -94,11 +82,11 @@ State* GameState::update()
 
 void GameState::doShoot()
 {
-	Renderer& r = Utility<Renderer>::get();
+	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	mBulletPoint = {(mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter()};
 
-	Utility<Mixer>::get().playSound(mGunFire);
+	NAS2D::Utility<NAS2D::Mixer>::get().playSound(mGunFire);
 
 	for(size_t i = 0; i < mZombies.size(); i++)
 	{
@@ -110,7 +98,6 @@ void GameState::doShoot()
 				mDeadZombies.push_back(mZombies[i]);
 				mZombies.erase(mZombies.begin() + i);
 			}
-
 			return;
 		}
 	}
@@ -125,14 +112,13 @@ void GameState::updatePlayer()
 }
 
 
-
 void GameState::handlePlayerAction()
 {
 	if(mLeftButtonDown)
 	{
-		while(mGunTimer.accumulator() >= GUN_DELAY_TIME)
+		while(mGunTimer.accumulator() >= GunDelayTime)
 		{
-			mGunTimer.adjust_accumulator(GUN_DELAY_TIME);
+			mGunTimer.adjust_accumulator(GunDelayTime);
 			doShoot();
 		}
 	}
@@ -157,7 +143,7 @@ void GameState::updateZombies()
 	{
 		mDeadZombies[i].update(0, mPlayerPosition);
 
-		if(mDeadZombies[i].deadTime() >= ZOMBIE_DEAD_TIMEOUT)
+		if(mDeadZombies[i].deadTime() >= ZombieDeadTimeout)
 			mDeadZombies.erase(mDeadZombies.begin() + i);
 	}
 
@@ -168,23 +154,23 @@ void GameState::updateZombies()
 }
 
 
-void GameState::onKeyDown(EventHandler::KeyCode /*key*/, EventHandler::KeyModifier /*mod*/, bool repeat)
+void GameState::onKeyDown(NAS2D::EventHandler::KeyCode /*key*/, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
 {
 	if(repeat)
 		return;
 }
 
 
-void GameState::onKeyUp(EventHandler::KeyCode key, EventHandler::KeyModifier /*mod*/)
+void GameState::onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/)
 {
-	if(key == EventHandler::KeyCode::KEY_ESCAPE)
-		postQuitEvent();
+	if(key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+		NAS2D::postQuitEvent();
 }
 
 
-void GameState::onMouseDown(EventHandler::MouseButton button, int /*x*/, int /*y*/)
+void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if(button == EventHandler::MouseButton::BUTTON_LEFT)
+	if(button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mGunTimer.reset();
 		mLeftButtonDown = true;
@@ -193,9 +179,9 @@ void GameState::onMouseDown(EventHandler::MouseButton button, int /*x*/, int /*y
 }
 
 
-void GameState::onMouseUp(EventHandler::MouseButton button, int /*x*/, int /*y*/)
+void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if(button == EventHandler::MouseButton::BUTTON_LEFT)
+	if(button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mLeftButtonDown = false;
 	}
@@ -216,5 +202,5 @@ void GameState::updateTimer()
 
 void GameState::onQuit()
 {
-	cout << "Toodles!" << endl;
+	std::cout << "Toodles!" << std::endl;
 }
