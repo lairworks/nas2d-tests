@@ -52,8 +52,8 @@ void GameState::initialize()
 NAS2D::State* GameState::update()
 {
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
-	r.clearScreen(50, 150, 200);
-	r.drawImage(mBackground, 0, 0);
+	r.clearScreen(NAS2D::Color{50, 150, 200});
+	r.drawImage(mBackground, NAS2D::Point<float>{0, 0});
 
 	updateTimer();
 	updatePlayer();
@@ -64,17 +64,17 @@ NAS2D::State* GameState::update()
 	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 0}).to<float>(), NAS2D::Point<float>{0, 162}, NAS2D::Vector<float>{256, 94});
 
 	if (mLeftButtonDown)
-		r.drawLine(mPlayerPosition.x(), mPlayerPosition.y(), mBulletPoint.x(), mBulletPoint.y(), NAS2D::Color::White, 1);
+		r.drawLine(mPlayerPosition, mBulletPoint, NAS2D::Color::White, 1);
 
 	// Tent top
 	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 70}).to<float>(), NAS2D::Point<float>{0, 0}, NAS2D::Vector<float>{256, 139});
 
 	r.drawImage(mPointer, (mMouseCoords - NAS2D::Vector<int>{7, 7}).to<float>());
 
-	r.drawText(mAnnounceFont, "Zombies are Coming!", r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10, 255, 255, 255);
-	r.drawText(mFont, "Defend Yourself!", r.center_x() - mFont.width("Defend Yourself!") / 2, 75, 255, 255, 255);
-	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), 10, 100, 255, 255, 255);
-	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), 10, 120, 255, 255, 255);
+	r.drawText(mAnnounceFont, "Zombies are Coming!", NAS2D::Point<float>{r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10}, NAS2D::Color::White);
+	r.drawText(mFont, "Defend Yourself!", NAS2D::Point<float>{r.center_x() - mFont.width("Defend Yourself!") / 2, 75}, NAS2D::Color::White);
+	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point<float>{10, 100}, NAS2D::Color::White);
+	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), NAS2D::Point<float>{10, 120}, NAS2D::Color::White);
 
 	return this;
 }
