@@ -32,10 +32,8 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	doMove(timeDelta);
 
 	// Update bounding boxes.
-	mBodyRect.x() = mPosition.x() + BoundingBoxBody.x();
-	mBodyRect.y() = mPosition.y() + BoundingBoxBody.y();
-	mHeadRect.x() = mPosition.x() + BoundingBoxHead.x();
-	mHeadRect.y() = mPosition.y() + BoundingBoxHead.y();
+	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + (BoundingBoxBody.startPoint() - NAS2D::Point<int>{}), BoundingBoxBody.size());
+	mHeadRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + (BoundingBoxHead.startPoint() - NAS2D::Point<int>{}), BoundingBoxHead.size());
 
 	// Health bar
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
