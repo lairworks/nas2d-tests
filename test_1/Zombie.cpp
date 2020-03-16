@@ -6,9 +6,9 @@ const auto BoundingBoxHead = NAS2D::Rectangle_2d(-7, -50, 8, 8);
 const auto BoundingBoxHealthMeter = NAS2D::Rectangle_2d(0, 0, 24, 4);
 
 
-Zombie::Zombie(float x, float y, float speed) :
+Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 	mSprite("zombie_0.xml"),
-	mPosition(x, y),
+	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
 	mDirection(0.0f),
@@ -20,21 +20,7 @@ Zombie::Zombie(float x, float y, float speed) :
 }
 
 
-bool Zombie::hit(const NAS2D::Point_2d& pt)
-{
-	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
-}
-
-
-unsigned int Zombie::deadTime()
-{
-	if(!dead())
-		return 0;
-
-	return mTimer.accumulator();
-}
-
-void Zombie::update(int timeDelta, const NAS2D::Point_2df& playerPosition)
+void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 {
 	mSprite.update(mPosition.x(), mPosition.y());
 
@@ -54,31 +40,24 @@ void Zombie::update(int timeDelta, const NAS2D::Point_2df& playerPosition)
 	// Health bar
 	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
 
-	int startX = mPosition.x() - BoundingBoxHealthMeter.width() / 2;
-	int healthWidth = BoundingBoxHealthMeter.width() * (static_cast<float>(mHealth) / static_cast<float>(mMaxHealth));
+	int startX = static_cast<int>(mPosition.x()) - BoundingBoxHealthMeter.width() / 2;
+	int healthWidth = (BoundingBoxHealthMeter.width() * mHealth) / mMaxHealth;
 
-	r.drawBoxFilled(startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2, 0, 0, 0);
-	r.drawBoxFilled(startX, mHeadRect.y() - 5, healthWidth, 2, 255, 255, 0);
+	r.drawBoxFilled(NAS2D::Rectangle{startX, mHeadRect.y() - 5, BoundingBoxHealthMeter.width(), 2}, NAS2D::Color::Black);
+	r.drawBoxFilled(NAS2D::Rectangle{startX, mHeadRect.y() - 5, healthWidth, 2}, NAS2D::Color::Yellow);
 
-	r.drawBox(mHeadRect, 255, 255, 255);
-	r.drawBox(mBodyRect, 255, 255, 255);
+	r.drawBox(mHeadRect, NAS2D::Color::White);
+	r.drawBox(mBodyRect, NAS2D::Color::White);
 }
 
 
-void Zombie::doMove(int timeDelta)
+bool Zombie::hit(NAS2D::Point_2d pt)
 {
-	auto dir = NAS2D::getDirectionVector(mDirection);
-
-	mPosition.x() += (dir.x() * (timeDelta / 1000.0f)) * mSpeed;
-	mPosition.y() += (dir.y() * (timeDelta / 1000.0f)) * mSpeed;
+	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
 }
 
 
-void Zombie::setAnimationState()
-{}
-
-
-void Zombie::damage(int d, const NAS2D::Point_2d& pt)
+void Zombie::damage(int d, NAS2D::Point_2d pt)
 {
 	if(dead())
 		return;
@@ -105,3 +84,25 @@ void Zombie::damage(int d, const NAS2D::Point_2d& pt)
 		mTimer.reset(); // reset timer so we know how long it's been since the zombie died.
 	}
 }
+
+
+unsigned int Zombie::deadTime()
+{
+	if(!dead())
+		return 0;
+
+	return mTimer.accumulator();
+}
+
+
+void Zombie::doMove(int timeDelta)
+{
+	auto dir = NAS2D::getDirectionVector(mDirection);
+
+	mPosition.x() += (dir.x() * (timeDelta / 1000.0f)) * mSpeed;
+	mPosition.y() += (dir.y() * (timeDelta / 1000.0f)) * mSpeed;
+}
+
+
+void Zombie::setAnimationState()
+{}
