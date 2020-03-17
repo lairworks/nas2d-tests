@@ -10,7 +10,7 @@ constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -5
 
 
 Zombie::Zombie(NAS2D::Point_2df position, float speed) :
-	mSprite("zombie_0.xml"),
+	mSprite("zombie.xml"),
 	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
