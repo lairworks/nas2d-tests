@@ -19,7 +19,7 @@ Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 	mBodyRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize)),
 	mHeadRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize))
 {
-	mSprite.play("WalkWest");
+	mSprite.play("Walk");
 }
 
 
@@ -62,7 +62,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	if(mHeadRect.contains(pt))
 	{
 		mHealth = 0;
-		mSprite.play("Dead2West");
+		mSprite.play("Dead");
 		mDeadTimer.reset();
 		return;
 	}
@@ -71,7 +71,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	if(mHealth <= 0)
 	{
 		mHealth = 0;
-		mSprite.play("Dead1West");
+		mSprite.play("Dead");
 		mDeadTimer.reset();
 	}
 }
