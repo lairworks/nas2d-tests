@@ -6,7 +6,7 @@ constexpr auto BodyOffset = NAS2D::Vector<int>{-10, -40};
 constexpr auto HeadSize = NAS2D::Vector<int>{8, 8};
 constexpr auto HeadOffset = NAS2D::Vector<int>{-7, -50};
 constexpr auto HealthMeterSize = NAS2D::Vector<int>{24, 2};
-constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -12};
+constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -55};
 
 
 Zombie::Zombie(NAS2D::Point_2df position, float speed) :
