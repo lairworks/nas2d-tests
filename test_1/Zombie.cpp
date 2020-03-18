@@ -39,13 +39,13 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	mHeadRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize);
 
 	// Health bar
-	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 
-	r.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, HealthMeterSize), NAS2D::Color::Black);
-	r.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, NAS2D::Vector<int>{HealthMeterSize.x * mHealth / mMaxHealth, HealthMeterSize.y}), NAS2D::Color::Yellow);
+	renderer.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, HealthMeterSize), NAS2D::Color::Black);
+	renderer.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, NAS2D::Vector<int>{HealthMeterSize.x * mHealth / mMaxHealth, HealthMeterSize.y}), NAS2D::Color::Yellow);
 
-	r.drawBox(mHeadRect, NAS2D::Color::White);
-	r.drawBox(mBodyRect, NAS2D::Color::White);
+	renderer.drawBox(mHeadRect, NAS2D::Color::White);
+	renderer.drawBox(mBodyRect, NAS2D::Color::White);
 }
 
 

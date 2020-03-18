@@ -100,8 +100,8 @@ void GameState::doShoot()
 		}
 	}
 
-	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
-	r.drawImageToImage(mBulletHole, mBackground, mBulletPoint);
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
+	renderer.drawImageToImage(mBulletHole, mBackground, mBulletPoint);
 }
 
 
