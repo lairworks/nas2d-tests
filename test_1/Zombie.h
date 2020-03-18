@@ -21,8 +21,6 @@ public:
 	unsigned int deadTime();
 
 private:
-
-	void doMove(int timeDelta);
 	void setAnimationState();
 
 	NAS2D::Timer mTimer; /**< Timer */
