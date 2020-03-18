@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef __ZOMBIE__
-#define __ZOMBIE__
-
 #include "NAS2D/NAS2D.h"
 
 
@@ -36,6 +33,3 @@ private:
 	NAS2D::Rectangle_2d mBodyRect; /**< Area of the Zombie. */
 	NAS2D::Rectangle_2d mHeadRect; /**< Area of the Zombie. */
 };
-
-
-#endif
