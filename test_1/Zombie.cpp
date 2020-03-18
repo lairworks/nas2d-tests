@@ -97,7 +97,7 @@ void Zombie::doMove(int timeDelta)
 {
 	auto dir = NAS2D::getDirectionVector(mDirection);
 
-	mPosition += dir * (timeDelta * mSpeed / 1000.0f);
+	mPosition += dir * (timeDelta * mSpeed);
 }
 
 

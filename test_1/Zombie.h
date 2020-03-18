@@ -33,7 +33,7 @@ private:
 	int mMaxHealth; /**< Zombie's max health. */
 
 	float mDirection; /**< Zombie's facing direction. */
-	float mSpeed; /**< Zombie's speed. */
+	float mSpeed; /**< Zombie's speed in pixels per update. */
 
 	NAS2D::Rectangle_2d mBodyRect; /**< Area of the Zombie. */
 	NAS2D::Rectangle_2d mHeadRect; /**< Area of the Zombie. */
