@@ -38,14 +38,13 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize);
 	mHeadRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize);
 
-	// Health bar
-	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 
-	r.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, HealthMeterSize), NAS2D::Color::Black);
-	r.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, NAS2D::Vector<int>{HealthMeterSize.x * mHealth / mMaxHealth, HealthMeterSize.y}), NAS2D::Color::Yellow);
+	renderer.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, HealthMeterSize), NAS2D::Color::Black);
+	renderer.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, NAS2D::Vector<int>{HealthMeterSize.x * mHealth / mMaxHealth, HealthMeterSize.y}), NAS2D::Color::Yellow);
 
-	r.drawBox(mHeadRect, NAS2D::Color::White);
-	r.drawBox(mBodyRect, NAS2D::Color::White);
+	renderer.drawBox(mHeadRect, NAS2D::Color::White);
+	renderer.drawBox(mBodyRect, NAS2D::Color::White);
 }
 
 
@@ -60,26 +59,20 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	if(dead())
 		return;
 
-	if(!dead())
+	if(mHeadRect.contains(pt))
 	{
-		if(mHeadRect.contains(pt))
-		{
-			mHealth = 0;
-			mSprite.play("Dead2West");
-			mTimer.reset();
-			return;
-		}
-		else
-		{
-			mHealth -= d;
-		}
+		mHealth = 0;
+		mSprite.play("Dead2West");
+		mDeadTimer.reset();
+		return;
 	}
 
+	mHealth -= d;
 	if(mHealth <= 0)
 	{
 		mHealth = 0;
 		mSprite.play("Dead1West");
-		mTimer.reset(); // reset timer so we know how long it's been since the zombie died.
+		mDeadTimer.reset();
 	}
 }
 
@@ -89,5 +82,5 @@ unsigned int Zombie::deadTime()
 	if(!dead())
 		return 0;
 
-	return mTimer.accumulator();
+	return mDeadTimer.accumulator();
 }

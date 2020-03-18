@@ -1,5 +1,4 @@
-#ifndef __ZOMBIE__
-#define __ZOMBIE__
+#pragma once
 
 #include "NAS2D/NAS2D.h"
 
@@ -21,7 +20,7 @@ public:
 	unsigned int deadTime();
 
 private:
-	NAS2D::Timer mTimer; /**< Timer */
+	NAS2D::Timer mDeadTimer; /**< Timer */
 	NAS2D::Sprite mSprite; /**< Zombie Sprite. */
 	NAS2D::Point_2df mPosition; /**< Zombie's position. */
 
@@ -34,6 +33,3 @@ private:
 	NAS2D::Rectangle_2d mBodyRect; /**< Area of the Zombie. */
 	NAS2D::Rectangle_2d mHeadRect; /**< Area of the Zombie. */
 };
-
-
-#endif
