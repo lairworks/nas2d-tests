@@ -32,7 +32,7 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 
 	// Ultra basic bee-line AI
 	mDirection = NAS2D::angleFromPoints(mPosition.x(), mPosition.y(), playerPosition.x(), playerPosition.y());
-	doMove(timeDelta);
+	mPosition += NAS2D::getDirectionVector(mDirection) * (timeDelta * mSpeed);
 
 	// Update bounding boxes.
 	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize);
@@ -91,16 +91,3 @@ unsigned int Zombie::deadTime()
 
 	return mTimer.accumulator();
 }
-
-
-void Zombie::doMove(int timeDelta)
-{
-	auto dir = NAS2D::getDirectionVector(mDirection);
-
-	mPosition.x() += (dir.x() * (timeDelta / 1000.0f)) * mSpeed;
-	mPosition.y() += (dir.y() * (timeDelta / 1000.0f)) * mSpeed;
-}
-
-
-void Zombie::setAnimationState()
-{}

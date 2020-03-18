@@ -131,7 +131,7 @@ void GameState::handlePlayerAction()
 void GameState::spawnSwarm()
 {
 	for(size_t i = 0; i < mZombieSpawnCount; i++)
-		mZombies.push_back(Zombie{NAS2D::Point<float>{static_cast<float>(i) * 200, -20}, 15});
+		mZombies.push_back(Zombie{NAS2D::Point<float>{static_cast<float>(i) * 200, -20}, 0.015});
 
 	mZombieSpawnCount += 2;
 }

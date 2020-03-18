@@ -21,10 +21,6 @@ public:
 	unsigned int deadTime();
 
 private:
-
-	void doMove(int timeDelta);
-	void setAnimationState();
-
 	NAS2D::Timer mTimer; /**< Timer */
 	NAS2D::Sprite mSprite; /**< Zombie Sprite. */
 	NAS2D::Point_2df mPosition; /**< Zombie's position. */
@@ -33,7 +29,7 @@ private:
 	int mMaxHealth; /**< Zombie's max health. */
 
 	float mDirection; /**< Zombie's facing direction. */
-	float mSpeed; /**< Zombie's speed. */
+	float mSpeed; /**< Zombie's speed in pixels per update. */
 
 	NAS2D::Rectangle_2d mBodyRect; /**< Area of the Zombie. */
 	NAS2D::Rectangle_2d mHeadRect; /**< Area of the Zombie. */
