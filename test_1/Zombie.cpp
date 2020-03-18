@@ -38,7 +38,6 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize);
 	mHeadRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize);
 
-	// Health bar
 	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	renderer.drawBoxFilled(NAS2D::Rectangle<float>::Create(mPosition + HealthMeterOffset, HealthMeterSize), NAS2D::Color::Black);
@@ -73,7 +72,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	{
 		mHealth = 0;
 		mSprite.play("Dead1West");
-		mDeadTimer.reset(); // reset timer so we know how long it's been since the zombie died.
+		mDeadTimer.reset();
 	}
 }
 
