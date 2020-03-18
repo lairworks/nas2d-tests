@@ -91,7 +91,3 @@ unsigned int Zombie::deadTime()
 
 	return mTimer.accumulator();
 }
-
-
-void Zombie::setAnimationState()
-{}
