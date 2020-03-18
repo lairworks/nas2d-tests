@@ -21,7 +21,7 @@ public:
 	unsigned int deadTime();
 
 private:
-	NAS2D::Timer mTimer; /**< Timer */
+	NAS2D::Timer mDeadTimer; /**< Timer */
 	NAS2D::Sprite mSprite; /**< Zombie Sprite. */
 	NAS2D::Point_2df mPosition; /**< Zombie's position. */
 

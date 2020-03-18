@@ -64,7 +64,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	{
 		mHealth = 0;
 		mSprite.play("Dead2West");
-		mTimer.reset();
+		mDeadTimer.reset();
 		return;
 	}
 
@@ -73,7 +73,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	{
 		mHealth = 0;
 		mSprite.play("Dead1West");
-		mTimer.reset(); // reset timer so we know how long it's been since the zombie died.
+		mDeadTimer.reset(); // reset timer so we know how long it's been since the zombie died.
 	}
 }
 
@@ -83,5 +83,5 @@ unsigned int Zombie::deadTime()
 	if(!dead())
 		return 0;
 
-	return mTimer.accumulator();
+	return mDeadTimer.accumulator();
 }
