@@ -60,19 +60,16 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	if(dead())
 		return;
 
-	if(!dead())
+	if(mHeadRect.contains(pt))
 	{
-		if(mHeadRect.contains(pt))
-		{
-			mHealth = 0;
-			mSprite.play("Dead2West");
-			mTimer.reset();
-			return;
-		}
-		else
-		{
-			mHealth -= d;
-		}
+		mHealth = 0;
+		mSprite.play("Dead2West");
+		mTimer.reset();
+		return;
+	}
+	else
+	{
+		mHealth -= d;
 	}
 
 	if(mHealth <= 0)
