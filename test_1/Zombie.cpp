@@ -67,11 +67,8 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 		mTimer.reset();
 		return;
 	}
-	else
-	{
-		mHealth -= d;
-	}
 
+	mHealth -= d;
 	if(mHealth <= 0)
 	{
 		mHealth = 0;
