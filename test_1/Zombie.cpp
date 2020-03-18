@@ -95,9 +95,7 @@ unsigned int Zombie::deadTime()
 
 void Zombie::doMove(int timeDelta)
 {
-	auto dir = NAS2D::getDirectionVector(mDirection);
-
-	mPosition += dir * (timeDelta * mSpeed);
+	mPosition += NAS2D::getDirectionVector(mDirection) * (timeDelta * mSpeed);
 }
 
 
