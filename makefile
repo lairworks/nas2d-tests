@@ -5,8 +5,8 @@
 include makefile-generic.mk
 
 
-# Set default compiler toolchain (can still override from command line)
-config := clang
+# Set compiler toolchain (default, gcc, clang, mingw)
+config := default
 
 
 SDLCONFIG := sdl2-config
