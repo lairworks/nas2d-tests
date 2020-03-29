@@ -54,7 +54,7 @@ NAS2D::State* Test2State::update()
 	renderer.drawBox(NAS2D::Rectangle{10, 50, 40, 40}, NAS2D::Color::White);
 	renderer.drawBoxFilled(NAS2D::Rectangle{70, 50, 40, 40}, NAS2D::Color{200, 0, 0});
 
-	renderer.drawGradient(NAS2D::Rectangle{10, 100, 100, 100}, NAS2D::Color::Blue, NAS2D::Color::Bright_green, NAS2D::Color::Red, NAS2D::Color::Magenta);
+	renderer.drawGradient(NAS2D::Rectangle{10, 100, 100, 100}, NAS2D::Color::Blue, NAS2D::Color::Green, NAS2D::Color::Red, NAS2D::Color::Magenta);
 
 	renderer.drawCircle(NAS2D::Point{150, 70}, 20, NAS2D::Color{0, 200, 0, 255}, 16);
 	renderer.drawCircle(NAS2D::Point{150, 120}, 20, NAS2D::Color{0, 200, 0, 255}, 16, NAS2D::Vector<float>{0.5, 1.0});
