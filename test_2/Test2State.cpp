@@ -47,7 +47,7 @@ NAS2D::State* Test2State::update()
 {
 	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 
-	renderer.clearScreen(NAS2D::Color::Grey);
+	renderer.clearScreen(NAS2D::Color::Gray);
 
 	renderer.drawText(mFont, "NAS2D Renderer Test", NAS2D::Point{10, 10}, NAS2D::Color::White);
 
