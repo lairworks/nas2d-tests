@@ -49,10 +49,10 @@ private:
 	NAS2D::Font mFont; /**< Font used for interface and information text. */
 	NAS2D::Font mAnnounceFont; /**< Font used for displaying the announcement. */
 
-	NAS2D::Point_2d mPlayerPosition;	/**< Position of the 'player'. */
+	NAS2D::Point<int> mPlayerPosition;	/**< Position of the 'player'. */
 
-	NAS2D::Point_2d mMouseCoords; /**< Mouse coordinates. */
-	NAS2D::Point_2d mBulletPoint; /**< */
+	NAS2D::Point<int> mMouseCoords; /**< Mouse coordinates. */
+	NAS2D::Point<int> mBulletPoint; /**< */
 
 	NAS2D::Image mPointer; /**< Pointer image. */
 	NAS2D::Image mBackground; /**< Background buffer. */

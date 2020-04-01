@@ -9,7 +9,7 @@ constexpr auto HealthMeterSize = NAS2D::Vector<int>{24, 2};
 constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -25};
 
 
-Zombie::Zombie(NAS2D::Point_2df position, float speed) :
+Zombie::Zombie(NAS2D::Point<float> position, float speed) :
 	mSprite("zombie.xml"),
 	mPosition(position),
 	mHealth(100),
@@ -23,9 +23,9 @@ Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 }
 
 
-void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
+void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 {
-	mSprite.update(mPosition.x(), mPosition.y());
+	mSprite.update(mPosition);
 
 	if(dead())
 		return;
@@ -48,13 +48,13 @@ void Zombie::update(int timeDelta, NAS2D::Point_2df playerPosition)
 }
 
 
-bool Zombie::hit(NAS2D::Point_2d pt)
+bool Zombie::hit(NAS2D::Point<int> pt)
 {
 	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
 }
 
 
-void Zombie::damage(int d, NAS2D::Point_2d pt)
+void Zombie::damage(int d, NAS2D::Point<int> pt)
 {
 	if(dead())
 		return;
