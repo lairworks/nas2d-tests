@@ -6,12 +6,12 @@
 class Zombie
 {
 public:
-	Zombie(NAS2D::Point_2df position, float speed);
+	Zombie(NAS2D::Point<float> position, float speed);
 
-	void update(int timeDelta, NAS2D::Point_2df playerPosition);
+	void update(int timeDelta, NAS2D::Point<float> playerPosition);
 
 	float rotation() const { return mSprite.rotation(); }
-	NAS2D::Point_2df position() const { return mPosition; }
+	NAS2D::Point<float> position() const { return mPosition; }
 	bool hit(NAS2D::Point_2d pt);
 
 	void damage(int d, NAS2D::Point_2d pt);
@@ -22,7 +22,7 @@ public:
 private:
 	NAS2D::Timer mDeadTimer; /**< Timer */
 	NAS2D::Sprite mSprite; /**< Zombie Sprite. */
-	NAS2D::Point_2df mPosition; /**< Zombie's position. */
+	NAS2D::Point<float> mPosition; /**< Zombie's position. */
 
 	int mHealth; /**< Zombie's health. */
 	int mMaxHealth; /**< Zombie's max health. */
