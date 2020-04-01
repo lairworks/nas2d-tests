@@ -12,9 +12,9 @@ public:
 
 	float rotation() const { return mSprite.rotation(); }
 	NAS2D::Point<float> position() const { return mPosition; }
-	bool hit(NAS2D::Point_2d pt);
+	bool hit(NAS2D::Point<int> pt);
 
-	void damage(int d, NAS2D::Point_2d pt);
+	void damage(int d, NAS2D::Point<int> pt);
 	int health() const { return mHealth; }
 	bool dead() const { return mHealth <= 0; }
 	unsigned int deadTime();
@@ -30,6 +30,6 @@ private:
 	float mDirection; /**< Zombie's facing direction. */
 	float mSpeed; /**< Zombie's speed in pixels per update. */
 
-	NAS2D::Rectangle_2d mBodyRect; /**< Area of the Zombie. */
-	NAS2D::Rectangle_2d mHeadRect; /**< Area of the Zombie. */
+	NAS2D::Rectangle<int> mBodyRect; /**< Area of the Zombie. */
+	NAS2D::Rectangle<int> mHeadRect; /**< Area of the Zombie. */
 };

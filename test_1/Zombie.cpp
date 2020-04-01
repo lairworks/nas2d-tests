@@ -48,13 +48,13 @@ void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 }
 
 
-bool Zombie::hit(NAS2D::Point_2d pt)
+bool Zombie::hit(NAS2D::Point<int> pt)
 {
 	return mBodyRect.contains(pt) || mHeadRect.contains(pt);
 }
 
 
-void Zombie::damage(int d, NAS2D::Point_2d pt)
+void Zombie::damage(int d, NAS2D::Point<int> pt)
 {
 	if(dead())
 		return;
