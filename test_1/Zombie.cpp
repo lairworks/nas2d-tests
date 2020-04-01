@@ -1,16 +1,16 @@
 #include "Zombie.h"
 
 
-constexpr auto BodySize = NAS2D::Vector<int>{14, 46};
-constexpr auto BodyOffset = NAS2D::Vector<int>{-10, -40};
-constexpr auto HeadSize = NAS2D::Vector<int>{8, 8};
-constexpr auto HeadOffset = NAS2D::Vector<int>{-7, -50};
+constexpr auto BodySize = NAS2D::Vector<int>{20, 26};
+constexpr auto BodyOffset = NAS2D::Vector<int>{-10, -10};
+constexpr auto HeadSize = NAS2D::Vector<int>{6, 6};
+constexpr auto HeadOffset = NAS2D::Vector<int>{-3, -7};
 constexpr auto HealthMeterSize = NAS2D::Vector<int>{24, 2};
-constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -55};
+constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -25};
 
 
 Zombie::Zombie(NAS2D::Point_2df position, float speed) :
-	mSprite("zombie_0.xml"),
+	mSprite("zombie.xml"),
 	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
@@ -19,7 +19,7 @@ Zombie::Zombie(NAS2D::Point_2df position, float speed) :
 	mBodyRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize)),
 	mHeadRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize))
 {
-	mSprite.play("WalkWest");
+	mSprite.play("Walk");
 }
 
 
@@ -62,7 +62,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	if(mHeadRect.contains(pt))
 	{
 		mHealth = 0;
-		mSprite.play("Dead2West");
+		mSprite.play("Dead");
 		mDeadTimer.reset();
 		return;
 	}
@@ -71,7 +71,7 @@ void Zombie::damage(int d, NAS2D::Point_2d pt)
 	if(mHealth <= 0)
 	{
 		mHealth = 0;
-		mSprite.play("Dead1West");
+		mSprite.play("Dead");
 		mDeadTimer.reset();
 	}
 }
