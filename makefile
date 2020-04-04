@@ -17,11 +17,11 @@ LDFLAGS := -static-libgcc -static-libstdc++ -L nas2d-core/lib/ $($(SDLCONFIG) --
 LDLIBS := -lnas2d -lSDL2 -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lphysfs -lGLEW -lGL
 
 # By default, compile and link both static library and dynamic link library
-all: test1 test2 test3
+all: zombieGame rendererFunctions blendingModes
 
-test1.exe: | nas2d
-test2.exe: | nas2d
-test3.exe: | nas2d
+zombieGame.exe: | nas2d
+rendererFunctions.exe: | nas2d
+blendingModes.exe: | nas2d
 
 .PHONY: nas2d
 nas2d:
@@ -34,6 +34,6 @@ clean-nas2d:
 clean-all-nas2d:
 	+make -C nas2d-core/ clean-all
 
-$(eval $(call DefineCppProject,test1,test1.exe,test_1/))
-$(eval $(call DefineCppProject,test2,test2.exe,test_2/))
-$(eval $(call DefineCppProject,test3,test3.exe,test_3/))
+$(eval $(call DefineCppProject,zombieGame,zombieGame.exe,SampleProjects/ZombieGame/))
+$(eval $(call DefineCppProject,rendererFunctions,rendererFunctions.exe,SampleProjects/RendererFunctions/))
+$(eval $(call DefineCppProject,blendingModes,blendingModes.exe,SampleProjects/BlendingModes/))

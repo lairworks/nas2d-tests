@@ -79,14 +79,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>..\..\nas2d-core\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
-    <IntDir>$(Configuration)_test2\</IntDir>
-    <OutDir>$(SolutionDir)$(Configuration)_test2\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>..\..\nas2d-core\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)$(Configuration)_test2\</OutDir>
-    <IntDir>$(Configuration)_test2\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -101,9 +97,6 @@
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
-    <PostBuildEvent>
-      <Command>copy "$(Configuration)_test2\$(ProjectName).exe" "..\..\$(ProjectName).exe"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -135,9 +128,6 @@
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>copy "$(Configuration)_test2\$(ProjectName).exe" "..\..\$(ProjectName).exe"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -158,15 +148,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\test_2\NAS2D_Test2.cpp" />
-    <ClCompile Include="..\..\test_2\Test2State.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Test2State.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\test_2\Test2State.h" />
+    <ClInclude Include="Test2State.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="NAS2D_Test2.rc" />
+    <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="NAS2D.ico" />

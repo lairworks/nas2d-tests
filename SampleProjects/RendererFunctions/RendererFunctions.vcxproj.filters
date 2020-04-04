@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\test_3\NAS2D_Test3_Blending.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test_3\Test3State.cpp">
+    <ClCompile Include="Test2State.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -12,7 +12,7 @@
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\test_3\Test3State.h">
+    <ClInclude Include="Test2State.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,7 +33,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="NAS2D_Test3.rc">
+    <ResourceCompile Include="resource.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
   </ItemGroup>
