@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D_Test1", "NAS2D_Test1.vcxproj", "{B769C574-0EDE-498C-A85F-62B7F4424D6E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZombieGame", "SampleProjects\ZombieGame\ZombieGame.vcxproj", "{B769C574-0EDE-498C-A85F-62B7F4424D6E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D_Test2", "NAS2D_Test2.vcxproj", "{F02CB1F0-3A75-4C13-B429-9D889A55D035}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RendererFunctions", "SampleProjects\RendererFunctions\RendererFunctions.vcxproj", "{F02CB1F0-3A75-4C13-B429-9D889A55D035}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D_Test3", "NAS2D_Test3.vcxproj", "{2E7E5C58-7820-4DE2-878B-2CF4A96315B7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlendingModes", "SampleProjects\BlendingModes\BlendingModes.vcxproj", "{2E7E5C58-7820-4DE2-878B-2CF4A96315B7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D", "..\..\nas2d-core\proj\vs2019\NAS2D.vcxproj", "{3350562D-6204-42FC-898A-C85FD62E04E8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D", "nas2d-core\proj\vs2019\NAS2D.vcxproj", "{3350562D-6204-42FC-898A-C85FD62E04E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

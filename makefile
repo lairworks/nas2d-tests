@@ -34,6 +34,6 @@ clean-nas2d:
 clean-all-nas2d:
 	+make -C nas2d-core/ clean-all
 
-$(eval $(call DefineCppProject,test1,test1.exe,test_1/))
-$(eval $(call DefineCppProject,test2,test2.exe,test_2/))
-$(eval $(call DefineCppProject,test3,test3.exe,test_3/))
+$(eval $(call DefineCppProject,test1,test1.exe,SampleProjects/ZombieGame/))
+$(eval $(call DefineCppProject,test2,test2.exe,SampleProjects/RendererFunctions/))
+$(eval $(call DefineCppProject,test3,test3.exe,SampleProjects/BlendingModes/))
