@@ -1,15 +1,10 @@
-/proj/vs2019/packages
-/proj/vs2019/Debug
-/proj/vs2019/Debug_test2
-/proj/vs2019/Debug_test3
-/proj/vs2019/Release
-/proj/vs2019/Release_test2
-/proj/vs2019/Release_test3
-/proj/vs2019/x64
-/.build
-/*.dll
-/*.exe
-*.db
+# Linux - Makefile
+/.build/
+*.exe
+
+# Windows - Visual Studio
+Release/
+Debug/
+x64/
+.vs/
 *.user
-*.aps
-.vs
