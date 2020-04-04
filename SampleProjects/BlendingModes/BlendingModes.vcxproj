@@ -146,7 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="NAS2D_Test3_Blending.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Test3State.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -148,7 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="NAS2D_Test2.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Test2State.cpp" />
   </ItemGroup>
   <ItemGroup>
