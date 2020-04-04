@@ -97,9 +97,6 @@
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
-    <PostBuildEvent>
-      <Command>copy "$(Configuration)_test2\$(ProjectName).exe" "..\..\$(ProjectName).exe"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -131,9 +128,6 @@
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>copy "$(Configuration)_test2\$(ProjectName).exe" "..\..\$(ProjectName).exe"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
