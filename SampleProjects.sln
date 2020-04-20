@@ -9,7 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RendererFunctions", "Sample
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlendingModes", "SampleProjects\BlendingModes\BlendingModes.vcxproj", "{2E7E5C58-7820-4DE2-878B-2CF4A96315B7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D", "nas2d-core\proj\vs2019\NAS2D.vcxproj", "{3350562D-6204-42FC-898A-C85FD62E04E8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NAS2D", "nas2d-core\NAS2D\NAS2D.vcxproj", "{3350562D-6204-42FC-898A-C85FD62E04E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -69,19 +69,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\..\nas2d-core\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\nas2d-core;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>..\..\nas2d-core\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\nas2d-core;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>..\..\nas2d-core\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\nas2d-core;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\nas2d-core\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\nas2d-core;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -160,7 +160,7 @@
     <Image Include="NAS2D.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nas2d-core\proj\vs2019\NAS2D.vcxproj">
+    <ProjectReference Include="..\..\nas2d-core\NAS2D\NAS2D.vcxproj">
       <Project>{3350562d-6204-42fc-898a-c85fd62e04e8}</Project>
     </ProjectReference>
   </ItemGroup>
