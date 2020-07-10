@@ -31,7 +31,7 @@ void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 		return;
 
 	// Ultra basic bee-line AI
-	mDirection = NAS2D::angleFromPoints(mPosition.x(), mPosition.y(), playerPosition.x(), playerPosition.y());
+	mDirection = NAS2D::angleFromPoints(mPosition.x, mPosition.y, playerPosition.x, playerPosition.y);
 	mPosition += NAS2D::getDirectionVector(mDirection) * (timeDelta * mSpeed);
 
 	// Update bounding boxes.
