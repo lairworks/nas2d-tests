@@ -82,7 +82,7 @@ NAS2D::State* GameState::update()
 
 void GameState::doShoot()
 {
-	mBulletPoint = {(mMouseCoords.x() - mBulletHole.width() / 2) + jitter(), (mMouseCoords.y() -  mBulletHole.height() / 2) + jitter()};
+	mBulletPoint = mMouseCoords - mBulletHole.size() / 2 + NAS2D::Vector{jitter(), jitter()};
 
 	NAS2D::Utility<NAS2D::Mixer>::get().playSound(mGunFire);
 
