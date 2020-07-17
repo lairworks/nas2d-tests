@@ -37,11 +37,11 @@ NAS2D::State* Test3State::update()
 
 	static int counter = 0;
 
-	if(mCausticsTimer.accumulator() > CausticsSpeed)
+	if (mCausticsTimer.accumulator() > CausticsSpeed)
 	{
 		mCausticsTimer.reset();
 		counter++;
-		if(counter >= 16)
+		if (counter >= 16)
 			counter = 0;
 	}
 
@@ -54,7 +54,7 @@ NAS2D::State* Test3State::update()
 		}
 	}
 
-	if(mMultiply)
+	if (mMultiply)
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
 	for(int col = 0; col < viewSizePixels.y; col += TileSize)
 	{
@@ -63,7 +63,7 @@ NAS2D::State* Test3State::update()
 			r.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}.to<float>(), NAS2D::Point{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize}.to<float>(), NAS2D::Vector<float>{TileSize, TileSize});
 		}
 	}
-	if(mMultiply)
+	if (mMultiply)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
@@ -78,43 +78,43 @@ NAS2D::State* Test3State::update()
 
 void Test3State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
 {
-	if(repeat)
+	if (repeat)
 		return;
 
-	if(key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
 		NAS2D::postQuitEvent();
 
-	if(key == NAS2D::EventHandler::KeyCode::KEY_1)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_1)
 	{
 		mCurrentCaustics = &mCaustics1;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
 	}
-	if(key == NAS2D::EventHandler::KeyCode::KEY_2)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
 	}
-	if(key == NAS2D::EventHandler::KeyCode::KEY_3)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
 	}
-	if(key == NAS2D::EventHandler::KeyCode::KEY_4)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
 	}
-	if(key == NAS2D::EventHandler::KeyCode::KEY_5)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
 	}
-	if(key == NAS2D::EventHandler::KeyCode::KEY_6)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Caustics Only";

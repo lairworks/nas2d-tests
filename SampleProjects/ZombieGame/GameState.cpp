@@ -88,10 +88,10 @@ void GameState::doShoot()
 
 	for(size_t i = 0; i < mZombies.size(); i++)
 	{
-		if(mZombies[i].hit(mBulletPoint))
+		if (mZombies[i].hit(mBulletPoint))
 		{
 			mZombies[i].damage(10, mBulletPoint);
-			if(mZombies[i].dead())
+			if (mZombies[i].dead())
 			{
 				mDeadZombies.push_back(mZombies[i]);
 				mZombies.erase(mZombies.begin() + i);
@@ -113,7 +113,7 @@ void GameState::updatePlayer()
 
 void GameState::handlePlayerAction()
 {
-	if(mLeftButtonDown)
+	if (mLeftButtonDown)
 	{
 		while(mGunTimer.accumulator() >= GunDelayTime)
 		{
@@ -142,7 +142,7 @@ void GameState::updateZombies()
 	{
 		mDeadZombies[i].update(0, mPlayerPosition);
 
-		if(mDeadZombies[i].deadTime() >= ZombieDeadTimeout)
+		if (mDeadZombies[i].deadTime() >= ZombieDeadTimeout)
 			mDeadZombies.erase(mDeadZombies.begin() + i);
 	}
 
@@ -155,21 +155,21 @@ void GameState::updateZombies()
 
 void GameState::onKeyDown(NAS2D::EventHandler::KeyCode /*key*/, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
 {
-	if(repeat)
+	if (repeat)
 		return;
 }
 
 
 void GameState::onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/)
 {
-	if(key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+	if (key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
 		NAS2D::postQuitEvent();
 }
 
 
 void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if(button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
+	if (button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mGunTimer.reset();
 		mLeftButtonDown = true;
@@ -180,7 +180,7 @@ void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, 
 
 void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if(button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
+	if (button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
 	{
 		mLeftButtonDown = false;
 	}
