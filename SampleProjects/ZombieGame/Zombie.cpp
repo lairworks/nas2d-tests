@@ -14,7 +14,6 @@ Zombie::Zombie(NAS2D::Point<float> position, float speed) :
 	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
-	mDirection(0.0f),
 	mSpeed(speed),
 	mBodyRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize)),
 	mHeadRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize))
@@ -31,8 +30,8 @@ void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 		return;
 
 	// Ultra basic bee-line AI
-	mDirection = NAS2D::angleFromPoints(mPosition.x, mPosition.y, playerPosition.x, playerPosition.y);
-	mPosition += NAS2D::getDirectionVector(mDirection) * (timeDelta * mSpeed);
+	const auto direction = NAS2D::angleFromPoints(mPosition.x, mPosition.y, playerPosition.x, playerPosition.y);
+	mPosition += NAS2D::getDirectionVector(direction) * (timeDelta * mSpeed);
 
 	// Update bounding boxes.
 	mBodyRect = NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize);
