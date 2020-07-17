@@ -27,7 +27,7 @@ void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 {
 	mSprite.update(mPosition);
 
-	if(dead())
+	if (dead())
 		return;
 
 	// Ultra basic bee-line AI
@@ -56,10 +56,10 @@ bool Zombie::hit(NAS2D::Point<int> pt)
 
 void Zombie::damage(int d, NAS2D::Point<int> pt)
 {
-	if(dead())
+	if (dead())
 		return;
 
-	if(mHeadRect.contains(pt))
+	if (mHeadRect.contains(pt))
 	{
 		mHealth = 0;
 		mSprite.play("Dead");
@@ -68,7 +68,7 @@ void Zombie::damage(int d, NAS2D::Point<int> pt)
 	}
 
 	mHealth -= d;
-	if(mHealth <= 0)
+	if (mHealth <= 0)
 	{
 		mHealth = 0;
 		mSprite.play("Dead");
@@ -79,7 +79,7 @@ void Zombie::damage(int d, NAS2D::Point<int> pt)
 
 unsigned int Zombie::deadTime()
 {
-	if(!dead())
+	if (!dead())
 		return 0;
 
 	return mDeadTimer.accumulator();
