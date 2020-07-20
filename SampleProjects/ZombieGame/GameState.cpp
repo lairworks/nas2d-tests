@@ -60,16 +60,16 @@ NAS2D::State* GameState::update()
 	updateZombies();
 
 	// Tent shadow and base
-	r.drawImage(mTentShadow, (mPlayerPosition - NAS2D::Vector<int>{256, 100}).to<float>());
-	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 0}).to<float>(), NAS2D::Rectangle{0, 162, 256, 94});
+	r.drawImage(mTentShadow, mPlayerPosition - NAS2D::Vector<int>{256, 100});
+	r.drawSubImage(mTent, mPlayerPosition - NAS2D::Vector<int>{128, 0}, NAS2D::Rectangle{0, 162, 256, 94});
 
 	if (mLeftButtonDown)
 		r.drawLine(mPlayerPosition, mBulletPoint, NAS2D::Color::White, 1);
 
 	// Tent top
-	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 70}).to<float>(), NAS2D::Rectangle{0, 0, 256, 139});
+	r.drawSubImage(mTent, mPlayerPosition - NAS2D::Vector<int>{128, 70}, NAS2D::Rectangle{0, 0, 256, 139});
 
-	r.drawImage(mPointer, (mMouseCoords - NAS2D::Vector<int>{7, 7}).to<float>());
+	r.drawImage(mPointer, mMouseCoords - NAS2D::Vector<int>{7, 7});
 
 	r.drawText(mAnnounceFont, "Zombies are Coming!", NAS2D::Point{r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10}, NAS2D::Color::White);
 	r.drawText(mFont, "Defend Yourself!", NAS2D::Point{r.center_x() - mFont.width("Defend Yourself!") / 2, 75}, NAS2D::Color::White);
