@@ -45,12 +45,12 @@ NAS2D::State* Test3State::update()
 			counter = 0;
 	}
 
-	const auto viewSizePixels = r.size().to<int>();
+	const auto viewSizePixels = r.size();
 	for(int col = 0; col < viewSizePixels.y; col += TileSize)
 	{
 		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawImage(mMud, NAS2D::Point{row, col}.to<float>());
+			r.drawImage(mMud, NAS2D::Point{row, col});
 		}
 	}
 
@@ -60,7 +60,7 @@ NAS2D::State* Test3State::update()
 	{
 		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}.to<float>(), NAS2D::Point{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize}.to<float>(), NAS2D::Vector<float>{TileSize, TileSize});
+			r.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}, NAS2D::Rectangle{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize});
 		}
 	}
 	if (mMultiply)
@@ -68,7 +68,7 @@ NAS2D::State* Test3State::update()
 
 
 	r.drawText(mFont, "Blending Demo", NAS2D::Point{5, 5}, NAS2D::Color::White);
-	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", NAS2D::Point{5, 5 + mFont.height()}.to<float>(), NAS2D::Color::White);
+	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", NAS2D::Point{5, 5 + mFont.height()}, NAS2D::Color::White);
 	r.drawText(mSmallFont, mBlendingModeText, NAS2D::Point{r.width() - mSmallFont.width(mBlendingModeText) - 5, 5}, NAS2D::Color::White);
 	r.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point{r.width() - 65, r.height() - mSmallFont.height() - 5}, NAS2D::Color::White);
 
