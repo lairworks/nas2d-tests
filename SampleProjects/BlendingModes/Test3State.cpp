@@ -60,7 +60,7 @@ NAS2D::State* Test3State::update()
 	{
 		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}.to<float>(), NAS2D::Point{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize}.to<float>(), NAS2D::Vector<float>{TileSize, TileSize});
+			r.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}, NAS2D::Rectangle{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize});
 		}
 	}
 	if (mMultiply)

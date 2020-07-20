@@ -61,13 +61,13 @@ NAS2D::State* GameState::update()
 
 	// Tent shadow and base
 	r.drawImage(mTentShadow, (mPlayerPosition - NAS2D::Vector<int>{256, 100}).to<float>());
-	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 0}).to<float>(), NAS2D::Point<float>{0, 162}, NAS2D::Vector<float>{256, 94});
+	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 0}).to<float>(), NAS2D::Rectangle{0, 162, 256, 94});
 
 	if (mLeftButtonDown)
 		r.drawLine(mPlayerPosition, mBulletPoint, NAS2D::Color::White, 1);
 
 	// Tent top
-	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 70}).to<float>(), NAS2D::Point<float>{0, 0}, NAS2D::Vector<float>{256, 139});
+	r.drawSubImage(mTent, (mPlayerPosition - NAS2D::Vector<int>{128, 70}).to<float>(), NAS2D::Rectangle{0, 0, 256, 139});
 
 	r.drawImage(mPointer, (mMouseCoords - NAS2D::Vector<int>{7, 7}).to<float>());
 

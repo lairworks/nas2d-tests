@@ -39,7 +39,7 @@ void Test2State::initialize()
 	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 	renderer.showSystemPointer(true);
 	renderer.window_icon("NAS2D.ico");
-	renderer.minimum_size(800, 600);
+	renderer.minimumSize({800, 600});
 }
 
 
@@ -63,8 +63,8 @@ NAS2D::State* Test2State::update()
 	renderer.drawImage(mImage1, NAS2D::Point{200, 20}, 0);
 	renderer.drawImageRotated(mImage1, NAS2D::Point{500, 20}, (mTimer.tick() / 20.0f));
 
-	renderer.drawSubImage(mImage1, NAS2D::Point{10, 250}, NAS2D::Point{0, 0}, NAS2D::Vector<float>{64, 64});
-	renderer.drawSubImageRotated(mImage1, NAS2D::Point{100, 250}, NAS2D::Point{0, 0}, NAS2D::Vector<float>{64, 64}, (mTimer.tick() / 20.0f));
+	renderer.drawSubImage(mImage1, NAS2D::Point{10, 250}, NAS2D::Rectangle{0, 0, 64, 64});
+	renderer.drawSubImageRotated(mImage1, NAS2D::Point{100, 250}, NAS2D::Rectangle{0, 0, 64, 64}, (mTimer.tick() / 20.0f));
 
 	renderer.drawImageRotated(mImage1, NAS2D::Point{500, 300}, -(mTimer.tick() / 20.0f));
 
