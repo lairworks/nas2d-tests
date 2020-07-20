@@ -77,7 +77,7 @@ NAS2D::State* Test2State::update()
 	renderer.drawImageRepeated(mArrows, NAS2D::Rectangle{100, 330, 250, 64});
 
 	renderer.clipRect(NAS2D::Rectangle{400, 330, 128, 128});
-	renderer.drawImageRepeated(mArrows, NAS2D::Rectangle<float>{0, 0, renderer.width(), renderer.height()});
+	renderer.drawImageRepeated(mArrows, NAS2D::Rectangle<int>::Create({0, 0}, renderer.size()));
 	renderer.clipRectClear();
 
 	renderer.drawImage(mArrows, NAS2D::Point{500, 500}, 2.0f * sin(-(mTimer.tick() / 200.0f)));
@@ -90,7 +90,7 @@ NAS2D::State* Test2State::update()
 	if (renderer.resizeable()) renderer.drawText(mFont, "Resizeable", NAS2D::Point{10, 520}, NAS2D::Color::White);
 	else renderer.drawText(mFont, "Not Resizeable", NAS2D::Point{10, 520}, NAS2D::Color::White);
 
-	renderer.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", NAS2D::Point<float>{10, renderer.height() - 10 - mFont.height()}, NAS2D::Color::White);
+	renderer.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", NAS2D::Point{10, renderer.height() - 10 - mFont.height()}, NAS2D::Color::White);
 
 	return this;
 }
