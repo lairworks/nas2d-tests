@@ -90,7 +90,7 @@ NAS2D::State* Test2State::update()
 	if (renderer.resizeable()) renderer.drawText(mFont, "Resizeable", NAS2D::Point{10, 520}, NAS2D::Color::White);
 	else renderer.drawText(mFont, "Not Resizeable", NAS2D::Point{10, 520}, NAS2D::Color::White);
 
-	renderer.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", NAS2D::Point{10, renderer.height() - 10 - mFont.height()}, NAS2D::Color::White);
+	renderer.drawText(mFont, "ESC: Exit | F1: Toggle Fullscreen | F2: Toggle Resizeable", NAS2D::Point{10, renderer.size().y - 10 - mFont.height()}, NAS2D::Color::White);
 
 	return this;
 }
