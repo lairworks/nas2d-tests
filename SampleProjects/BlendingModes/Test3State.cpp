@@ -33,7 +33,7 @@ void Test3State::initialize()
 
 NAS2D::State* Test3State::update()
 {
-	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 
 	static int counter = 0;
 
@@ -45,12 +45,12 @@ NAS2D::State* Test3State::update()
 			counter = 0;
 	}
 
-	const auto viewSizePixels = r.size();
+	const auto viewSizePixels = renderer.size();
 	for(int col = 0; col < viewSizePixels.y; col += TileSize)
 	{
 		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawImage(mMud, NAS2D::Point{row, col});
+			renderer.drawImage(mMud, NAS2D::Point{row, col});
 		}
 	}
 
@@ -60,17 +60,17 @@ NAS2D::State* Test3State::update()
 	{
 		for(int row = 0; row < viewSizePixels.x; row += TileSize)
 		{
-			r.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}, NAS2D::Rectangle{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize});
+			renderer.drawSubImage(*mCurrentCaustics, NAS2D::Point{row, col}, NAS2D::Rectangle{(counter % 4) * TileSize, ((counter % 16) / 4) * TileSize, TileSize, TileSize});
 		}
 	}
 	if (mMultiply)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
-	r.drawText(mFont, "Blending Demo", NAS2D::Point{5, 5}, NAS2D::Color::White);
-	r.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", NAS2D::Point{5, 5 + mFont.height()}, NAS2D::Color::White);
-	r.drawText(mSmallFont, mBlendingModeText, NAS2D::Point{r.size().x - mSmallFont.width(mBlendingModeText) - 5, 5}, NAS2D::Color::White);
-	r.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point{r.size().x - 65, r.size().y - mSmallFont.height() - 5}, NAS2D::Color::White);
+	renderer.drawText(mFont, "Blending Demo", NAS2D::Point{5, 5}, NAS2D::Color::White);
+	renderer.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", NAS2D::Point{5, 5 + mFont.height()}, NAS2D::Color::White);
+	renderer.drawText(mSmallFont, mBlendingModeText, NAS2D::Point{renderer.size().x - mSmallFont.width(mBlendingModeText) - 5, 5}, NAS2D::Color::White);
+	renderer.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point{renderer.size().x - 65, renderer.size().y - mSmallFont.height() - 5}, NAS2D::Color::White);
 
 	return this;
 }
