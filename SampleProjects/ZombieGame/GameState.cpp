@@ -71,8 +71,8 @@ NAS2D::State* GameState::update()
 
 	r.drawImage(mPointer, mMouseCoords - NAS2D::Vector<int>{7, 7});
 
-	r.drawText(mAnnounceFont, "Zombies are Coming!", NAS2D::Point{r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10}, NAS2D::Color::White);
-	r.drawText(mFont, "Defend Yourself!", NAS2D::Point{r.center_x() - mFont.width("Defend Yourself!") / 2, 75}, NAS2D::Color::White);
+	r.drawText(mAnnounceFont, "Zombies are Coming!", NAS2D::Point{r.center().x - mAnnounceFont.width("Zombies are Coming!") / 2, 10}, NAS2D::Color::White);
+	r.drawText(mFont, "Defend Yourself!", NAS2D::Point{r.center().x - mFont.width("Defend Yourself!") / 2, 75}, NAS2D::Color::White);
 	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point<float>{10, 100}, NAS2D::Color::White);
 	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), NAS2D::Point<float>{10, 120}, NAS2D::Color::White);
 
