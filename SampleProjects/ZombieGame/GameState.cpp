@@ -51,30 +51,30 @@ void GameState::initialize()
 
 NAS2D::State* GameState::update()
 {
-	auto& r = NAS2D::Utility<NAS2D::Renderer>::get();
-	r.clearScreen(NAS2D::Color{50, 150, 200});
-	r.drawImage(mBackground, NAS2D::Point<float>{0, 0});
+	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
+	renderer.clearScreen(NAS2D::Color{50, 150, 200});
+	renderer.drawImage(mBackground, NAS2D::Point<float>{0, 0});
 
 	updateTimer();
 	updatePlayer();
 	updateZombies();
 
 	// Tent shadow and base
-	r.drawImage(mTentShadow, mPlayerPosition - NAS2D::Vector<int>{256, 100});
-	r.drawSubImage(mTent, mPlayerPosition - NAS2D::Vector<int>{128, 0}, NAS2D::Rectangle{0, 162, 256, 94});
+	renderer.drawImage(mTentShadow, mPlayerPosition - NAS2D::Vector<int>{256, 100});
+	renderer.drawSubImage(mTent, mPlayerPosition - NAS2D::Vector<int>{128, 0}, NAS2D::Rectangle{0, 162, 256, 94});
 
 	if (mLeftButtonDown)
-		r.drawLine(mPlayerPosition, mBulletPoint, NAS2D::Color::White, 1);
+		renderer.drawLine(mPlayerPosition, mBulletPoint, NAS2D::Color::White, 1);
 
 	// Tent top
-	r.drawSubImage(mTent, mPlayerPosition - NAS2D::Vector<int>{128, 70}, NAS2D::Rectangle{0, 0, 256, 139});
+	renderer.drawSubImage(mTent, mPlayerPosition - NAS2D::Vector<int>{128, 70}, NAS2D::Rectangle{0, 0, 256, 139});
 
-	r.drawImage(mPointer, mMouseCoords - NAS2D::Vector<int>{7, 7});
+	renderer.drawImage(mPointer, mMouseCoords - NAS2D::Vector<int>{7, 7});
 
-	r.drawText(mAnnounceFont, "Zombies are Coming!", NAS2D::Point{r.center_x() - mAnnounceFont.width("Zombies are Coming!") / 2, 10}, NAS2D::Color::White);
-	r.drawText(mFont, "Defend Yourself!", NAS2D::Point{r.center_x() - mFont.width("Defend Yourself!") / 2, 75}, NAS2D::Color::White);
-	r.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point<float>{10, 100}, NAS2D::Color::White);
-	r.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), NAS2D::Point<float>{10, 120}, NAS2D::Color::White);
+	renderer.drawText(mAnnounceFont, "Zombies are Coming!", NAS2D::Point{renderer.center().x - mAnnounceFont.width("Zombies are Coming!") / 2, 10}, NAS2D::Color::White);
+	renderer.drawText(mFont, "Defend Yourself!", NAS2D::Point{renderer.center().x - mFont.width("Defend Yourself!") / 2, 75}, NAS2D::Color::White);
+	renderer.drawText(mFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point<float>{10, 100}, NAS2D::Color::White);
+	renderer.drawText(mFont, "Zombies: " + std::to_string(mZombies.size()), NAS2D::Point<float>{10, 120}, NAS2D::Color::White);
 
 	return this;
 }
