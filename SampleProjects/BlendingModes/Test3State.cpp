@@ -70,7 +70,7 @@ NAS2D::State* Test3State::update()
 	renderer.drawText(mFont, "Blending Demo", NAS2D::Point{5, 5}, NAS2D::Color::White);
 	renderer.drawText(mSmallFont, "Press keys 1 - 6 to change blend modes.", NAS2D::Point{5, 5 + mFont.height()}, NAS2D::Color::White);
 	renderer.drawText(mSmallFont, mBlendingModeText, NAS2D::Point{renderer.size().x - mSmallFont.width(mBlendingModeText) - 5, 5}, NAS2D::Color::White);
-	renderer.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point{renderer.size().x - 65, renderer.size().y - mSmallFont.height() - 5}, NAS2D::Color::White);
+	renderer.drawText(mSmallFont, "FPS: " + std::to_string(mFps.fps()), NAS2D::Point{-65, -mSmallFont.height() - 5} + renderer.size(), NAS2D::Color::White);
 
 	return this;
 }
