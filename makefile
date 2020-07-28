@@ -18,7 +18,6 @@ LDLIBS := -lnas2d -lSDL2 -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lphysfs -lGLEW -l
 
 NAS2DLIB := nas2d-core/lib/libnas2d.a
 
-# By default, compile and link both static library and dynamic link library
 all: zombieGame rendererFunctions blendingModes
 
 zombieGame.exe: $(NAS2DLIB)
