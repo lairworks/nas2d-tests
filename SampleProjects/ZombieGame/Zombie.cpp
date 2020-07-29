@@ -10,7 +10,7 @@ constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -2
 
 
 Zombie::Zombie(NAS2D::Point<float> position, float speed) :
-	mSprite("zombie.xml"),
+	mSprite("zombie.xml", "Walk"),
 	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
@@ -18,7 +18,6 @@ Zombie::Zombie(NAS2D::Point<float> position, float speed) :
 	mBodyRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + BodyOffset, BodySize)),
 	mHeadRect(NAS2D::Rectangle<int>::Create(mPosition.to<int>() + HeadOffset, HeadSize))
 {
-	mSprite.play("Walk");
 }
 
 
