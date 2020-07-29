@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <string>
+#include <utility>
 
 
 const int GunDelayTime = 210;
@@ -93,7 +94,7 @@ void GameState::doShoot()
 			mZombies[i].damage(10, mBulletPoint);
 			if (mZombies[i].dead())
 			{
-				mDeadZombies.push_back(mZombies[i]);
+				mDeadZombies.push_back(std::move(mZombies[i]));
 				mZombies.erase(mZombies.begin() + i);
 			}
 			return;
