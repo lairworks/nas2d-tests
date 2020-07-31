@@ -23,6 +23,5 @@ private:
 	NAS2D::Font mFont;
 	NAS2D::Image mImage1;
 	NAS2D::Image mArrows;
-	NAS2D::Image mRenderTarget;
 	NAS2D::Point<int> mMousePosition;
 };
