@@ -14,8 +14,7 @@ auto jitter = std::bind(jitter_distribution, generator);
 Test2State::Test2State() :
 	mFont("fonts/opensans-bold.ttf", 16),
 	mImage1("mud.png"),
-	mArrows("gui/default/arrow.png"),
-	mRenderTarget(256, 256)
+	mArrows("gui/default/arrow.png")
 {}
 
 
