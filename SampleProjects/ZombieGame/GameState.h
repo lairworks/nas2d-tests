@@ -54,11 +54,11 @@ private:
 	NAS2D::Point<int> mMouseCoords; /**< Mouse coordinates. */
 	NAS2D::Point<int> mBulletPoint; /**< */
 
-	NAS2D::Image mPointer; /**< Pointer image. */
-	NAS2D::Image mBackground; /**< Background buffer. */
-	NAS2D::Image mBulletHole; /**< Bullet hole. */
-	NAS2D::Image mTent; /**< Tent graphic. */
-	NAS2D::Image mTentShadow; /**< Tent shadow graphic. */
+	const NAS2D::Image mPointer; /**< Pointer image. */
+	const NAS2D::Image mBackground; /**< Background buffer. */
+	const NAS2D::Image mBulletHole; /**< Bullet hole. */
+	const NAS2D::Image mTent; /**< Tent graphic. */
+	const NAS2D::Image mTentShadow; /**< Tent shadow graphic. */
 
 	NAS2D::Music mBgMusic; /**< Background music track. */
 

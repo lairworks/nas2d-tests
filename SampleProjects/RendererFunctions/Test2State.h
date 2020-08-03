@@ -21,7 +21,7 @@ private:
 	NAS2D::Timer mTimer;
 	NAS2D::FpsCounter mFps;
 	const NAS2D::Font mFont;
-	NAS2D::Image mImage1;
-	NAS2D::Image mArrows;
+	const NAS2D::Image mImage1;
+	const NAS2D::Image mArrows;
 	NAS2D::Point<int> mMousePosition;
 };
