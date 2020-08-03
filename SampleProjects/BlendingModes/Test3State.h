@@ -22,17 +22,17 @@ private:
 
 	NAS2D::FpsCounter mFps; /**< FPS Counter */
 
-	NAS2D::Font mFont; /**< Main font. */
-	NAS2D::Font mSmallFont; /**< FPS font. */
+	const NAS2D::Font mFont; /**< Main font. */
+	const NAS2D::Font mSmallFont; /**< FPS font. */
 
-	NAS2D::Image mMud; /**< Background image. */
-	NAS2D::Image mCaustics1; /**< Caustics image atlas. */
-	NAS2D::Image mCaustics2; /**< Caustics image atlas with no alpha. */
+	const NAS2D::Image mMud; /**< Background image. */
+	const NAS2D::Image mCaustics1; /**< Caustics image atlas. */
+	const NAS2D::Image mCaustics2; /**< Caustics image atlas with no alpha. */
 
-	NAS2D::Image mCaustics3; /**< Caustics image atlas. */
-	NAS2D::Image mCaustics4; /**< Caustics image atlas with no alpha. */
+	const NAS2D::Image mCaustics3; /**< Caustics image atlas. */
+	const NAS2D::Image mCaustics4; /**< Caustics image atlas with no alpha. */
 
-	NAS2D::Image* mCurrentCaustics;
+	const NAS2D::Image* mCurrentCaustics;
 	std::string mBlendingModeText;
 
 	bool mMultiply; /**< Flag to indicate that we want to draw screen blend mode. */
