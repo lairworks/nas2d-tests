@@ -20,7 +20,7 @@ protected:
 private:
 	NAS2D::Timer mTimer;
 	NAS2D::FpsCounter mFps;
-	NAS2D::Font mFont;
+	const NAS2D::Font mFont;
 	NAS2D::Image mImage1;
 	NAS2D::Image mArrows;
 	NAS2D::Point<int> mMousePosition;

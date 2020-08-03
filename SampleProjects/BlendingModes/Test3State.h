@@ -22,8 +22,8 @@ private:
 
 	NAS2D::FpsCounter mFps; /**< FPS Counter */
 
-	NAS2D::Font mFont; /**< Main font. */
-	NAS2D::Font mSmallFont; /**< FPS font. */
+	const NAS2D::Font mFont; /**< Main font. */
+	const NAS2D::Font mSmallFont; /**< FPS font. */
 
 	NAS2D::Image mMud; /**< Background image. */
 	NAS2D::Image mCaustics1; /**< Caustics image atlas. */

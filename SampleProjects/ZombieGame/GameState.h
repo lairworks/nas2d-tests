@@ -46,8 +46,8 @@ private:
 	ZombieList mDeadZombies; /**< */
 	size_t mZombieSpawnCount;	/**< Number of zombies to spawn. */
 
-	NAS2D::Font mFont; /**< Font used for interface and information text. */
-	NAS2D::Font mAnnounceFont; /**< Font used for displaying the announcement. */
+	const NAS2D::Font mFont; /**< Font used for interface and information text. */
+	const NAS2D::Font mAnnounceFont; /**< Font used for displaying the announcement. */
 
 	NAS2D::Point<int> mPlayerPosition;	/**< Position of the 'player'. */
 
