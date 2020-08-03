@@ -60,9 +60,9 @@ private:
 	const NAS2D::Image mTent; /**< Tent graphic. */
 	const NAS2D::Image mTentShadow; /**< Tent shadow graphic. */
 
-	NAS2D::Music mBgMusic; /**< Background music track. */
+	const NAS2D::Music mBgMusic; /**< Background music track. */
 
-	NAS2D::Sound mGunFire; /**< Gun fire sound. */
+	const NAS2D::Sound mGunFire; /**< Gun fire sound. */
 
 	int mTimeDelta; /**< Delta time between the previous cycle and the current cycle. */
 
