@@ -170,7 +170,7 @@ void GameState::onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::K
 
 void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if (button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
+	if (button == NAS2D::EventHandler::MouseButton::Left)
 	{
 		mGunTimer.reset();
 		mLeftButtonDown = true;
@@ -181,7 +181,7 @@ void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, 
 
 void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
 {
-	if (button == NAS2D::EventHandler::MouseButton::BUTTON_LEFT)
+	if (button == NAS2D::EventHandler::MouseButton::Left)
 	{
 		mLeftButtonDown = false;
 	}
