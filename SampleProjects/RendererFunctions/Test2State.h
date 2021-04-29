@@ -15,7 +15,7 @@ protected:
 	void onMouseMove(int x, int y, int relX, int relY);
 	void onMouseDown(NAS2D::EventHandler::MouseButton button, int x, int y);
 
-	void onWindowResized(int w, int h);
+	void onWindowResized(NAS2D::Vector<int> newSize);
 
 private:
 	NAS2D::Timer mTimer;

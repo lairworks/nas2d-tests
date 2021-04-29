@@ -126,5 +126,5 @@ void Test2State::onMouseDown(NAS2D::EventHandler::MouseButton /*button*/, int /*
 {}
 
 
-void Test2State::onWindowResized(int /*w*/, int /*h*/)
+void Test2State::onWindowResized(NAS2D::Vector<int> /*newSize*/)
 {}
