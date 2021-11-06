@@ -89,12 +89,13 @@ void GameState::doShoot()
 
 	for(size_t i = 0; i < mZombies.size(); i++)
 	{
-		if (mZombies[i].hit(mBulletPoint))
+		auto& zombie = mZombies[i];
+		if (zombie.hit(mBulletPoint))
 		{
-			mZombies[i].damage(10, mBulletPoint);
-			if (mZombies[i].dead())
+			zombie.damage(10, mBulletPoint);
+			if (zombie.dead())
 			{
-				mDeadZombies.push_back(std::move(mZombies[i]));
+				mDeadZombies.push_back(std::move(zombie));
 				mZombies.erase(mZombies.begin() + i);
 			}
 			return;
