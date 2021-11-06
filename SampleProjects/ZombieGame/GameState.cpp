@@ -147,9 +147,9 @@ void GameState::updateZombies()
 			mDeadZombies.erase(mDeadZombies.begin() + i);
 	}
 
-	for(size_t i = 0; i < mZombies.size(); i++)
+	for(auto& zombie : mZombies)
 	{
-		mZombies[i].update(mTimeDelta, mPlayerPosition);
+		zombie.update(mTimeDelta, mPlayerPosition);
 	}
 }
 
