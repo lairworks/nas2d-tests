@@ -87,16 +87,16 @@ void GameState::doShoot()
 
 	NAS2D::Utility<NAS2D::Mixer>::get().playSound(mGunFire);
 
-	for(size_t i = 0; i < mZombies.size(); i++)
+	for(auto iter = mZombies.begin(); iter != mZombies.end(); ++iter)
 	{
-		auto& zombie = mZombies[i];
+		auto& zombie = *iter;
 		if (zombie.hit(mBulletPoint))
 		{
 			zombie.damage(10, mBulletPoint);
 			if (zombie.dead())
 			{
 				mDeadZombies.push_back(std::move(zombie));
-				mZombies.erase(mZombies.begin() + i);
+				mZombies.erase(iter);
 			}
 			return;
 		}
