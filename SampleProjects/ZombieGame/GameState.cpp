@@ -146,14 +146,17 @@ void GameState::updateZombies()
 		mDeadZombies[i].update(0, mPlayerPosition);
 	}
 
-	mDeadZombies.erase(
-		std::remove_if(
-			mDeadZombies.begin(),
-			mDeadZombies.end(),
-			[](auto& zombie) { return zombie.deadTime() >= ZombieDeadTimeout; }
-		),
-		mDeadZombies.end()
-	);
+	for (auto iter = mDeadZombies.begin(); iter != mDeadZombies.end(); )
+	{
+		if (iter->deadTime() >= ZombieDeadTimeout)
+		{
+			iter = mDeadZombies.erase(iter);
+		}
+		else
+		{
+			++iter;
+		}
+	}
 
 	for(auto& zombie : mZombies)
 	{
