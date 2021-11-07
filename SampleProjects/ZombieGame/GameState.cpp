@@ -141,9 +141,9 @@ void GameState::spawnSwarm()
 
 void GameState::updateZombies()
 {
-	for(size_t i = 0; i < mDeadZombies.size(); i++)
+	for(auto& deadZombie : mDeadZombies)
 	{
-		mDeadZombies[i].update(0, mPlayerPosition);
+		deadZombie.update(0, mPlayerPosition);
 	}
 
 	mDeadZombies.erase(
