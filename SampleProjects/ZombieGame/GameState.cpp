@@ -5,6 +5,7 @@
 #include <random>
 #include <string>
 #include <utility>
+#include <algorithm>
 
 
 const int GunDelayTime = 210;
@@ -87,15 +88,16 @@ void GameState::doShoot()
 
 	NAS2D::Utility<NAS2D::Mixer>::get().playSound(mGunFire);
 
-	for(size_t i = 0; i < mZombies.size(); i++)
+	for(auto iter = mZombies.begin(); iter != mZombies.end(); ++iter)
 	{
-		if (mZombies[i].hit(mBulletPoint))
+		auto& zombie = *iter;
+		if (zombie.hit(mBulletPoint))
 		{
-			mZombies[i].damage(10, mBulletPoint);
-			if (mZombies[i].dead())
+			zombie.damage(10, mBulletPoint);
+			if (zombie.dead())
 			{
-				mDeadZombies.push_back(std::move(mZombies[i]));
-				mZombies.erase(mZombies.begin() + i);
+				mDeadZombies.push_back(std::move(zombie));
+				mZombies.erase(iter);
 			}
 			return;
 		}
@@ -139,17 +141,26 @@ void GameState::spawnSwarm()
 
 void GameState::updateZombies()
 {
-	for(size_t i = 0; i < mDeadZombies.size(); i++)
+	for(auto& deadZombie : mDeadZombies)
 	{
-		mDeadZombies[i].update(0, mPlayerPosition);
-
-		if (mDeadZombies[i].deadTime() >= ZombieDeadTimeout)
-			mDeadZombies.erase(mDeadZombies.begin() + i);
+		deadZombie.update(0, mPlayerPosition);
 	}
 
-	for(size_t i = 0; i < mZombies.size(); i++)
+	for (auto iter = mDeadZombies.begin(); iter != mDeadZombies.end(); )
 	{
-		mZombies[i].update(mTimeDelta, mPlayerPosition);
+		if (iter->deadTime() >= ZombieDeadTimeout)
+		{
+			iter = mDeadZombies.erase(iter);
+		}
+		else
+		{
+			++iter;
+		}
+	}
+
+	for(auto& zombie : mZombies)
+	{
+		zombie.update(mTimeDelta, mPlayerPosition);
 	}
 }
 

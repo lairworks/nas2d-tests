@@ -23,7 +23,8 @@ Zombie::Zombie(NAS2D::Point<float> position, float speed) :
 
 void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 {
-	mSprite.update(mPosition);
+	mSprite.update();
+	mSprite.draw(mPosition);
 
 	if (dead())
 		return;
