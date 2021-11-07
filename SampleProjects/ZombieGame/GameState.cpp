@@ -5,6 +5,7 @@
 #include <random>
 #include <string>
 #include <utility>
+#include <algorithm>
 
 
 const int GunDelayTime = 210;
@@ -143,10 +144,16 @@ void GameState::updateZombies()
 	for(size_t i = 0; i < mDeadZombies.size(); i++)
 	{
 		mDeadZombies[i].update(0, mPlayerPosition);
-
-		if (mDeadZombies[i].deadTime() >= ZombieDeadTimeout)
-			mDeadZombies.erase(mDeadZombies.begin() + i);
 	}
+
+	mDeadZombies.erase(
+		std::remove_if(
+			mDeadZombies.begin(),
+			mDeadZombies.end(),
+			[](auto& zombie) { return zombie.deadTime() >= ZombieDeadTimeout; }
+		),
+		mDeadZombies.end()
+	);
 
 	for(auto& zombie : mZombies)
 	{
