@@ -12,7 +12,7 @@ config := default
 SDLCONFIG := sdl2-config
 
 CPPFLAGS := -I nas2d-core/
-CXXFLAGS := -std=c++17 -O2 -g -Wall -Wextra -Wpedantic -Wno-unknown-pragmas
+CXXFLAGS := -std=c++20 -O2 -g -Wall -Wextra -Wpedantic -Wno-unknown-pragmas
 LDFLAGS := -static-libgcc -static-libstdc++ -L nas2d-core/lib/ $($(SDLCONFIG) --static-libs)
 LDLIBS := -lnas2d -lSDL2 -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lphysfs -lGLEW -lGL
 
