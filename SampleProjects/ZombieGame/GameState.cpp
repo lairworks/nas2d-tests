@@ -179,7 +179,7 @@ void GameState::onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::K
 }
 
 
-void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
+void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, NAS2D::Point<int> /*position*/)
 {
 	if (button == NAS2D::EventHandler::MouseButton::Left)
 	{
@@ -190,7 +190,7 @@ void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, int /*x*/, 
 }
 
 
-void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, int /*x*/, int /*y*/)
+void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, NAS2D::Point<int> /*position*/)
 {
 	if (button == NAS2D::EventHandler::MouseButton::Left)
 	{
@@ -199,9 +199,9 @@ void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, int /*x*/, in
 }
 
 
-void GameState::onMouseMove(int x, int y, int /*relX*/, int /*relY*/)
+void GameState::onMouseMove(NAS2D::Point<int> position, NAS2D::Vector<int> /*change*/)
 {
-	mMouseCoords = {x, y};
+	mMouseCoords = position;
 }
 
 

@@ -118,11 +118,11 @@ void Test2State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler
 }
 
 
-void Test2State::onMouseMove(int /*x*/, int /*y*/, int /*relX*/, int /*relY*/)
+void Test2State::onMouseMove(NAS2D::Point<int> /*position*/, NAS2D::Vector<int> /*change*/)
 {}
 
 
-void Test2State::onMouseDown(NAS2D::EventHandler::MouseButton /*button*/, int /*x*/, int /*y*/)
+void Test2State::onMouseDown(NAS2D::EventHandler::MouseButton /*button*/, NAS2D::Point<int> /*position*/)
 {}
 
 
