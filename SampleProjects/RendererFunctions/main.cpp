@@ -18,12 +18,12 @@
 #include <iostream>
 
 
-int main(int /*argc*/, char *argv[])
+int main(int /*argc*/, char* /*argv*/[])
 {
 
 	try
 	{
-		NAS2D::Game game("NAS2D Test 2: Renderer Functions", "NAS2D_Test2", "LairWorks Entertainment", argv[0]);
+		NAS2D::Game game("NAS2D Test 2: Renderer Functions", "NAS2D_Test2", "LairWorks Entertainment");
 		NAS2D::Utility<NAS2D::Filesystem>::get().mount("SampleProjects/RendererFunctions/");
 		game.go(new Test2State());
 	}
