@@ -19,11 +19,11 @@
 #endif
 
 
-int main(int /*argc*/, char *argv[])
+int main(int /*argc*/, char* /*argv*/[])
 {
 	try
 	{
-		NAS2D::Game game("NAS2D Sample Application", "NAS2D_Test", "LairWorks Entertainment", argv[0]);
+		NAS2D::Game game("NAS2D Sample Application", "NAS2D_Test", "LairWorks Entertainment");
 		NAS2D::Utility<NAS2D::Renderer>::get().size({800, 600});
 		game.go(new GameState());
 	}
