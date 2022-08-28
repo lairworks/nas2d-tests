@@ -21,19 +21,19 @@ Test2State::Test2State() :
 Test2State::~Test2State()
 {
 	auto& eventHandler = NAS2D::Utility<NAS2D::EventHandler>::get();
-	eventHandler.mouseMotion().disconnect(this, &Test2State::onMouseMove);
-	eventHandler.mouseButtonDown().disconnect(this, &Test2State::onMouseDown);
-	eventHandler.keyDown().disconnect(this, &Test2State::onKeyDown);
-	eventHandler.windowResized().disconnect(this, &Test2State::onWindowResized);
+	eventHandler.mouseMotion().disconnect({this, &Test2State::onMouseMove});
+	eventHandler.mouseButtonDown().disconnect({this, &Test2State::onMouseDown});
+	eventHandler.keyDown().disconnect({this, &Test2State::onKeyDown});
+	eventHandler.windowResized().disconnect({this, &Test2State::onWindowResized});
 }
 
 void Test2State::initialize()
 {
 	auto& eventHandler = NAS2D::Utility<NAS2D::EventHandler>::get();
-	eventHandler.mouseMotion().connect(this, &Test2State::onMouseMove);
-	eventHandler.mouseButtonDown().connect(this, &Test2State::onMouseDown);
-	eventHandler.keyDown().connect(this, &Test2State::onKeyDown);
-	eventHandler.windowResized().connect(this, &Test2State::onWindowResized);
+	eventHandler.mouseMotion().connect({this, &Test2State::onMouseMove});
+	eventHandler.mouseButtonDown().connect({this, &Test2State::onMouseDown});
+	eventHandler.keyDown().connect({this, &Test2State::onKeyDown});
+	eventHandler.windowResized().connect({this, &Test2State::onWindowResized});
 
 	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 	renderer.showSystemPointer(true);

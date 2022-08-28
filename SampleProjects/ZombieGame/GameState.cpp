@@ -40,12 +40,12 @@ void GameState::initialize()
 	spawnSwarm();
 
 	auto& e = NAS2D::Utility<NAS2D::EventHandler>::get();
-	e.keyUp().connect(this, &GameState::onKeyUp);
-	e.keyDown().connect(this, &GameState::onKeyDown);
-	e.mouseMotion().connect(this, &GameState::onMouseMove);
-	e.mouseButtonUp().connect(this, &GameState::onMouseUp);
-	e.mouseButtonDown().connect(this, &GameState::onMouseDown);
-	e.quit().connect(this, &GameState::onQuit);
+	e.keyUp().connect({this, &GameState::onKeyUp});
+	e.keyDown().connect({this, &GameState::onKeyDown});
+	e.mouseMotion().connect({this, &GameState::onMouseMove});
+	e.mouseButtonUp().connect({this, &GameState::onMouseUp});
+	e.mouseButtonDown().connect({this, &GameState::onMouseDown});
+	e.quit().connect({this, &GameState::onQuit});
 
 	NAS2D::Utility<NAS2D::Mixer>::get().playMusic(mBgMusic);
 }
