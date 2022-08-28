@@ -27,7 +27,7 @@ Test3State::Test3State() :
 void Test3State::initialize()
 {
 	NAS2D::Utility<NAS2D::Renderer>::get().showSystemPointer(true);
-	NAS2D::Utility<NAS2D::EventHandler>::get().keyDown().connect(this, &Test3State::onKeyDown);
+	NAS2D::Utility<NAS2D::EventHandler>::get().keyDown().connect({this, &Test3State::onKeyDown});
 }
 
 
