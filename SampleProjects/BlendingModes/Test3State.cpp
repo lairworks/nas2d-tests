@@ -37,7 +37,7 @@ NAS2D::State* Test3State::update()
 
 	static int counter = 0;
 
-	if (mCausticsTimer.accumulator() > CausticsSpeed)
+	if (mCausticsTimer.elapsedTicks() > CausticsSpeed)
 	{
 		mCausticsTimer.reset();
 		counter++;

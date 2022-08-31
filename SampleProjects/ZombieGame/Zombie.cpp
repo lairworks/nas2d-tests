@@ -81,5 +81,5 @@ unsigned int Zombie::deadTime()
 	if (!dead())
 		return 0;
 
-	return mDeadTimer.accumulator();
+	return mDeadTimer.elapsedTicks();
 }
