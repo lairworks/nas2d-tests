@@ -118,9 +118,9 @@ void GameState::handlePlayerAction()
 {
 	if (mLeftButtonDown)
 	{
-		while(mGunTimer.accumulator() >= GunDelayTime)
+		while(mGunTimer.elapsedTicks() >= GunDelayTime)
 		{
-			mGunTimer.adjust_accumulator(GunDelayTime);
+			mGunTimer.adjustStartTick(GunDelayTime);
 			doShoot();
 		}
 	}
