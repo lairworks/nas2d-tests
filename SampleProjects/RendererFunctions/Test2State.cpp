@@ -76,7 +76,7 @@ NAS2D::State* Test2State::update()
 	renderer.drawImageRepeated(mArrows, NAS2D::Rectangle{100, 330, 250, 64});
 
 	renderer.clipRect(NAS2D::Rectangle{400, 330, 128, 128});
-	renderer.drawImageRepeated(mArrows, NAS2D::Rectangle<int>::Create({0, 0}, renderer.size()));
+	renderer.drawImageRepeated(mArrows, NAS2D::Rectangle{{0, 0}, renderer.size()});
 	renderer.clipRectClear();
 
 	renderer.drawImage(mArrows, NAS2D::Point{500, 500}, 2.0f * sin(-(mTimer.tick() / 200.0f)));
