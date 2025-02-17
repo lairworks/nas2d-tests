@@ -2,6 +2,8 @@
 
 #include "Test2State.h"
 
+#include <NAS2D/EventHandlerKeyCode.h>
+
 #include <functional>
 #include <random>
 

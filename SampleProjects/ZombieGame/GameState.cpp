@@ -1,5 +1,8 @@
 #include "GameState.h"
 
+#include <NAS2D/EventHandlerKeyCode.h>
+#include <NAS2D/EventHandlerMouseButton.h>
+
 #include <functional>
 #include <iostream>
 #include <random>

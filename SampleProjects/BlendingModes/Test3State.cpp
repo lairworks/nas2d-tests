@@ -1,5 +1,7 @@
 #include "Test3State.h"
 
+#include <NAS2D/EventHandlerKeyCode.h>
+
 #include <GL/glew.h>
 
 #include <sstream>
