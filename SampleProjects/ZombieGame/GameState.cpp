@@ -1,5 +1,8 @@
 #include "GameState.h"
 
+#include <NAS2D/EnumKeyCode.h>
+#include <NAS2D/EnumMouseButton.h>
+
 #include <functional>
 #include <iostream>
 #include <random>
@@ -165,23 +168,23 @@ void GameState::updateZombies()
 }
 
 
-void GameState::onKeyDown(NAS2D::EventHandler::KeyCode /*key*/, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
+void GameState::onKeyDown(NAS2D::KeyCode /*key*/, NAS2D::KeyModifier /*mod*/, bool repeat)
 {
 	if (repeat)
 		return;
 }
 
 
-void GameState::onKeyUp(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/)
+void GameState::onKeyUp(NAS2D::KeyCode key, NAS2D::KeyModifier /*mod*/)
 {
-	if (key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+	if (key == NAS2D::KeyCode::Escape)
 		NAS2D::postQuitEvent();
 }
 
 
-void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, NAS2D::Point<int> /*position*/)
+void GameState::onMouseDown(NAS2D::MouseButton button, NAS2D::Point<int> /*position*/)
 {
-	if (button == NAS2D::EventHandler::MouseButton::Left)
+	if (button == NAS2D::MouseButton::Left)
 	{
 		mGunTimer.reset();
 		mLeftButtonDown = true;
@@ -190,9 +193,9 @@ void GameState::onMouseDown(NAS2D::EventHandler::MouseButton button, NAS2D::Poin
 }
 
 
-void GameState::onMouseUp(NAS2D::EventHandler::MouseButton button, NAS2D::Point<int> /*position*/)
+void GameState::onMouseUp(NAS2D::MouseButton button, NAS2D::Point<int> /*position*/)
 {
-	if (button == NAS2D::EventHandler::MouseButton::Left)
+	if (button == NAS2D::MouseButton::Left)
 	{
 		mLeftButtonDown = false;
 	}
