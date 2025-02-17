@@ -60,12 +60,12 @@ NAS2D::State* Test2State::update()
 	renderer.drawCircle(NAS2D::Point{150, 170}, 20, NAS2D::Color{0, 200, 0, 255}, 16, NAS2D::Vector<float>{1.0, 0.5});
 
 	renderer.drawImage(mImage1, NAS2D::Point{200, 20}, 0);
-	renderer.drawImageRotated(mImage1, NAS2D::Point{500, 20}, (mTimer.tick() / 20.0f));
+	renderer.drawImageRotated(mImage1, NAS2D::Point{500, 20}, NAS2D::Angle::degrees(mTimer.tick() / 20.0f));
 
 	renderer.drawSubImage(mImage1, NAS2D::Point{10, 250}, NAS2D::Rectangle{0, 0, 64, 64});
-	renderer.drawSubImageRotated(mImage1, NAS2D::Point{100, 250}, NAS2D::Rectangle{0, 0, 64, 64}, (mTimer.tick() / 20.0f));
+	renderer.drawSubImageRotated(mImage1, NAS2D::Point{100, 250}, NAS2D::Rectangle{0, 0, 64, 64}, NAS2D::Angle::degrees(mTimer.tick() / 20.0f));
 
-	renderer.drawImageRotated(mImage1, NAS2D::Point{500, 300}, -(mTimer.tick() / 20.0f));
+	renderer.drawImageRotated(mImage1, NAS2D::Point{500, 300}, -NAS2D::Angle::degrees(mTimer.tick() / 20.0f));
 
 	for (int i = 0; i < 2000; ++i)
 	{
