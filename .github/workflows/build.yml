@@ -4,15 +4,6 @@ on:
   push:
   workflow_dispatch:
 
-env:
-  # Path to the solution file relative to the root of the project.
-  SOLUTION_FILE_PATH: .
-
-  # Configuration type to build.
-  # You can convert this to a build matrix if you need coverage of multiple configuration types.
-  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-  BUILD_CONFIGURATION: Release
-
 jobs:
   build:
     strategy:
@@ -21,7 +12,10 @@ jobs:
         platform: [x86, x64]
     runs-on: windows-latest
     env:
-      PLATFORM: ${{ matrix.platform }}
+      Platform: ${{ matrix.platform }}
+      Configuration: Release
+      VcpkgManifestInstall: false
+      VCPKG_BINARY_SOURCES: 'clear;x-gha,readwrite'
 
     steps:
     - uses: actions/checkout@v4
@@ -32,17 +26,38 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.3.2
 
+    - name: Integrate vcpkg
+      run: |
+        vcpkg --version
+        vcpkg integrate install
+
+    - name: Export GitHub Actions cache environment variables
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
     - name: Restore vcpkg dependency cache
-      uses: actions/cache@v4
-      id: cache
+      uses: actions/cache/restore@v4
+      id: cacheRestoreVcpkg
       with:
         path: vcpkg_installed
-        key: ${{ runner.os }}-${{ matrix.platform }}-${{ hashFiles('vcpkg.json') }}
+        key: vcpkg-${{ runner.os }}-${{ matrix.platform }}-${{ hashFiles('vcpkg.json') }}
+
+    - name: Pre-install vcpkg dependencies
+      env:
+        VcpkgManifestInstall: true
+      run: |
+        msbuild . /target:VcpkgInstallManifestDependencies
+
+    - name: Save vcpkg dependency cache
+      uses: actions/cache/save@v4
+      if: steps.cacheRestoreVcpkg.outputs.cache-hit != 'true'
+      with:
+        path: vcpkg_installed
+        key: ${{ steps.cacheRestoreVcpkg.outputs.cache-primary-key }}
 
     - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      # Add additional options to the MSBuild command line here (like platform or verbosity level).
-      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: |
-        vcpkg integrate install
-        msbuild /maxCpuCount /warnAsError /property:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+        msbuild . /maxCpuCount /warnAsError
