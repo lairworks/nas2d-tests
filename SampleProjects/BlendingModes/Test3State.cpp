@@ -83,40 +83,40 @@ void Test3State::onKeyDown(NAS2D::KeyCode key, NAS2D::KeyModifier /*mod*/, bool 
 	if (repeat)
 		return;
 
-	if (key == NAS2D::KeyCode::KEY_ESCAPE)
+	if (key == NAS2D::KeyCode::Escape)
 		NAS2D::postQuitEvent();
 
-	if (key == NAS2D::KeyCode::KEY_1)
+	if (key == NAS2D::KeyCode::Num1)
 	{
 		mCurrentCaustics = &mCaustics1;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
 	}
-	if (key == NAS2D::KeyCode::KEY_2)
+	if (key == NAS2D::KeyCode::Num2)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
 	}
-	if (key == NAS2D::KeyCode::KEY_3)
+	if (key == NAS2D::KeyCode::Num3)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
 	}
-	if (key == NAS2D::KeyCode::KEY_4)
+	if (key == NAS2D::KeyCode::Num4)
 	{
 		mCurrentCaustics = &mCaustics3;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
 	}
-	if (key == NAS2D::KeyCode::KEY_5)
+	if (key == NAS2D::KeyCode::Num5)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
 	}
-	if (key == NAS2D::KeyCode::KEY_6)
+	if (key == NAS2D::KeyCode::Num6)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Caustics Only";

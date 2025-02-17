@@ -177,7 +177,7 @@ void GameState::onKeyDown(NAS2D::KeyCode /*key*/, NAS2D::KeyModifier /*mod*/, bo
 
 void GameState::onKeyUp(NAS2D::KeyCode key, NAS2D::KeyModifier /*mod*/)
 {
-	if (key == NAS2D::KeyCode::KEY_ESCAPE)
+	if (key == NAS2D::KeyCode::Escape)
 		NAS2D::postQuitEvent();
 }
 
