@@ -2,7 +2,7 @@
 
 #include "Test2State.h"
 
-#include <NAS2D/EventHandlerKeyCode.h>
+#include <NAS2D/EnumKeyCode.h>
 
 #include <functional>
 #include <random>
@@ -97,19 +97,19 @@ NAS2D::State* Test2State::update()
 }
 
 
-void Test2State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/, bool /*repeat*/)
+void Test2State::onKeyDown(NAS2D::KeyCode key, NAS2D::KeyModifier /*mod*/, bool /*repeat*/)
 {
 	switch (key)
 	{
-		case NAS2D::EventHandler::KeyCode::KEY_ESCAPE:
+		case NAS2D::KeyCode::KEY_ESCAPE:
 			NAS2D::postQuitEvent();
 			break;
-		case NAS2D::EventHandler::KeyCode::KEY_F1: {
+		case NAS2D::KeyCode::KEY_F1: {
 			auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 			renderer.fullscreen(!renderer.fullscreen());
 			break;
 		}
-		case NAS2D::EventHandler::KeyCode::KEY_F2: {
+		case NAS2D::KeyCode::KEY_F2: {
 			auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 			renderer.resizeable(!renderer.resizeable());
 			break;
@@ -124,7 +124,7 @@ void Test2State::onMouseMove(NAS2D::Point<int> /*position*/, NAS2D::Vector<int> 
 {}
 
 
-void Test2State::onMouseDown(NAS2D::EventHandler::MouseButton /*button*/, NAS2D::Point<int> /*position*/)
+void Test2State::onMouseDown(NAS2D::MouseButton /*button*/, NAS2D::Point<int> /*position*/)
 {}
 
 

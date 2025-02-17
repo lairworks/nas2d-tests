@@ -1,6 +1,6 @@
 #include "Test3State.h"
 
-#include <NAS2D/EventHandlerKeyCode.h>
+#include <NAS2D/EnumKeyCode.h>
 
 #include <GL/glew.h>
 
@@ -78,45 +78,45 @@ NAS2D::State* Test3State::update()
 }
 
 
-void Test3State::onKeyDown(NAS2D::EventHandler::KeyCode key, NAS2D::EventHandler::KeyModifier /*mod*/, bool repeat)
+void Test3State::onKeyDown(NAS2D::KeyCode key, NAS2D::KeyModifier /*mod*/, bool repeat)
 {
 	if (repeat)
 		return;
 
-	if (key == NAS2D::EventHandler::KeyCode::KEY_ESCAPE)
+	if (key == NAS2D::KeyCode::KEY_ESCAPE)
 		NAS2D::postQuitEvent();
 
-	if (key == NAS2D::EventHandler::KeyCode::KEY_1)
+	if (key == NAS2D::KeyCode::KEY_1)
 	{
 		mCurrentCaustics = &mCaustics1;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
 	}
-	if (key == NAS2D::EventHandler::KeyCode::KEY_2)
+	if (key == NAS2D::KeyCode::KEY_2)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
 	}
-	if (key == NAS2D::EventHandler::KeyCode::KEY_3)
+	if (key == NAS2D::KeyCode::KEY_3)
 	{
 		mCurrentCaustics = &mCaustics2;
 		mBlendingModeText = "Caustics Only";
 		mMultiply = false;
 	}
-	if (key == NAS2D::EventHandler::KeyCode::KEY_4)
+	if (key == NAS2D::KeyCode::KEY_4)
 	{
 		mCurrentCaustics = &mCaustics3;
 		mBlendingModeText = "Alpha";
 		mMultiply = false;
 	}
-	if (key == NAS2D::EventHandler::KeyCode::KEY_5)
+	if (key == NAS2D::KeyCode::KEY_5)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Multiply";
 		mMultiply = true;
 	}
-	if (key == NAS2D::EventHandler::KeyCode::KEY_6)
+	if (key == NAS2D::KeyCode::KEY_6)
 	{
 		mCurrentCaustics = &mCaustics4;
 		mBlendingModeText = "Caustics Only";
