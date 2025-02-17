@@ -16,7 +16,7 @@ jobs:
         platform: [x86, x64]
     runs-on: windows-latest
     env:
-      PLATFORM: ${{ matrix.platform }}
+      Platform: ${{ matrix.platform }}
       Configuration: Release
       VcpkgManifestInstall: false
       VCPKG_BINARY_SOURCES: 'clear;x-gha,readwrite'
