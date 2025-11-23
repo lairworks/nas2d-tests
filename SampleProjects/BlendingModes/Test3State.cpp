@@ -8,7 +8,7 @@
 #include <string>
 
 
-const int CausticsSpeed = 55;
+const auto CausticsSpeed = NAS2D::Duration{55};
 const int TileSize = 256;
 
 

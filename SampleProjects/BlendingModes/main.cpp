@@ -20,7 +20,7 @@ int main(int /*argc*/, char* /*argv*/[])
 {
 	try
 	{
-		NAS2D::Game game(APPLICATION_TITLE, "NAS2D_Test3", "LairWorks Entertainment");
+		NAS2D::Application game(APPLICATION_TITLE, "NAS2D_Test3", "LairWorks Entertainment");
 		game.go(new Test3State());
 	}
 	catch(std::exception& e)
