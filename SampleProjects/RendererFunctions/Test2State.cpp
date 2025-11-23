@@ -39,7 +39,7 @@ void Test2State::initialize()
 
 	auto& renderer = NAS2D::Utility<NAS2D::Renderer>::get();
 	renderer.showSystemPointer(true);
-	renderer.window_icon("NAS2D.ico");
+	renderer.windowIcon("NAS2D.ico");
 	renderer.minimumSize({800, 600});
 }
 
