@@ -10,7 +10,6 @@ public:
 
 	void update(int timeDelta, NAS2D::Point<float> playerPosition);
 
-	float rotation() const { return mSprite.rotation().degrees(); }
 	NAS2D::Point<float> position() const { return mPosition; }
 	bool hit(NAS2D::Point<int> pt);
 
