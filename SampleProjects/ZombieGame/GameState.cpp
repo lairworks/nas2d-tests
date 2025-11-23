@@ -11,9 +11,9 @@
 #include <algorithm>
 
 
-const int GunDelayTime = 210;
+const auto GunDelayTime = NAS2D::Duration{210};
 const int GunJitter = 6;
-const unsigned int ZombieDeadTimeout = 8000; // Time, in miliseconds, a dead zombie should continue to exist
+const auto ZombieDeadTimeout = NAS2D::Duration{8000}; // Time, in miliseconds, a dead zombie should continue to exist
 
 std::mt19937 generator;
 std::uniform_int_distribution<int> jitter_distribution(-GunJitter, GunJitter);
@@ -146,7 +146,7 @@ void GameState::updateZombies()
 {
 	for(auto& deadZombie : mDeadZombies)
 	{
-		deadZombie.update(0, mPlayerPosition);
+		deadZombie.update(NAS2D::Duration{0}, mPlayerPosition);
 	}
 
 	for (auto iter = mDeadZombies.begin(); iter != mDeadZombies.end(); )

@@ -21,7 +21,7 @@ Zombie::Zombie(NAS2D::Point<float> position, float speed) :
 }
 
 
-void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
+void Zombie::update(NAS2D::Duration timeDelta, NAS2D::Point<float> playerPosition)
 {
 	mSprite.update();
 	mSprite.draw(mPosition);
@@ -31,7 +31,7 @@ void Zombie::update(int timeDelta, NAS2D::Point<float> playerPosition)
 
 	// Ultra basic bee-line AI
 	const auto direction = NAS2D::getAngle(playerPosition - mPosition);
-	mPosition += NAS2D::getDirectionVector(direction) * (timeDelta * mSpeed);
+	mPosition += NAS2D::getDirectionVector(direction) * (timeDelta.milliseconds * mSpeed);
 
 	// Update bounding boxes.
 	mBodyRect = NAS2D::Rectangle{mPosition.to<int>() + BodyOffset, BodySize};
@@ -76,10 +76,10 @@ void Zombie::damage(int d, NAS2D::Point<int> pt)
 }
 
 
-unsigned int Zombie::deadTime()
+NAS2D::Duration Zombie::deadTime()
 {
 	if (!dead())
-		return 0;
+		return NAS2D::Duration{0};
 
 	return mDeadTimer.elapsedTicks();
 }

@@ -64,7 +64,7 @@ private:
 
 	const NAS2D::Sound mGunFire; /**< Gun fire sound. */
 
-	int mTimeDelta; /**< Delta time between the previous cycle and the current cycle. */
+	NAS2D::Duration mTimeDelta; /**< Delta time between the previous cycle and the current cycle. */
 
 	bool mLeftButtonDown;	/**< Flag indicating that the left mouse button is down. */
 };

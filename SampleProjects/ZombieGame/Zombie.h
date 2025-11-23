@@ -8,7 +8,7 @@ class Zombie
 public:
 	Zombie(NAS2D::Point<float> position, float speed);
 
-	void update(int timeDelta, NAS2D::Point<float> playerPosition);
+	void update(NAS2D::Duration timeDelta, NAS2D::Point<float> playerPosition);
 
 	NAS2D::Point<float> position() const { return mPosition; }
 	bool hit(NAS2D::Point<int> pt);
@@ -16,7 +16,7 @@ public:
 	void damage(int d, NAS2D::Point<int> pt);
 	int health() const { return mHealth; }
 	bool dead() const { return mHealth <= 0; }
-	unsigned int deadTime();
+	NAS2D::Duration deadTime();
 
 private:
 	NAS2D::Timer mDeadTimer; /**< Timer */
