@@ -9,8 +9,18 @@ constexpr auto HealthMeterSize = NAS2D::Vector<int>{24, 2};
 constexpr auto HealthMeterOffset = NAS2D::Vector<int>{-HealthMeterSize.x / 2, -25};
 
 
+namespace
+{
+	const NAS2D::AnimationSet& getZombieAnimationSet()
+	{
+		static const auto zombieAnimationSet = NAS2D::AnimationSet{"zombie.xml"};
+		return zombieAnimationSet;
+	}
+}
+
+
 Zombie::Zombie(NAS2D::Point<float> position, float speed) :
-	mSprite("zombie.xml", "Walk"),
+	mSprite(getZombieAnimationSet(), "Walk"),
 	mPosition(position),
 	mHealth(100),
 	mMaxHealth(mHealth),
